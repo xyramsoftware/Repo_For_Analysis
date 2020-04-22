@@ -9,7 +9,7 @@
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.3.3",
     "body-parser": "^1.13.3",
-    "bootstrap": "~3.3.7",
+    "bootstrap": "~3.4.1",
     "bootstrap-sass": "~3.3.7",
     "bootstrap-social": "^5.0.0",
     "change-case": "^3.0.2",
