@@ -1,0 +1,139 @@
+.container {
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.creorts-black {
+  padding: 20px;
+  background-color: #060709;
+  border: 2px solid #f1b517;
+  opacity: 0.9;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.center p {
+  text-align: center;
+  padding-top: 15px;
+  color: black;
+}
+
+.error {
+  margin-top: -30px;
+  margin-bottom: 10px;
+  color:#060709;
+  font-size: small;
+  font-weight: 600;
+  background: #f1b517;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+input, input:focus {
+    width: 100%;
+    /* height: 50px; */
+    color: #f1b517;
+    background-color: #060709;
+    border: 2px solid #f1b517;
+}
+
+  input ::placeholder{
+    color: #f1b517;
+  }
+
+  select, select:focus {
+    width: 100%;
+    /* height: 50px; */
+    color: #f1b517;
+    background-color: #060709;
+    border: 2px solid #f1b517;
+    line-height:80px;
+  }
+
+  .btn {
+    background-color: #060709;
+    color: #f1b517;
+    border: 3px solid #f1b517;
+  }
+
+  .logo {
+    background-color: black;
+    border: 3px solid #f1b517;
+    padding: 2px;
+  }
+
+  .text-center a:hover{
+    background-color: #060709;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f1b517;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #f1b517;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #f1b517;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  mdb-checkbox {
+    color: #f1b517;
+    background-color: #060709;
+    border: 2px solid #f1b517; 
+    height: auto; 
+  }
+
+  .social{
+    background-color: #060709;
+    border: 3px solid #F1B517;
+    text-align: center;
+    display: block;
+    padding: 5px;
+    height: 90px;
+    justify-content: center;
+  }
+
+
+  .social ul li {
+    list-style-type: none;
+    float: left;
+    padding: 10px;
+  }
+
+.fa:hover{
+  background-color: #f1b517;
+  color: #060709;
+  cursor: pointer; 
+}
+.fa{
+  color: #F1B517;
+  cursor: pointer; 
+}
+
+input[type="date"]
+{
+    display:block;
+  
+    /* Solution 1 */
+     -webkit-appearance: none;
+    -moz-appearance: none;
+    min-height: 1.2em; 
+  
+    /* Solution 2 */
+    /* min-width: 96%; */
+}

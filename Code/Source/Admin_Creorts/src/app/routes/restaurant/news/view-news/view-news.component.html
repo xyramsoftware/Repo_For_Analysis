@@ -1,0 +1,39 @@
+<div class="content-heading">View News
+  <small><a [routerLink]=" ['/home'] ">Home</a> ->
+    <a [routerLink]="['/news/manageNews']"> Manage News </a>->
+    View News
+  </small>
+</div>
+<div class="col-masonry">
+  <div class="panel b m0">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-lg-4 text-center mb-lg">
+          <a>
+            <img class="img-thumbnail custom-img" src="{{newsDetails.thumb}}" alt="Image"/>
+          </a>
+        </div>
+        <div class="col-lg-8">
+          <div class="col-lg-3">
+            <h4 class="media-heading">Title</h4>
+          </div>
+          <div class="col-lg-5">
+            <p>{{newsDetails.title}}</p>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="col-lg-3">
+            <h4 class="media-heading">Description</h4>
+          </div>
+          <div class="col-lg-5">
+            <p>{{newsDetails.shortDescription}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,174 @@
+<div class="container">
+    <div class="row" *ngIf="!isTeamClicked && !isAccompanyClicked">
+        <div class="col col-md-12">
+
+            <div class="borde">
+                <div class="profile-card">
+                    <div class="row justify-content-md-center">
+                        <div class="col col-md-9">
+                            <h4 class="cell-breakWord">{{UserDetails.name}}</h4>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-5">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p><strong>Registration ID: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.RegisterId}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Mobile: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.phone}}</p>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="UserDetails.email">
+                                    <td class="cell-breakWord">
+                                        <p><strong>Email: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.email}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Gender: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.gender}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>DOB: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.DOB | date}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Place: </strong> </p>
+                                    </td>
+                                    <td class="cell-breakWord">
+                                        <p> {{UserDetails.place}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Occupation: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.occupation}}</p>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="UserDetails.representingTeam">
+                                    <td class="cell-breakWord">
+                                        <p><strong>Representing Team: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.representingTeam}}</p>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="UserDetails.organisation">
+                                    <td>
+                                        <p><strong>Organisation: </strong> </p>
+                                    </td>
+                                    <td class="cell-breakWord">
+                                        <p> {{UserDetails.organisation}}</p>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="UserDetails.schoolName">
+                                    <td class="cell-breakWord">
+                                        <p><strong>School/College: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.schoolName}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="qr-image">
+                                <img src="{{UserDetails.image}}" width="100%" frameborder="0" style="border:0;"
+                                    allowfullscreen="" alt="qrimage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-4">
+                            <div class="profile-card-inner" style="border: 1px black solid;">
+                                <div class="text-center" style="border: 1px #060709;">
+                                    <h6>Events You Are Participating</h6>
+                                </div>
+                                <div *ngFor="let event of this.UserDetails.QREvents">
+                                    <p>{{event}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="profile-card-inner" style="border: 1px black solid;">
+                                <div class="text-center">
+                                    <h6>Teams You Are Part of</h6>
+                                </div>
+                                <div *ngFor="let team of teamList">
+                                    <p>{{team.title}} <a (click)="displayTeam(team.teamdetails, team._id)">
+                                            <i class="fas fa-eye" title="View Team Members"></i>
+                                        </a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="profile-card-inner" style="border: 1px black solid;">
+                                <div class="text-center">
+                                    <h6>People Accompanying You</h6>
+                                </div>
+
+                                <div *ngFor="let accompany of AccompanyDetails">
+                                    <p class="cell-breakWord">{{accompany.name}} <a (click)="displayAccompany(accompany)">
+                                            <i class="fas fa-eye" title="View {{accompany.name}} Details"></i>
+                                        </a></p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        
+        <svg xmlns="http://www.w3.org/2000/svg"  id="hideIE" viewBox="0 0 1440 320">
+            <path fill="#f1b517" fill-opacity="1"
+                d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
+    </div>
+    </div>
+
+    <div *ngIf="isTeamClicked" id="team-section" class="row">
+        <div class="col col-md-12">
+            <i class="fas fa-arrow-left fa-lg" title="Go back to Profile" (click)=hideThis()></i><br>
+            <app-teamdetails [team]="this.team">
+            </app-teamdetails>
+        </div>
+    </div>
+
+    <div *ngIf="isAccompanyClicked" id="acc-section" class="row">
+        <div class="col col-md-12">
+            <i class="fas fa-arrow-left fa-lg" title="Go back to Profile" (click)=hideThis()></i><br><br>
+            <app-accompany-profile [accompany]="this.accompany"></app-accompany-profile>
+        </div>
+    </div>
+</div>

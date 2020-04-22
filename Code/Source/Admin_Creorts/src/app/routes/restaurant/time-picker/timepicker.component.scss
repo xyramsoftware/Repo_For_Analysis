@@ -1,0 +1,274 @@
+
+
+.picker__date-display {
+    background-color: #eead75;
+}
+
+.picker__date-display {
+    text-align: center;
+   //    background-color: #4285f4;
+    background-color: #eead75;
+    padding-bottom: 15px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.picker__date-display .clockpicker-display {
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto;
+    height: 85px;
+    font-size: 70px;
+    padding: 10px;
+    padding-bottom: 0;
+    color: #b2dfdb;
+}
+
+.picker__date-display .clockpicker-display .clockpicker-display-column {
+    float: left;
+}
+.picker__date-display .clockpicker-display .clockpicker-span-hours, .picker__date-display .clockpicker-display .clockpicker-span-minutes {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    transition: color .5s;
+    cursor: pointer;
+}
+.picker__date-display .clockpicker-display .clockpicker-span-hours, .picker__date-display .clockpicker-display .clockpicker-span-minutes {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    transition: color .5s;
+    cursor: pointer;
+}
+.picker__date-display .clockpicker-display .clockpicker-display-am-pm {
+    padding-left: 5px;
+    vertical-align: bottom;
+    height: 85px;
+}
+.picker__date-display .clockpicker-display .clockpicker-display-column {
+    float: left;
+}
+.picker__date-display .clockpicker-display .clockpicker-display-am-pm .clockpicker-span-am-pm {
+    display: inline-block;
+    font-size: 23px;
+    line-height: 25px;
+    color: #b2dfdb;
+}
+.picker__calendar-container {
+    padding: 0 1rem;
+}
+.clockpicker-plate {
+    background-color: #eee;
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    overflow: visible;
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.clockpicker-plate .clockpicker-canvas, .clockpicker-plate .clockpicker-dial {
+    width: 270px;
+    height: 270px;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+.clockpicker-canvas-fg {
+    stroke: none;
+    fill: rgba(0,77,64,0);
+}
+.clockpicker-canvas-bg, .clockpicker-canvas-bg-trans {
+    fill: rgba(0,150,136,.25);
+}
+.clockpicker-canvas-bg {
+    stroke: none;
+}   
+.clockpicker-canvas-bearing {
+    stroke: none;
+    fill: rgba(0,77,64,.75);
+}
+.clockpicker-plate .clockpicker-dial {
+    
+    transition: transform .35s,opacity .35s,-webkit-transform .35s;
+}
+.clockpicker-plate .clockpicker-canvas, .clockpicker-plate .clockpicker-dial {
+    width: 270px;
+    height: 270px;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+}
+.clockpicker-plate .clockpicker-dial .clockpicker-tick {
+    border-radius: 50%;
+    color: #666;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    transition: background-color .3s;
+    background-color: rgba(0,150,136,0);
+}
+.clockpicker-am-pm-block {
+    margin-top: -10px;
+    width: 100%;
+    height: 50px;
+}
+
+.clockpicker-am-pm-block .clockpicker-button.am-button {
+    height: 45px;
+    width: 45px;
+    float: left;
+}
+.btn-floating.btn-flat {
+    padding: 0;
+    background: #4285f4;
+}
+.clockpicker-am-pm-block button {
+    color: #fff!important;
+}
+.btn-floating.btn-flat.active {
+    background-color: #0b51c5!important;
+}
+.clockpicker-am-pm-block .clockpicker-button.pm-button {
+    height: 45px;
+    width: 45px;
+    float: right;
+}
+.picker__box .picker__footer {
+    text-align: right;
+    padding: 5px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.picker__footer .clockpicker-button {
+    margin: auto;
+    margin-top: 15px;
+    background-color: transparent;
+    text-transform: uppercase;
+}
+.btn-flat {
+    background: transparent;
+    position: relative;
+    padding: 8px 30px;
+    border: none;
+    
+    text-decoration: none;
+    outline: none!important;
+    box-shadow: none;
+}
+
+// .picker--opened {
+//     .picker__holder {
+//       top: 0;
+//       background: transparent;
+//       zoom: 1;
+//       background: rgba(0, 0, 0, 0.32);
+//       transition: background 0.15s ease-out;
+//     }
+//     .picker__frame {
+//       top: 0;
+//       filter: alpha(opacity=100);
+//       opacity: 1;
+//       @media (min-height: 35.875em) {
+//         top: 10%;
+//         bottom: auto;
+//       }
+//     }
+//   }
+//   @media (max-height: 35.875em) {
+//     .picker--opened .picker__holder {
+//         overflow-y: scroll;
+//     }
+//   }
+//////////////////////////////////////////////////////
+
+// .picker--opened .picker__holder {
+//     top: 0;
+//     background: transparent;
+//     zoom: 1;
+//     background: rgba(0,0,0,.32);
+//     transition: background .15s ease-out;
+// }
+
+
+
+
+
+
+
+
+
+
+
+// .picker {
+ 
+//     font-size: 15px;
+//     text-align: left;
+//     line-height: 1.2;
+//     color: #eee;
+//     position: absolute;
+//     z-index: 100;
+//     user-select: none;
+// }
+
+// opened .picker__holder {
+//     overflow-y: scroll;
+// }
+
+// opened .picker__holder {
+//     top: 0;
+//     zoom: 1;
+//     background: rgba(0,0,0,.32);
+//     transition: background .15s ease-out;
+// }
+
+// .picker .picker__frame {
+//     top: 0;
+//     position: absolute;
+//     margin: 0 auto;
+//     min-width: 256px;
+//     max-width: 325px;
+//     width: 300px;
+//     max-height: 350px;
+//     filter: alpha(opacity=0);
+//     opacity: 1;
+//     transition: all .15s ease-out;
+// }
+
+// .picker .picker__frame, .picker .picker__holder {
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+    
+// }
+
+// .picker .picker__frame .picker__wrap {
+//     display: table;
+//     width: 100%;
+//     height: 100%;
+// }
+// .picker .picker__box {
+//     background: #fff;
+//     display: table-cell;
+//     vertical-align: middle;
+// }

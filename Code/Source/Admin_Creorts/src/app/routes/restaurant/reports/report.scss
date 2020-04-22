@@ -1,0 +1,15 @@
+input[type="range"] {
+  display: block;
+ // width: 40%;
+}
+
+.hideoption { 
+  display:none; 
+  visibility:hidden; 
+  height:0; font-size:0; 
+}
+input[type="radio"]{
+  border: 1px solid black;
+  height: 15px;
+  width: 15px;
+}

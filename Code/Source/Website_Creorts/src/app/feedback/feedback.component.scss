@@ -1,0 +1,45 @@
+.container {
+	justify-content: center;
+	padding-bottom: 50px;
+}
+  
+.creorts-black {
+	padding: 20px;
+	background-color: #060709;
+	border: 2px solid #f1b517;
+	opacity: 0.9;
+	margin: 15px 0px;
+	color: #f1b517;
+}
+  
+.btn {
+	background-color: #060709;
+	color: #f1b517;
+	border: 3px solid #f1b517;
+}
+
+.comment{
+	padding: 20px 30px;
+    background-color: #f1b517;	
+	color: #060709;
+}
+
+.mat-radio-button{
+	padding: 0px 10px;
+}
+
+.content{
+	background-color: #060709;	
+}
+
+::ng-deep  .mat-radio-button.mat-accent .mat-radio-outer-circle{
+	border-color:#f1b517;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color:#f1b517;
+}
+
+svg {
+	margin-top: -5px;
+}

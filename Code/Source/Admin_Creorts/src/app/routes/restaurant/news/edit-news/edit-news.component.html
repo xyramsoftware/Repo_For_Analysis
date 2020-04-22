@@ -1,0 +1,102 @@
+<div class="content-heading ">
+    Update Carousels
+  <small>
+    <a [routerLink]="['/carousels/manageCarousels']"> Manage Carousels </a>->
+    Update News
+  </small>
+</div>
+<div class="container-md">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-9">
+      <div class="panel b">
+        <div class="panel-heading  text-bold bg-purple-dark">Update Carousels</div>
+        <div class="panel-body">
+            <form (ngSubmit)="CarouselsUpdate()" #f="ngForm">
+             
+                <!-- <div class="form-group">
+                    <div class="row">
+                    <div class="col-md-2">
+                  <label>Title*</label>
+                  </div>
+                  <div class="col-md-6">
+                  <input class="form-control" type="text" required name="title" id="title" [(ngModel)]="newsDetails.title"/>
+                  </div>
+                  <div class="col-md-4">
+                  <input class="form-control" [(ngModel)]="newsDetails.titlecheckbox" type="checkbox" name="titlecheckbox"  value="true" [checked]="newsDetails.titlecheckbox"> 
+                  </div>
+               </div>
+                </div>
+                <div class="form-group" style="margin-top: 36px;">
+                    <div class="row">
+                    <div class="col-md-2">
+                  <label>Description*</label>
+                   </div>
+                    <div class="col-md-6">
+                  <textarea class="form-control" rows="4" name="description" id="description"
+                            [(ngModel)]="newsDetails.description" required></textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control"  [(ngModel)]="newsDetails.descriptioncheckbox"  type="checkbox"  name="descriptioncheckbox" value="true"  [checked]="newsDetails.descriptioncheckbox" > 
+                                </div>      
+                            </div>
+                </div> -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2">
+                    <label>Image Order*</label>
+                    </div>
+                    <div class="col-md-6">
+                    <input class="form-control" type="number" min="1" max="100"  name="CarouselID" id="CarouselID" required [(ngModel)]="newsDetails.CarouselID"/>
+                    </div>
+                  </div>
+                 </div> 
+
+                 <div class="row form-group">
+                    <div class="col-md-4">
+                      <div class=" fileUpload btn btn-primary choose-btn">
+                        <span> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload *</span>
+                        <input type="file" class="upload" required ng2FileSelect [uploader]="uploader" accept="image/*"
+                               (change)="readUrl($event)"  (change)="fileChange($event)">
+                      </div>
+                      <!-- <p class="info">*Upload image of 400 x 200 px </p> -->
+                      
+                    </div>
+                    <div class="col-md-4">
+                      <img class="media-object  thumb96" [src]="url" alt="Image"/>
+                    </div><!--COL-->
+                  </div>
+                <!-- <div class="form-group">
+                  <label>Thumb</label>
+                  <label for="image-input" class="file-upload">
+                    <div class="col-md-6" [hidden]="url !=''">
+                      <img class=" img-responsive img-thumbnail thumb96" src="{{url}}" alt="Image"/>
+                    </div>
+                    <div class="col-md-6" [hidden]="url ==''">
+                      <img class=" img-responsive img-thumbnail thumb96" [src]="url" alt="Image"/>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="fileUpload btn btn-primary choose-btn pull-right"><em class="fa fa-upload mr"></em> Choose
+                        File
+                      </div>
+                      <input id="image-input" type="file" ng2FileSelect [uploader]="uploader" accept="image/*"
+                             (change)="readUrl($event)">
+                            
+                    </div>
+                  </label>
+                </div> -->
+                <button type="button" class="btn btn-danger pull-right s-n-btn" (click)="cancel()">Cancel</button>
+                <button class="btn btn-primary pull-right s-n-btn" type="submit" [ladda]="isLoading"
+                        data-style="expand-right" data-spinner-color="#000000" [disabled]="!f.valid">Update
+                </button>
+    
+                <p>
+                  <small class="text-muted">* Required Fields</small>
+                </p>
+                
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

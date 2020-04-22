@@ -1,0 +1,192 @@
+<!--
+  Generated template for the PdfPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title></ion-title> -->
+    
+    <img class="logo"  style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">
+    <ion-title>Creorts Sportival</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="login">
+  <div class="layer1">
+    <div *ngIf="displahfeedback">
+     <p  class="mainheading" >Feedback</p>
+
+     <!-- <ion-list>
+
+         <ion-item>
+
+          How doyou rate the organization of the event?
+         </ion-item>
+
+
+     </ion-list> -->
+
+     <ion-card  style="background: #F1B517;">
+     <p class="names"> How do you rate the organization of the Event?* </p>
+        <ion-col >
+          <ion-item *ngFor="let item of options; let i=index">
+            <ion-label>{{item}}</ion-label>
+            <ion-checkbox   (click)="rateOrganization(item)" [ngModel]="checkedIdx == i"(ngModelChange)="$event ? checkedIdx = i : checkedIdx = -1" ></ion-checkbox>
+          </ion-item>
+        </ion-col>
+     </ion-card>
+
+     
+
+      <ion-card  style="background: #F1B517;">
+        <p class="names"> How do you rate the venu for the Event?* </p>
+           <ion-col >
+             <ion-item *ngFor="let item of options1; let i=index">
+               <ion-label>{{item}}</ion-label>
+               <ion-checkbox   (click)="rateEvent(item)" [ngModel]="checkedIdx1 == i"(ngModelChange)="$event ? checkedIdx1 = i : checkedIdx1 = -1" ></ion-checkbox>
+             </ion-item>
+           </ion-col>
+        </ion-card>
+
+        <ion-card  style="background: #F1B517;">
+          <p class="names">Comments on what you liked most,and why?</p>
+        <ion-item  style="margin-bottom: 10px;">
+         
+          <ion-textarea rows="2" cols="3" [(ngModel)]="likedmost" placeholder="comment here"></ion-textarea>
+        </ion-item>
+        </ion-card>
+
+        <ion-card  style="background: #F1B517;">
+          <p class="names">Comments on what you liked least,and suggestion for improvement?</p>
+        <ion-item  style="margin-bottom: 10px;">
+        
+          <ion-textarea rows="2" cols="3"  [(ngModel)]="likedleast" placeholder="comment here"></ion-textarea>
+        </ion-item>
+
+        </ion-card>
+
+        <!-- <ion-card  style="background: #F1B517;">
+          <p class="names">Do you feel that our 'objective' of Bringing life back to life, by breaking out of the mechanical life has been triggered by Sportival</p>
+        <ion-item  style="margin-bottom: 10px;">
+        
+          <ion-textarea rows="2" cols="3" [(ngModel)]="Bringinglife" placeholder="comment here"></ion-textarea>
+        </ion-item>
+        </ion-card> -->
+
+
+        <!-- <ion-card  style="background: #F1B517;">
+          <p class="names">Is there anything else you would like us to know about your experience?</p>
+        <ion-item  style="margin-bottom: 10px;">
+        
+          <ion-textarea rows="2" cols="3" [(ngModel)]="experience" placeholder="comment here"></ion-textarea>
+        </ion-item>
+        </ion-card> -->
+
+        <!-- <ion-card  style="background: #F1B517;">
+          <p class="names">Do you wish to be a part of next sportival ?</p>
+          <ion-col >
+           <ion-item>
+           {{feedbackdata.partofNextSportival}}
+           </ion-item>
+         </ion-col>
+        </ion-card> -->
+
+
+        
+
+        <ion-row class="paddingrow" style="margin-bottom: 26px;">
+          <ion-col col-12>
+
+            <button color="primary" class="login-btn" ion-button style="border: 2px solid #F1B517;"
+             (click)="Submit()">Submit</button>
+
+          </ion-col>
+        </ion-row>
+
+     </div>
+
+      <div *ngIf="!displahfeedback">
+     <p *ngIf="!displahfeedback" style="text-align: center;color: #fff;font-size: 19px;margin-bottom: 5%;margin-top: 34px;"> Thank you for your valuable feedback</p>
+  
+     <ion-card  style="background: #F1B517;">
+      <p class="names"> How do you rate the organization of the Event?* </p>
+         <ion-col >
+           <ion-item>
+           {{feedbackdata.rateOrganization}}
+           </ion-item>
+         </ion-col>
+      </ion-card>
+
+      
+
+       <ion-card  style="background: #F1B517;">
+         <p class="names"> How do you rate the venu for the Event?* </p>
+         <ion-col >
+          <ion-item>
+          {{feedbackdata.rateEvent}}
+          </ion-item>
+        </ion-col>
+         </ion-card>
+
+         <ion-card  style="background: #F1B517;" *ngIf="feedbackdata.positiveComments !== undefined">
+           <p class="names">Comments on what you liked most,and why?</p>
+           <ion-col >
+            <ion-item>
+            {{feedbackdata.positiveComments}}
+            </ion-item>
+          </ion-col>
+         </ion-card>
+
+         <ion-card  style="background: #F1B517;" *ngIf="feedbackdata.negativeComments !== undefined">
+           <p class="names">Comments on what you liked least,and suggestion for improvement?</p>
+           <ion-col >
+            <ion-item>
+            {{feedbackdata.negativeComments}}
+            </ion-item>
+          </ion-col>
+
+         </ion-card>
+
+         <!-- <ion-card  style="background: #F1B517;">
+           <p class="names">Do you feel that our 'objective' of Bringing life back to life, by breaking out of the mechanical life has been triggered by Sportival</p>
+           <ion-col >
+            <ion-item>
+            {{feedbackdata.objective}}
+            </ion-item>
+          </ion-col>
+         </ion-card>
+
+
+         <ion-card  style="background: #F1B517;">
+           <p class="names">Is there anything else you would like us to know about your experience?</p>
+           <ion-col >
+            <ion-item>
+            {{feedbackdata.experience}}
+            </ion-item>
+          </ion-col>
+         </ion-card>
+
+
+         <ion-card  style="background: #F1B517;">
+           <p class="names">Do you wish to be a part of next sportival ?</p>
+           <ion-col >
+            <ion-item>
+            {{feedbackdata.partofNextSportival}}
+            </ion-item>
+          </ion-col>
+         </ion-card> -->
+      
+
+
+
+    </div>
+ 
+    </div>
+
+</ion-content>
+

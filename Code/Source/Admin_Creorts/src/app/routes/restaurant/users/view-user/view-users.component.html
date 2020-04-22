@@ -1,0 +1,359 @@
+<div class="content-heading">
+    User Details
+    <small><a [routerLink]=" ['/home'] ">Home</a> ->
+        <a [routerLink]="['/users/manageUsers']"> Users </a>->
+        User Details
+    </small>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col col-md-10">
+            <div class="profile-card" style="border: 1.5px solid #e99f5d;background: #d4db7082;">
+                <div class="row">
+
+                    <div class="col-md-6 offset-md-1">
+                        <div class="profile-card" style="border: transparent;color: black;">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                   <strong>RegisterId</strong> 
+                                </div>
+                                <div class="col-sm-2">
+                                   <strong>:</strong> 
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                   <strong>{{UserDetails.RegisterId}}</strong> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Name</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                    <strong>:</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                   <strong>{{UserDetails.name}}</strong> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                   <strong>Mobile</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                   <strong> : </strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                    <strong>{{UserDetails.phone}}</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Gender</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                    <strong>:</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                    <strong>{{UserDetails.gender}}</strong>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="UserDetails.email">
+                                <div class="col-sm-4">
+                                    <strong>Email</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                    <strong>:</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                    <strong>{{UserDetails.email}}</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>DOB</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                   <strong> :</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                   <strong> {{UserDetails.DOB | date}}</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Place</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                   <strong> :</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                   <strong> {{UserDetails.place}}</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                   <strong> Occupation</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                   <strong> :</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                    <strong>{{UserDetails.occupation}}</strong>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="UserDetails.organisation">
+                                <div class="col-sm-4">
+                                    <strong>Organisation</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                   <strong> :</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                   <strong> {{UserDetails.organisation}}</strong>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="UserDetails.schoolName">
+                                <div class="col-sm-4">
+                                   <strong> School/College</strong>
+                                </div>
+                                <div class="col-sm-2">
+                                    <strong>:</strong>
+                                </div>
+                                <div class="col-sm-6" style="word-break: break-all;">
+                                   <strong> {{UserDetails.schoolName}}</strong>
+                                </div>
+                            </div>
+                          </div>
+                        <!-- <table style="font-weight: bolder;font-size:15px;color:#0c0b0b">
+
+                            <tr>
+                                <td>
+                                    <p><strong>Register Id: </strong></p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.RegisterId}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Name: </strong></p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.name}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Mobile: </strong></p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.phone}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Gender: </strong> </p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.gender}}</p>
+                                </td>
+                            </tr>
+                                <tr *ngIf="UserDetails.email">
+                                    <td>
+                                        <p><strong>Email: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p> {{UserDetails.email}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <p><strong>DOB: </strong> </p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.DOB | date}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Place: </strong> </p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.place}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p><strong>Occupation:&nbsp; </strong> </p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.occupation}}</p>
+                                </td>
+                            </tr>
+                            <tr *ngIf="UserDetails.organisation">
+                                <td>
+                                    <p><strong>Organisation: &nbsp; </strong> </p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.organisation}}</p>
+                                </td>
+                            </tr>
+                            <tr *ngIf="UserDetails.schoolName">
+                                <td>
+                                    <p><strong>School:  </strong> </p>
+                                </td>
+                                <td>
+                                    <p> {{UserDetails.schoolName}}</p>
+                                </td>
+                            </tr>
+                        </table> -->
+                        <!-- </div> -->
+
+                    </div>
+                    <div class="col-md-4 offset-md-1">
+                        <div class="qr-image">
+                            <img src="{{UserDetails.image}}" width="100%" frameborder="0" style="border:0;"
+                                allowfullscreen="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="this.UserDetails.QREvents!=0||this.UserDetails.teamReg!=0||AccompanyList!=0">
+        <div class="row" *ngIf="!isTeamClicked && !isAccompanyClicked">
+            <div class="col col-md-10">
+                <div class="row"
+                    style="border: 1.5px solid #e99f5d;background: #d4db7082;font-weight: bolder;font-size:15px;color:#0c0b0b">
+
+                    <div class="col-md-4" *ngIf="this.UserDetails.QREvents!=0">
+                        <div class="profile-card">
+                            <div class="text-center">
+                                <h4 style="font-size:medium;font-weight: bold;">Events List</h4>
+                            </div>
+                            <hr />
+                            <div *ngFor="let event of this.UserDetails.QREvents">
+                                <p>{{event}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="this.UserDetails.teamReg!=0">
+                        <div class="profile-card">
+                            <div class="text-center">
+                                <h4 style="font-size:medium;font-weight: bold;">Team Members List</h4>
+                            </div>
+                            <hr />
+                            <div *ngFor="let team of  this.UserDetails.teamReg">
+
+                                <p>{{team.title}} <a
+                                        (click)="displayTeam(team._id)">
+                                        <i class="fa fa-eye Blink" style="color:black;" title="View Team Members"></i>
+                                    </a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="AccompanyList!=0">
+                        <div class="profile-card">
+                            <div class="text-center">
+                                <h4 style="font-size:medium;font-weight: bold;">Accompany List</h4>
+                            </div>
+                            <hr />
+
+
+                            <div *ngFor="let accompany of AccompanyList">
+                                <p style="word-break: break-all;">{{accompany.name}} <a
+                                        (click)="displayAccompany(accompany._id)">
+                                        <i class="fa fa-eye" style="color:black;"
+                                            title="View {{accompany.name}} Details"></i>
+                                    </a></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="isTeamClicked" id="team-section" class="row"> 
+      <div class="col col-md-12">
+          <i title="Go back to Profile" (click)=hideThis()></i><br>
+          <app-teamdetails [team]="this.team"></app-teamdetails>
+      </div>
+  </div> -->
+
+    <!-- <div *ngIf="isAccompanyClicked" id="acc-section" class="row">
+      <div class="col col-md-12">
+          <i  title="Go back to Profile" (click)=hideThis()></i><br><br>
+          <app-accompany-profile [accompany]="this.accompany"></app-accompany-profile>
+      </div>
+  </div>  -->
+
+
+    <div class="row" *ngIf="UserDetails.cart!=0">
+        <div class="col col-md-10">
+            <div class="row">
+
+                <div class="col-md-10">
+                    <div class="profile-card">
+                        <div class="text-center">
+                            <h3 style="font-size:large; font-weight:bold ;">Payment Details</h3>
+                        </div>
+                        <div class="table-responsive customTable">
+                            <table class="table table-striped" [mfData]="UserDetails.cart" #mf="mfDataTable"
+                                [mfRowsOnPage]="10">
+                                <thead>
+                                    <tr>
+
+                                        <th class="thsearch text-center">
+                                            <div style="color: #454545;">Event</div>
+                                        </th>
+                                        <th class="thsearch text-center">
+                                            <div style="color: #454545;">Price</div>
+                                        </th>
+
+                                        <!-- <form (keyup)="getusename($event)"  class="text-center" style="width: 149px;margin-right: auto;margin-left: auto;">
+                                <input class="form-control searchinput text-center" type="text" name="siteVal"
+                                       id="siteVal" [(ngModel)]="siteVal" style="margin-left: 30px;"placeholder="Search by name" #siteName>
+                            </form> -->
+                                        <p *ngIf="Nodatafound"
+                                            style="text-align:center;font-size: 14px;color: red;margin-bottom: -8px;">No
+                                            Results Found</p>
+                                        <!-- <div style="color: #454545;"> Name </div> -->
+
+
+                                        <th class="thnoitem"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cart of mf.data ; let i = index ">
+
+                                        <td class="text-center">{{cart.title}}</td>
+                                        <td class=" text-center">{{cart.price}}
+
+                                            <!-- <td class=" text-center" >{{item.Mobile}}</td> -->
+
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="10">
+                                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

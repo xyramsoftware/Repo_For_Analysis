@@ -1,0 +1,211 @@
+.container {
+  justify-content: center;
+}
+.center {
+    padding: 50px;
+}
+
+.borde {
+  padding: 10px 30px;
+  background-color: #F1B517;
+  border: 0;
+}
+
+.label {
+  text-align: center;
+  padding: 5px;
+  background-color: #060709;
+  border: 3px solid #f1b517;
+}
+
+.creorts-black {
+  padding: 20px;
+  background-color: #060709;
+  border: 3px solid #f1b517;
+  opacity: 0.9;
+}
+
+.center p {
+  text-align: center;
+  padding-top: 15px;
+  color: black;
+}
+
+.error {
+  margin-top: -30px;
+  color:#060709;
+  font-size: small;
+  font-weight: 600;
+  background: #f1b517;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+  .reg-inner {
+    margin: 10px 20px;
+    padding: 20px;
+  }
+  input[type=number] {
+    -moz-appearance:textfield;
+}
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  margin-right: 0.5em;
+}
+input[type="date"]:focus:before {
+  content: '' !important;
+}
+  
+
+  input, input:focus {
+    width: 100%;
+    color: #f1b517;
+    background-color: #060709;
+    border: 3px solid #f1b517;
+  }
+
+  input ::placeholder{
+    color: #f1b517;
+  }
+
+  select, select:focus {
+    width: 100%;
+    color: #f1b517;
+    background-color: #060709;
+    border: 3px solid #f1b517;
+    line-height:80px;
+  }
+
+  .btn {
+    background-color: #060709;
+    color: #f1b517;
+    border: 3px solid #f1b517;
+  }
+
+  .logo {
+    background-color: black;
+    border: 3px solid #f1b517;
+    padding: 2px;
+  }
+
+  .text-center a:hover{
+    background-color: #060709;
+  }
+
+  .error {
+    color:#060709;
+    font-size: small;
+    font-weight: 600;
+    background: #f1b517;
+    text-align: center;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f1b517;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #f1b517;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #f1b517;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  mdb-checkbox {
+    color: #f1b517;
+  }
+
+  .social{
+    position: absolute;
+    /* background-color: #060709;
+    border: 3px solid #F1B517; */
+    text-align: center;
+    display: block;
+    padding: 5px;
+    overflow: auto;
+    justify-content: center;
+  }
+
+  .social button {
+    background: none;
+    border: none;
+  }
+
+.social {
+  padding-left: 17% ;
+}
+
+  .social ul li {
+    list-style-type: none;
+    float: left;
+    padding: 3px;
+  }
+
+.fa:hover{
+  background-color: #f1b517;
+  color: #060709;
+  cursor: pointer; 
+}
+.fa{
+  background-color:#060709;
+  border-radius: 10px;
+  padding: 7px;
+  width: 45px;
+  height: 45px;
+  /* color: #ffffff; */
+  cursor: pointer; 
+}
+
+.fa-facebook {
+  color: #f1b517;
+}
+.fa-google {
+  color: #f1b517;  
+}
+
+/* #385998
+#c63d2d */
+.clr{
+  clear:both;
+  font-size:0;
+}
+
+.register{
+  background-color: #060709;
+  color: #f1b517;
+  border: 3px solid #f1b517;
+  padding: 20px;
+}
+
+.register:hover{
+  color: white;
+}
+
+.line{
+  display: flex;
+  flex-direction: row;
+}
+
+.line:before, .line:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 3px solid #f1b517;
+  margin: auto;
+}
+.line:before {
+  margin-right: 10px
+}
+.line:after {
+  margin-left: 10px
+}

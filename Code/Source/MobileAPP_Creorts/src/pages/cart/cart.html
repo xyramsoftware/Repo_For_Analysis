@@ -1,0 +1,192 @@
+<ion-header hideBackButton="true">
+      <ion-navbar hideBackButton="true">
+            <button ion-button menuToggle>
+                  <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title></ion-title>
+            <img class="logo" style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">
+            <ion-title>Creorts Sportival</ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+    <p  style="
+    font-weight: 700;
+    text-align: center;
+    font-size: 24px;
+">Profile</p>
+
+      <ion-card>
+            <img class="img-thumbnail img-width QRclass" src="{{QrCode}}" alt="Image" />
+      </ion-card>
+
+
+      <ion-card>
+            <ion-grid text-wrap class="gridclass">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              Name
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.name}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+            <ion-grid text-wrap class="gridclass">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              Gender
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.gender}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+            <ion-grid text-wrap class="gridclass1" *ngIf="UserDetails.emailCheck">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              Email
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.email}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+            <ion-grid text-wrap class="gridclass">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              DOB
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.DOB |date:'mediumDate'}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+
+
+            <ion-grid text-wrap class="gridclass">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              Phone
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.phone}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+            <ion-grid text-wrap class="gridclass">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              Occupation
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.occupation}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+            <ion-grid text-wrap class="gridclass" *ngIf="UserDetails.schoolName !=''">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              School Name
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.schoolName}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+            <ion-grid text-wrap class="gridclass">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              Place
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.place}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+            <ion-grid text-wrap class="gridclass" *ngIf="UserDetails.representingTeam !=undefined">
+                  <ion-row>
+                        <ion-col col-4 class="align">
+                              Representing Team
+                        </ion-col>
+                        <ion-col col-2>
+                              :
+                        </ion-col>
+                        <ion-col col-6>
+                              {{UserDetails.representingTeam}}
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+      </ion-card>
+
+
+      <p  *ngIf=" this.UserDetails.QREvents.length !=0" style="text-align: center;font-size: 20px;font-weight: 700;">Event List</p>
+
+      <ion-card>
+
+            <ion-grid text-wrap class="gridclass" *ngFor="let events of  this.UserDetails.QREvents">
+                  <ion-row>
+                        <ion-col class="align" style="text-align: left;">
+                              {{events}}
+
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+
+      </ion-card>
+
+      <p *ngIf="UserDetails.teamReg.length !=0" style="text-align: center;font-size: 20px;font-weight: 700;">Team
+            Member Details</p>
+
+      <ion-card>
+
+            <ion-grid text-wrap class="gridclass" *ngFor="let events of  this.UserDetails.teamReg"
+                  (click)="displayteamlist(events)">
+                  <ion-row>
+                        <ion-col col-10 class="align" style="text-align: left;">
+                              {{events.title}}
+                        </ion-col>
+                        <ion-col col-2>
+                              <ion-icon end name="eye"></ion-icon>
+                        </ion-col>
+                  </ion-row>
+            </ion-grid>
+
+
+      </ion-card>
+
+
+</ion-content>

@@ -1,0 +1,59 @@
+page-thankyou {
+
+  .toolbar-title-md {
+    margin-top: -43px;
+    padding: 0px 100px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffff;
+}
+
+  .page-content {
+    background-color: $white !important;
+    .thanks {
+      text-align: center;
+      margin: 0 auto;
+      h2 {
+        margin-top: 6.8rem;
+        font-size: 2.8rem;
+        font-weight: 600;
+      }
+      p {
+        line-height: 2.5rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+      .continue-btn{
+        height: 4.6rem;
+        border-color: $primary;
+        color: $primary;
+        display: block;
+        margin: 0 auto;
+   }
+
+   .reg1{
+    margin-bottom: -114px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: red;
+    margin-top: 105px;
+   }
+   .reg2{
+    color: red;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 105px;
+   }
+
+  //    .rowclass{
+  //   display: flex;
+  //  // border-bottom: 1px solid #c8c7cc;
+  //  // margin-bottom: 9px;
+  //  margin-top: -16px;
+  // }
+}

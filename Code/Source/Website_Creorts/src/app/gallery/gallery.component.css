@@ -1,0 +1,41 @@
+.container {
+    margin-top: 20px;
+}
+
+.card {
+  border: none;
+    /* border: 8px solid #F1B517; */
+    /* padding: 5px; */
+    /* border-radius: 5px; */
+    -webkit-box-shadow: 0 0 0px 0px #888888;
+    -moz-box-shadow: 0 0 0px 0px #888888;
+    box-shadow: 0 0 0px 0px #888888;
+}
+
+.container-fluid h5{
+    padding: 7px;
+    color: 077c8f;
+    text-align: center;
+}
+
+.img-overlay-wrap {
+    position: relative;
+    display: inline-block; /* <= shrinks container to image size */
+    transition: transform 150ms ease-in-out;
+  }
+  
+  .img-overlay-wrap img { /* <= optional, for responsiveness */
+     display: block;
+     width:100%;
+     /* height:270px; */
+  }
+  
+  .img-overlay-wrap svg {
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: 102%;
+  }
+
+  
+  

@@ -1,0 +1,248 @@
+<div class="content-heading">Reports
+  <!-- <small><a [routerLink]=" ['/home'] ">Home</a> -> Reports</small> -->
+</div>
+
+
+
+<div class="panel panel-default">
+
+  <div class="panel-heading"> <label style="font-size: 23px;">Export All Reports</label></div>
+  <div class="panel-body">
+    <div style="border: 1px solid #eee;background:  #fafbfc; padding:26px 10px 10px 10px;">
+      <div class="row" style="padding:16px 26px 14px 24px">
+        <div class="col-md-4">
+          <label style="font-size: 21px;">Overall Registration Reports</label>
+        </div>
+        <div class="col-md-4">
+          <label style="font-size: 21px;">Accompany Person Reports</label>
+        </div>
+        </div>
+        <div class="row" style="padding:16px 26px 14px 24px">
+          <div class="col-md-4">
+            <button class="btn  btn-success" (click)="getAllReport()"><b>Generate Report</b></button>
+            </div>
+            <div class="col-md-2">
+              <input [(ngModel)]="Accuser" 
+              required  type="radio" name="Accuser" [value]="true" [checked]="Accuser" ><b> Registered User</b>
+            </div>
+            <div class="col-md-2">
+              <input [(ngModel)]="Accuser"
+              required  type="radio" [value]="false" [checked]="!Accuser" name="Accuser"><b> CheckedIn User</b>
+            </div>
+            <div class="col-md-2" *ngIf="Accuser">
+              <button class="btn  btn-success" (click)="getAccompanyReport()"><b>Generate Report</b></button>
+            </div>
+            <div class="col-md-2" *ngIf="!Accuser">
+              <button class="btn  btn-success" (click)="getAccompanyReportchecked()"><b>Generate Report</b></button>
+            </div>
+        </div>
+        <div class="row" style="padding:16px 26px 14px 24px">
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div style="border: 1px solid #eee;background: #fafbfc; padding:14px 10px 10px 10px;">
+      <div class="row" style="padding:20px 26px 14px 24px">
+        <div class="col-md-6">
+          <label style="font-size: 21px;">Reports for Sports Individual Events</label>
+        </div>
+      </div>
+      <!-- <div class="row">
+      </div> -->
+      <div class="row" style="padding:12px 30px 14px 40px">
+        <form #f="ngForm">
+           <div class="row" >
+          <div class="col-md-3">
+            <input [(ngModel)]="user" 
+            required  type="radio" name="user" [value]="true" [checked]="user" > <b style="font-size: 18px;">Registered User</b>
+          </div>
+          <div class="col-md-3">
+            <input [(ngModel)]="user"
+            required  type="radio" [value]="false" [checked]="!user" name="user"> <b style="font-size: 18px;"> CheckedIn User</b>
+          </div>
+          </div><br>
+          <div class="col-md-3">
+            <label style="font-size: 16px;" required>Events*</label>
+            <select [(ngModel)]="selectedSportsIndividual" (ngModelChange)="setSIndividual($event)" class="form-control"
+              name="individualEvents" required #individualEvents="ngModel">
+              <option [ngValue]="undefined" disabled selected>Select events</option>
+              <option [ngValue]="oneOption._id" *ngFor="let oneOption of SIndivData[0].events">
+                {{oneOption.title}}</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label style="font-size: 16px;" required>Gender*</label>
+            <select [(ngModel)]="selectedSIndividualGender" (ngModelChange)="setSIndividualGender($event)"
+              class="form-control" name="individualGender" required>
+              <option  [ngValue]="undefined" disabled selected>Select gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Male">Others</option>
+            </select>
+          </div>
+
+          <div class="col-md-3" style="padding-left: 60px;">
+
+
+            <label style="font-size: 16px;" required>*min age: {{ selectedMin1 }}</label>
+            <input #Selector name="SIndivMaxValue" type="range" min="5" max="{{ SIndivMaxValue }}" [(ngModel)]="minSIndiv"
+              (ngModelChange)="setMin1($event)" value="5" width="20%" class="form-control" style="color: white;"
+              required>
+
+            <label style="font-size: 16px;" required>*max age: {{ selectedMax1 }}</label>
+            <input #Selector name="SIndivMaxValue" type="range" min="18" max="{{ SIndivMaxValue }}" [(ngModel)]="maxSIndiv"
+              (ngModelChange)="setMax1($event)" value="18" class="form-control" required>
+
+
+          </div>
+          <div class="col-md-3" style="padding:20px" *ngIf="user">
+            <button class="btn btn-success" (click)="getSportIndividual()" type="submit" [disabled]="!f.valid"><b>Generate
+              Report</b></button>
+          </div>
+          <div class="col-md-3" style="padding:20px" *ngIf="!user">
+            <button class="btn btn-success" (click)="getSportIndividualchecked()" type="submit" [disabled]="!f.valid "><b>Generate
+              Report</b></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div style="border: 1px solid #eee;background: #fafbfc; padding:14px 10px 10px 10px;">
+      <div class="row" style="padding:20px 26px 14px 24px">
+        <div class="col-md-6">
+          <label style="font-size: 21px;">Reports for Sports Team Events</label>
+        </div>
+      </div>
+      <div class="row" style="padding:12px 30px 14px 40px">
+        <form #f2="ngForm">
+          <div class="row" >
+            <div class="col-md-3">
+              <input [(ngModel)]="teamuser" 
+              required  type="radio" name="teamuser" [value]="true" [checked]="teamuser" > <b style="font-size: 18px;">Registered User</b>
+            </div>
+            <div class="col-md-3">
+              <input [(ngModel)]="teamuser"
+              required  type="radio" [value]="false" [checked]="!teamuser" name="teamuser"> <b style="font-size: 18px;"> CheckedIn User</b>
+            </div>
+            </div><br>
+          <div class="col-md-3">
+
+            <label style="font-size: 16px;" required>Events*</label>
+            <select [(ngModel)]="selectedSportsTeam" (ngModelChange)="setTeam($event)" class="form-control" name="TeamEvents" required>
+              <option  [ngValue]="undefined" disabled selected>Select events</option>
+              <option [ngValue]="oneOption._id" *ngFor="let oneOption of STeamData[0].events">{{oneOption.title}}
+              </option>
+            </select>
+
+          </div>
+          <div class="col-md-3">
+            <label style="font-size: 16px;" required>Gender*</label>
+            <select [(ngModel)]="selectedSTeamGender" (ngModelChange)="setTeamGender($event)" class="form-control" required name="TeamGender" required>
+              <option  [ngValue]="undefined" disabled selected>Select gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Male">Others</option>
+            </select>
+
+
+          </div>
+          <div class="col-md-3" style="padding-left: 60px;">
+
+
+            <label style="font-size: 16px;" required>*min age: {{ selectedMin2 }}</label>
+            <input #Selector class="multi-range" name="STeammaxValue" type="range" min="5" max="{{ STeammaxValue }}"
+              [(ngModel)]="minSTeam" (ngModelChange)="setMin2($event)" value="5" class="form-control" required>
+
+            <label style="font-size: 16px;" required>*max age: {{ selectedMax2 }}</label>
+            <input #Selector class="multi-range" name="STeammaxValue" type="range" min="18" max="{{ STeammaxValue }}"
+              [(ngModel)]="maxSTeam" (ngModelChange)="setMax2($event)" value="18" class="form-control" required>
+
+
+          </div>
+          <div class="col-md-3" style="padding:20px" *ngIf="teamuser">
+            <button class="btn  btn-success" type="submit" (click)="getSportTeam()" [disabled]="!f2.valid "><b>Generate Report</b></button>
+          </div>
+          <div class="col-md-3" style="padding:20px" *ngIf="!teamuser">
+            <button class="btn  btn-success" type="submit" (click)="getSportTeamchecked()" [disabled]="!f2.valid "><b>Generate Report</b></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <hr />
+
+
+    <div style="border: 1px solid #eee;background: #fafbfc; padding:14px 10px 10px 10px;">
+      <div class="row" style="padding:20px 26px 14px 24px">
+        <div class="col-md-6">
+          <label style="font-size: 21px;">Reports for Cultural Events</label>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-3">
+          <input type="radio" name="user" > Registered User
+        </div>
+        <div class="col-md-3">
+          <input type="radio" name="user"> CheckedIn User
+        </div>
+      </div> -->
+      <div class="row" style="padding:12px 30px 14px 40px">
+        <form #f3="ngForm">
+          <div class="row">
+            <div class="col-md-3">
+              <input [(ngModel)]="cultuser" 
+              required  type="radio" name="cultuser" [value]="true" [checked]="cultuser" > <b style="font-size: 18px;">Registered User</b> 
+            </div>
+            <div class="col-md-3">
+              <input [(ngModel)]="cultuser"
+              required  type="radio" [value]="false" [checked]="!cultuser" name="cultuser"> <b style="font-size: 18px;">CheckedIn User</b>
+            </div>
+            </div><br>
+        <div class="col-md-3">
+
+          <label style="font-size: 16px;">Events*</label>
+          <select [(ngModel)]="selectedCultural" (ngModelChange)="setCultural($event)" class="form-control" required
+            name="CulturalEvents">
+            <option [ngValue]="undefined" disabled selected>Select events</option>
+            <option [ngValue]="oneOption._id" *ngFor="let oneOption of CulturalData[0].events">
+              {{oneOption.title}}</option>
+          </select>
+
+        </div>
+        <div class="col-md-3">
+          <label style="font-size: 16px;">Gender*</label>
+          <select [(ngModel)]="selectedCulturalGender" (ngModelChange)="setCulturalGender($event)" class="form-control" name="CulturalGender">
+            <option  [ngValue]="undefined" disabled selected>Select gender</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Male">Others</option>
+          </select>
+
+
+        </div>
+        <div class="col-md-3" style="padding-left: 60px;">
+         
+
+            <label style="font-size: 16px;">*min age: {{ selectedMin3 }}</label>
+            <input #Selector class="multi-range" name="CulturalMinAge" type="range" min="5" max="{{ CultMaxValue }}"
+              [(ngModel)]="minCult" (ngModelChange)="setMin3($event)" value="18" class="form-control" required>
+
+            <label style="font-size: 16px;">*max age: {{ selectedMax3 }}</label>
+            <input #Selector class="multi-range" name="CulturalMaxAge" type="range" min="5" max="{{ CultMaxValue }}"
+              [(ngModel)]="maxCult" (ngModelChange)="setMax3($event)" value="18" class="form-control" required>
+
+
+
+          
+        </div>
+        <div class="col-md-3" style="padding:20px" *ngIf="cultuser">
+          <button class="btn  btn-success" (click)="getCulturalReport()" type="submit" [disabled]="!f3.valid" ><b>Generate Report</b></button>
+        </div>
+        <div class="col-md-3" style="padding:20px" *ngIf="!cultuser">
+          <button class="btn  btn-success" (click)="getCulturalReportchecked()" type="submit" [disabled]="!f3.valid" ><b>Generate Report</b></button>
+        </div>
+        </form>
+      </div>
+    </div>

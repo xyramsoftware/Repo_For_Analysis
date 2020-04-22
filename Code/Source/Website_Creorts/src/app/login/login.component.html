@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="center">
+		<div class="row justify-content-md-center">
+
+			<div class="loader" *ngIf="loading"></div>
+			<div class="col col-md-4">
+
+				<form [formGroup]="signinForm">
+
+					<div class="row">
+						<div class="col col-sm-8 offset-sm-2">
+							<div class="logo">
+								<img src="assets/images/logo.jpeg" width="100%" alt="logo">
+							</div><br />
+						</div>
+					</div>
+
+					<input type="number" class="form-control mb-4" formControlName="phone" name="phone" id="phone"
+						placeholder="Mobile" onKeyPress="if(this.value.length==10) return false;">
+					<div class="error"
+						*ngIf="signinForm.controls['phone'].errors?.required && signinForm.controls['phone'].touched">
+						*Mobile number is required</div>
+					<div class="error"
+						*ngIf="signinForm.controls['phone'].errors?.pattern && signinForm.controls['phone'].touched">
+						*Mobile number should be 10 digit</div>
+					<div class="error"
+						*ngIf="signinForm.controls['phone'].errors?.validmobile && signinForm.controls['phone'].touched">
+						*Mobile number not registered with us</div>
+					<div class="error"
+						*ngIf="signinForm.controls['phone'].errors?.serverError && signinForm.controls['phone'].touched">
+						*Error response from server</div>
+
+					<!-- Sign in button -->
+					<button class="btn btn-info btn-block my-2" [disabled]="!signinForm.valid" type="submit"
+						(click)="userlogin()">LOGIN</button>
+
+					<div class="row justify-content-md-center">
+						<div class="col-md-8">
+
+							<div class="text-center">
+								<br/><h6 style="color: black;" class="line"> Or</h6>
+								<button class="btn btn-info btn-block my-2" type="button"
+								[routerLink]="['/registration']">REGISTER NOW!!!</button>
+								<h6 style="color: black;">Login/Sign-up with</h6>
+							</div>
+							<div class="social">
+
+										<button (click)="socialSignIn('facebook')"><i class="fa fa-facebook fa-2x"></i></button>
+										<button (click)="socialSignIn('google')"><i class="fa fa-google fa-2x"></i></button>
+									<!-- </div>
+								</div>  -->
+							</div>
+					
+						</div>
+					</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Default form login -->

@@ -1,0 +1,367 @@
+<div class="content-heading"> volunteer Person Field Details
+  <!-- <div class="pull-right">
+    <label class="file-upload">
+      <a [routerLink]="'/prescriptions/addPickup'">
+        <button class="btn btn-warning"><em class="fa fa-plus"></em>&nbsp;&nbsp; Add New Point</button>
+      </a>
+     
+    </label>
+  </div> -->
+  <!-- <small>Accompany Person Field Details</small> -->
+</div>
+<div class="waiting-loader" *ngIf="loading == true">
+    <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+</div>
+
+<div class="row">
+  <div    class=" col-sm-7 panel panel-default" >
+      <div class="panel-heading">Add volunteer Person Fields</div>
+      <div class="panel-body" style="margin-bottom: -64px;margin-top: -21px;">
+  
+         
+        <form  #f="ngForm">
+          <fieldset>
+  
+             <div  class="panel panel-default" style="padding: 20px;" >
+  
+               <div class="row" style="margin-bottom: 20px;">
+                
+
+                <label class="col-sm-2 control-label custom" for="title">Field Name</label>
+            <div class="col-sm-4">
+             
+                <div class="">
+                  <input class="form-control" name="feildName" id="feildName" (keypress)="onKeyPress($event)" [(ngModel)]="Fields.feildName" 
+                         type="test"  required  placeholder="Field Name"/>
+                </div>
+             
+            </div>
+
+              
+
+                <label class="col-sm-2 control-label custom" for="title">Field label</label>
+            <div class="col-sm-4">
+             
+                <div class="">
+                  <input class="form-control" name="lable" id="lable" [(ngModel)]="Fields.lable" 
+                         type="test" required   placeholder="Field Label"/>
+                </div>
+             
+            </div>
+
+               </div>
+  
+           <div class="row" >
+            <div> 
+              <label class="col-sm-2 control-label custom" for="title" >Priority</label>
+             <div class="col-sm-4">
+              <div class="">
+                <input class="form-control" name="priority" id="priority"  required (input)='onInputTime($event.target.value)' (ionChange)='onChangeTime($event.target.value)' [(ngModel)]="Fields.priority" 
+                       type="number"  min="1"  placeholder="Field Priority"/>
+              </div>
+              
+           
+          </div>
+            <!-- <div class="col-sm-1"></div> -->
+          </div>
+    
+            <label *ngIf="!displayedit" class="col-sm-2 control-label custom" for="title">Field Type</label>
+              <div class="col-sm-4" *ngIf="!displayedit">
+                
+                  <div class="">
+                    <select class="form-control" name="type" id="type" [(ngModel)]="selectedFieldType"
+                            placeholder="select Fields Type "  required #k  (change)="FieldtypeSelect(k.value)">
+                            <option value="0" disabled class="hideoption">Select your option</option>
+                            <option value="text">Text</option>
+                            <option value="textarea">Textarea</option>
+                      <option value="number">Number</option>
+                      <option value="date">Date</option>
+                      <option value="file">Image</option>
+                      <option value="DropDown">Drop Down</option>
+                      <option value="checkbox">Check Box</option>
+                      <option value="radio">Radio Button</option>
+                    
+                    </select>
+                  </div>
+                
+              </div>
+
+              <label  *ngIf="displayedit" class="col-sm-2 control-label custom" for="title">Field Type</label>
+              <div class="col-sm-4" *ngIf="displayedit">
+                
+                  <div class="">
+                    <select class="form-control" name="type" id="type" 
+                            placeholder="select Fields Type "  required #k  (change)="FieldtypeSelect(k.value)">
+                            <!-- <option value="0" disabled class="hideoption">Select your option</option> -->
+                            <option  disabled class="hideoption" >{{selectedFieldType1}}</option>
+                            <option value="text">Text</option>
+                            <option value="textarea">Textarea</option>
+                      <option value="number">Number</option>
+                      <option value="date">Date</option>
+                      <option value="file">Image</option>
+                      <option value="DropDown">Drop Down</option>
+                      <option value="checkbox">Check Box</option>
+                      <option value="radio">Radio Button</option>
+                    
+                    </select>
+                  </div>
+                
+              </div>
+
+            </div>
+  
+            <div class="row" style="margin-top: 22px;">
+                <!-- <div class="col-md-2" ></div> -->
+                <div class="col-md-6" >
+                    <input type="checkbox" name="required"    [(ngModel)]="Fields.requiredIn" value="required"><label style="margin-left: 11px;">Required</label> 
+                  </div>
+
+                  <!-- <div> 
+                      <label class="col-sm-1 control-label custom" for="title" style="margin-right: 15px;margin-left: -19px;">Priority</label>
+                     <div class="col-sm-2">
+                      <div class="">
+                        <input class="form-control" name="priority" id="priority"  required (input)='onInputTime($event.target.value)' (ionChange)='onChangeTime($event.target.value)' [(ngModel)]="Fields.priority" 
+                               type="number"  min="1"  placeholder="Field Priority"/>
+                      </div>
+                      
+                   
+                  </div>
+                   
+                  </div> -->
+  
+                 <div *ngIf="displayfielsOption"> 
+                   
+                <label class="col-sm-2 control-label custom" for="title">Field Options</label>
+               <div class="col-sm-4">
+                <div class="">
+                  <input class="form-control" name="fieldOptions" id="fieldOptions"  [(ngModel)]="Fields.options" 
+                         type="test"   placeholder="Field Options"/>
+                </div>
+                <p style="color: blue;">Please enter option values with  ","  separated</p>
+             
+            </div>
+            </div>
+
+            <div *ngIf="displayFileOption"> 
+                   
+                <label *ngIf="!displayedit" class="col-sm-2 control-label custom" for="title">Image Options</label>
+               <div *ngIf="!displayedit" class="col-sm-4">
+                  <select class="form-control" name="inagetype" id="inagetype"  [(ngModel)]="selectImageType"
+                  placeholder="select Image Type "  required #k  (change)="ImagetypeSelect(k.value)">
+                  <option value="0" disabled class="hideoption">Select your option</option>
+                  <option value="profileImg">profileImg</option>
+                  <option value="identityImg">identityImg</option>
+            <option value="adharImg">adharImg</option>
+            <option value="pancardImg">pancardImg</option>
+            <option value="LicenseImg">LicenseImg</option>
+            <option value="certificate">certificate</option>
+          </select>
+             
+            </div>
+            </div>
+
+            <div *ngIf="displayFileOption"> 
+                   
+                <label *ngIf="displayedit" class="col-sm-2 control-label custom" for="title">Image Options</label>
+               <div  *ngIf="displayedit" class="col-sm-4">
+                  <select class="form-control" name="inagetype" id="inagetype"  
+                  placeholder="select Image Type "  required #k  (change)="ImagetypeSelect(k.value)">
+                  <option  disabled class="hideoption" >{{selectedImageType1}}</option>
+                  <option value="profileImg">profileImg</option>
+                  <option value="identityImg">identityImg</option>
+            <option value="adharImg">adharImg</option>
+            <option value="pancardImg">pancardImg</option>
+            <option value="LicenseImg">LicenseImg</option>
+            <option value="certificate">certificate</option>
+          </select>
+             
+            </div>
+            </div>
+
+            
+            
+  
+            </div>
+            <div class="row" *ngIf="!displayedit" >
+                <div class="col-md-12" style="text-align: end;" >
+                    <button class="btn btn-primary  s-n-btn" type="submit"  
+                      [disabled]=" !f.valid" (click)="onSubmitFields()" data-style="expand-right" data-spinner-color="#000000"
+                     >Save
+            </button>
+                </div>
+            </div>
+            <p style="color: red;" *ngIf="displaypriority">This Number is alrady taken Please choose another</p>
+
+            <div class="row"  *ngIf="displayedit">
+                <div class="col-md-12" style="text-align: end;" >
+                    <button class="btn btn-success  s-n-btn" type="submit"  
+                    [disabled]=" !f.valid" (click)="UpdateItem()" data-style="expand-right" data-spinner-color="#000000"
+                     >Update
+            </button>
+                </div>
+            </div>
+  
+  
+           </div>
+    
+    
+          </fieldset>
+          
+        </form>
+      </div>
+    </div>
+
+
+    <div class=" col-sm-5">
+    <div  class=" col-sm-12 panel panel-default" style="height: 266px;width: 98%;margin-left: 7px;">
+        <div class="panel-heading">Add  QRCODE Fields</div>
+       
+        <div class="panel-body" style="margin-bottom: -64px;margin-top: -21px;">
+            
+           
+            <div class="col-sm-12" style="margin-bottom: 26%;">
+              <div class="panel">
+                 <div class=""  *ngIf="!displayQRCodeedit">
+                     <angular2-multiselect name="Category" id="Category" [data]="dropdownList" [(ngModel)]="selectedItems" 
+                     [settings]="dropdownSettings" 
+                     (onSelect)="onItemSelect($event)" 
+                     (onDeSelect)="OnItemDeSelect($event)"
+                     [selectedItems]="selectedItems"
+                     (onSelectAll)="onSelectAll($event)"
+                     (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+                  
+                 </div>
+
+
+                 <div class="" *ngIf="displayQRCodeedit" >
+                  <angular2-multiselect name="Category" id="Category" [data]="dropdownList" [(ngModel)]="selectedItems" 
+                  [settings]="dropdownSettings" 
+                  (onSelect)="onItemSelectedit($event)" 
+                  (onDeSelect)="OnItemDeSelect($event)"
+                  [selectedItems]="selectedItems"
+                  (onSelectAll)="onSelectAll($event)"
+                  (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+               
+              </div>
+                
+                 
+               
+              </div>
+             
+            </div>
+        
+            <div class="row"  *ngIf="!displayQRCodeedit" >
+                <div class="col-md-12" style="text-align: end;margin-top: -30px;" >
+                    <button class="btn btn-primary  s-n-btn" type="submit"  
+                      (click)="onQrFields()" data-style="expand-right" data-spinner-color="#000000"
+                     >Save
+            </button>
+                </div>
+            </div>
+
+            <div class="row"  *ngIf="displayQRCodeedit" >
+                <div class="col-md-12" style="text-align: end;margin-top: -30px;" >
+                    <button class="btn btn-success s-n-btn" type="submit"  
+                       (click)="onQrFieldsUpdate()" data-style="expand-right" data-spinner-color="#000000"
+                     >Update
+            </button>
+                </div>
+            </div>
+     
+        </div>
+
+    </div>
+ 
+  </div>
+</div>
+
+
+
+<div class="panel panel-default" *ngIf="loading == false">
+  <div class="panel-heading"> volunteer Person Field Details</div>
+  <div class="table-responsive b0">
+   
+      <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="20">
+          <thead>
+          <tr>
+            
+            
+           
+            <th class=" text-center" >
+              <strong>priority</strong>
+          </th>
+            <th class="  text-left" >
+          
+              <strong>Field Name</strong>
+          </th>
+  
+          <th class=" text-left" >
+            
+              <strong>Field Type</strong>
+          </th>
+  
+          <th class="text-left" >
+            <strong>Required</strong>
+          </th>
+
+          
+          <th class=" text-center" >
+              <strong>Edit</strong>
+          </th>
+          <th class="  text-center" >
+            <strong>Delete</strong>
+          </th>
+    
+    
+          
+          </tr>
+          </thead>
+          <tbody>
+        
+
+          <tr  *ngFor="let itemdata of mf.data ;let i = index ">
+              <td class="text-center"> {{itemdata.priority}} </td> 
+             
+              <td class="text-left">{{itemdata.lable}}</td>
+             
+              <!-- <td>{{itemdata.landmark}}</td> -->
+              <td class=" text-left">
+                  {{itemdata.type}}
+              </td>
+              <td class="text-left">
+                  {{itemdata.requiredIn}}
+                </td>
+
+                <td class="text-center">
+                  <button class="btn btn-sm btn-primary"  type="button" (click)="ItemEdit(itemdata,i)"><em
+                    class="fa fa-pencil"></em></button>
+            </td>
+      
+              <td class="text-center">
+                  <button class="btn btn-sm btn-danger"  type="button" (click)="ItemDelete(itemdata._id,i)"><em
+                    class="fa fa-trash-o"></em></button>
+              </td>
+                
+             
+            </tr>
+          </tbody>
+          <tfoot>
+              <tr>
+                <td colspan="10" class="customPagination">
+                  <mfBootstrapPaginator ></mfBootstrapPaginator>
+                </td>
+              </tr>
+              </tfoot>
+        </table>
+ 
+
+
+
+  </div>
+
+  <div class="panel-footer">
+    <div class="row">
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+<!--
+  Generated template for the RegistrationSecondPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title></ion-title> -->
+    
+    <img class="logo"  style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">  
+    <ion-title>Creorts Sportival</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="login">
+    <div class="layer1">
+
+        <!-- <p class="mainheading">Events</p> -->
+
+      
+
+       <!-- <ion-row  *ngFor="let category of categorydata" >
+         <ion-item  *ngIf="category.TeamEvent.length != 0" style="margin-top: 16px;margin-bottom: 24px;width: 342px;border: 2px solid #F1B517;background: black;">
+            <p text-wrap  style="text-align: center;padding: 10px;color: #F1B517;font-weight: 600;font-size: 15px;margin-bottom: 0px;">Please select {{category.categoryName}} Team Event you would like to attend  </p>
+           </ion-item>
+            <ion-col col-12  >
+                    <ion-list >
+                            <ion-item *ngFor="let event of category.TeamEvent"  style="margin-bottom: 15px;height: 45px;background: black;color: #F1B517;border: 2px solid #F1B517;">
+                              <ion-label text-wrap >{{event.title}}</ion-label>
+                              <ion-checkbox slot="end"   [checked]=event.checked   (click)="checkboxOptionsForTeam(event)"  ></ion-checkbox>
+                            </ion-item>
+                          </ion-list>                 
+            </ion-col>
+
+
+ 
+            <ion-item style="margin-top: 16px;margin-bottom: 24px;width: 342px;border: 2px solid #F1B517;background: black;">
+            <p  text-wrap  style="text-align: center;padding: 10px;color: #F1B517;font-weight: 600;font-size: 15px;margin-bottom: 0px;">Please select {{category.categoryName}} Individual Event you would like to attend  </p>
+           </ion-item>
+            <ion-col col-12  >
+                    <ion-list >
+                            <ion-item  *ngFor="let event of category.indevidulaEvent"  style="margin-bottom: 15px;height: 45px;background: black;color: #F1B517;border: 2px solid #F1B517;">
+                              <ion-label text-wrap >{{event.title}}</ion-label>
+                              <ion-checkbox slot="end"   [checked]=event.checked  (click)="checkboxOptions(event)"  ></ion-checkbox>
+                            </ion-item>
+                          </ion-list>                 
+            </ion-col>
+
+            
+              <ion-col col-12 *ngIf="category.categoryName =='Sports'">
+                  <ion-item style="border: 2px solid #F1B517;background: black;color: #F1B517;">
+                    
+                      <ion-input type="text"     placeholder="Representing Team" [(ngModel)]="representingTeam"  ></ion-input>
+                  </ion-item>
+                  
+              </ion-col>
+            
+
+    </ion-row>
+    
+     <p style="font-size: 18px;text-align: center;color: rgb(151, 144, 147);font-weight: 700;" *ngIf="displayeveterroer">Please select at least one event</p>
+
+     <ion-row class="paddingrow"   >
+        <ion-col col-12>
+               
+            <button style="margin-bottom: 21px;border: 2px solid #F1B517;color: #F1B517;" color="primary" class="login-btn" ion-button  (click)="RegisterTeam()" >Submit</button>
+          
+        </ion-col>
+    </ion-row> -->
+
+
+    <p style="text-align: center;color: #fff;font-size: 20px;margin-top: 31px;margin-bottom: 20px;"> Team Sports Events</p>
+    <ion-row>
+      <ion-col col-12  >
+          <ion-list >
+                  <ion-item *ngFor="let event of displayeventlist"  style="margin-bottom: 15px;height: 45px;background: black;color: #F1B517;border: 2px solid #F1B517;">
+                    <ion-label text-wrap >{{event.title}}</ion-label>
+                    <ion-checkbox slot="end"   [checked]=event.checked   (click)="checkboxOptionsForTeam(event)"  ></ion-checkbox>
+                  </ion-item>
+                </ion-list>                 
+  </ion-col>
+    </ion-row>
+
+
+    <ion-col col-12 >
+      <ion-item style="width: 93%;border: 2px solid #F1B517;background: black;color: #F1B517;">
+        
+          <ion-input type="text"   placeholder="Representing Team" maxlength="50" [(ngModel)]="representingTeam"  ></ion-input>
+      </ion-item>
+      <p *ngIf="representingTeamErrerMessage" style="text-align: center;font-size: 15px;color: #fff;">Please Add Representing Team</p>
+  </ion-col>
+
+  <ion-row class="paddingrow"   >
+    <ion-col col-12>
+           
+        <button style="margin-bottom: 21px;border: 2px solid #F1B517;color: #F1B517;" color="primary" class="login-btn" ion-button  (click)="Next()" >Next</button>
+      
+    </ion-col>
+</ion-row>
+
+
+    
+    
+ 
+</div>
+
+</ion-content>
+
+

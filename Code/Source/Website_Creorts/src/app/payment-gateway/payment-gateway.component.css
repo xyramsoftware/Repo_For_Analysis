@@ -1,0 +1,60 @@
+.payment {
+    background-color: #060709;
+    opacity: 0.9;
+    border: 2px solid #F1B517;
+    color: #F1B517;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    font-weight: 500;
+}
+
+.border {
+    padding: 10px;
+    border: 2px solid gray;
+}
+
+.btn {
+    background-color: #060709;
+    color: #f1b517;
+    border: 5px double #f1b517;
+}
+
+.loader {
+    border: 16px dotted #060709;
+    border-radius: 50%;
+    border-top: 16px dotted #F1B517;
+    width: 90px;
+    height: 90px;
+    -webkit-animation: spin 1.5s linear infinite; /* Safari */
+    animation: spin 1.5s linear infinite;
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 50%;
+    right: 50%; /* or: left: 50%; */
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .mat-radio-button{
+    padding: 0px 10px;
+  }
+  
+  
+  
+  ::ng-deep  .mat-radio-button.mat-accent .mat-radio-outer-circle{
+    border-color:#f1b517;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{
+      background-color:#f1b517;
+  }
+  

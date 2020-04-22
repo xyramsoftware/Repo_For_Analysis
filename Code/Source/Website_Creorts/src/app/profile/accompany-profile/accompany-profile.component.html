@@ -1,0 +1,118 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-md-10">
+
+            <div class="borde">
+                <div class="profile-card">
+                    <div class="row justify-content-md-center">
+                        <div class="col col-md-12">
+                            <h4 class="cell-breakWord">{{accompany.name}}</h4>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-7">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p><strong>Registration ID: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.RegisterId}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Gender: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.gender}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>relationship: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.relationship}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Mobile: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.phone}}</p>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="accompany.email">
+                                    <td class="cell-breakWord">
+                                        <p><strong>Email: </strong></p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.email}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>DOB: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.DOB | date}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Place: </strong> </p>
+                                    </td>
+                                    <td class="cell-breakWord">
+                                        <p> {{accompany.place}}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><strong>Occupation: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.occupation}}</p>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="accompany.organisation">
+                                    <td>
+                                        <p><strong>Organisation: </strong> </p>
+                                    </td>
+                                    <td class="cell-breakWord">
+                                        <p> {{accompany.organisation}}</p>
+                                    </td>
+                                </tr>
+                                <tr *ngIf="accompany.schoolName">
+                                    <td class="cell-breakWord">
+                                        <p><strong>School/College: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> {{accompany.schoolName}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="qr-image">
+                                <img src="{{accompany.URL}}" width="100%" frameborder="0" style="border:0;"
+                                    allowfullscreen="" alt="qrimage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        
+        <svg xmlns="http://www.w3.org/2000/svg"  id="hideIE" viewBox="0 0 1440 320">
+            <path fill="#f1b517" fill-opacity="1"
+                d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
+    </div>
+    </div>
+
+</div>

@@ -1,0 +1,75 @@
+<div class="content-heading"> Import Files
+  <!-- <div class="pull-right">
+    <label class="file-upload">
+      <a [routerLink]="'/prescriptions/addPickup'">
+        <button class="btn btn-warning"><em class="fa fa-plus"></em>&nbsp;&nbsp; Add New Point</button>
+      </a>
+     
+    </label>
+  </div> -->
+  <!-- <small>Accommodation Person Field Details</small> -->
+</div>
+<!-- <div class="waiting-loader" *ngIf="loading == true">
+  <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+</div> -->
+
+<div class="row">
+  <div class=" col-sm-8 panel panel-default" style="margin-left: 20px;">
+    <div class="panel-heading" style="font-size: 18px;">Upload</div>
+    <div class="panel-body" style="margin-bottom: -64px;margin-top: -21px;">
+
+
+      <form #f="ngForm" novalidate (ngSubmit)="upload(formModel)">
+          <div class="panel panel-default" style="padding: 20px;">
+
+            <div class="row" style="margin-bottom: 20px;">
+
+
+
+              <div class="col-sm-4">
+
+                
+
+                  <input class="form-control" name="customFile" [(ngModel)]="formModel.importfile" type="file"
+                    id="customFile" (change)="selectFile($event)" #customFile="ngModel" aria-describedby="fileHelp" required> 
+                    <p style="font-size: 12px;color: lightslategrey;" >(CSV Files Only)</p>
+                    <!-- <small id="fileHelp" class="text-danger" *ngIf="customFile.invalid && submitted">Please Upload File</small> -->
+                    <div style="color:red;" class="text-danger" *ngIf="!fileSelected && submitted">
+                          File is Required 
+                     </div>
+                </div>
+                <div class="col-sm-4">
+                  <textarea name="content" #content="ngModel" [(ngModel)]="formModel.message" placeholder="Type Your Message Here" rows="4" cols="45" aria-describedby="messageHelp" required></textarea>
+                  <small id="messageHelp" class="text-danger" *ngIf="content.invalid && submitted">Please Enter Your Message</small>
+                  </div>
+
+            </div>
+
+            <div class="col-sm-3" style="text-align: center;margin-left: 270px;">
+              <button class="btn btn-success  s-n-btn" type="submit"  data-style=" expand-right" data-spinner-color="#000000">Import And Send SMS
+              </button>
+              
+
+            </div>
+
+
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div *ngIf="uploadSuccess">
+                  <p>Imported users and sent invitation</p>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        
+
+      </form>
+    </div>
+  </div>
+</div>

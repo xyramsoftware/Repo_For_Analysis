@@ -1,0 +1,52 @@
+page-chat {
+
+  .item {
+    background-color:black;
+    width: 100%;
+    display: flex !important;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 2px solid #F1B517 !important;
+
+    
+  }
+  .toolbar-title-md {
+    margin-top: -43px;
+    padding: 0px 72px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffff;
+}
+
+.login-btn {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 4.4rem;
+  background-color: $primary;
+}
+.mainheading{
+  text-align: center;
+  font-size: 21px;
+  color: #ffff;
+  font-weight: 500;
+  margin-bottom: 6px;
+  margin-top: 10px;
+}
+
+.eventclass{
+  background: url("../assets/img/cover.jpg") no-repeat center;
+  background-size: cover;
+    color: $white;
+    .layer {
+      background-color: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      
+  }
+  }
+
+}

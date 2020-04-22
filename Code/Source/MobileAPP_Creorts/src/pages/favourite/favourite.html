@@ -1,0 +1,83 @@
+<ion-header hideBackButton="true">
+
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title></ion-title>
+      <img class="logo" style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">
+      <ion-title>Creorts Sportival</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+<ion-content padding class="login">
+    <div  class="layer1">
+
+
+        <ion-row  *ngFor="let category of categorydata" >
+            
+               <p   *ngIf="category.TeamEvent.length != 0"  class="mainheading"  > {{category.categoryName}} Team Event  </p>
+             
+               <ion-col col-12  >
+                       <ion-list >
+                               <ion-item *ngFor="let event of category.TeamEvent"  style="margin-bottom: 15px;height: 45px;background: black;color: #F1B517;border: 2px solid #F1B517;">
+                                 <ion-label text-wrap >{{event.title}}</ion-label>
+                                 <ion-checkbox slot="end"   [checked]=event.checked   (click)="checkboxOptionsForTeam(event)"  ></ion-checkbox>
+                               </ion-item>
+                             </ion-list>                 
+               </ion-col>
+   
+   
+    
+              
+               <p  *ngIf="category.indevidulaEvent.length != 0"   class="mainheading" > {{category.categoryName}} Individual Event  </p>
+            
+               <ion-col col-12  >
+                       <ion-list >
+                               <ion-item *ngFor="let event of category.indevidulaEvent"  style="margin-bottom: 15px;height: 45px;background: black;color: #F1B517;border: 2px solid #F1B517;">
+                                 <ion-label text-wrap >{{event.title}}</ion-label>
+                                 <ion-checkbox slot="end"   [checked]=event.checked  (click)="checkboxOptions(event)"  ></ion-checkbox>
+                               </ion-item>
+                             </ion-list>                 
+               </ion-col>
+   
+               
+                 <ion-col col-12 *ngIf="category.categoryName =='Sports' && TotaleventSelected">
+                     <ion-item style="border: 2px solid #F1B517;background: black;color: #F1B517;">
+                       
+                         <ion-input type="text"     placeholder="Representing Team" [(ngModel)]="representingTeam"  ></ion-input>
+                     </ion-item>
+                     
+                 </ion-col>
+               
+   
+       </ion-row>
+    
+     <p style="font-size: 18px;text-align: center;color: rgb(151, 144, 147);font-weight: 700;" *ngIf="displayeveterroer">Please select at least one event</p>
+
+     <!-- <ion-row class="paddingrow"   >
+        <ion-col col-12>
+               
+            <button style="margin-bottom: 21px;border: 2px solid #F1B517;color: #F1B517;" color="primary" class="login-btn" ion-button  (click)="RegisterTeam()" >Submit</button>
+          
+        </ion-col>
+    </ion-row> -->
+
+    <p *ngIf="showrepresentingErrorMesage" style="text-align: center;font-size: 15px;color: #fff;">Please Add Representing Team</p>
+
+    <ion-row style="margin-bottom: 24px;"  *ngIf="TotaleventSelected" >
+        <ion-col col-12>
+          <button class="login-btn"   style="border: 2px solid #F1B517;background: black;" ion-button type="submit" (click)="RegisterTeamUpdate()"
+           > Update Events</button>
+        </ion-col>
+      </ion-row>
+
+
+    
+       <div  *ngIf="!TotaleventSelected">
+      <p style="text-align: center;font-weight: 600;font-size: 20px;color: #F1B517;">No Events Found!</p><br>
+      <p style="text-align: center;font-weight: 600;font-size: 20px;color: #F1B517;margin-bottom: 100%;">You have already Registered for all the Events. </p>
+      </div>
+       
+    </div>
+</ion-content>

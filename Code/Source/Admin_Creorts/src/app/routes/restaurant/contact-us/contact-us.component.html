@@ -1,0 +1,175 @@
+<div class="content-heading">Latest News
+  <!-- <small>
+    <a [routerLink]=" ['/home'] ">Home</a> ->
+    <a [routerLink]="['/contacts/all']"> Latest News</a>
+  </small> -->
+</div>
+<div class="waiting-loader" *ngIf="loading == true">
+  <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+</div>
+<!-- Zero Configuration-->
+<div *ngIf="newsSave">
+  <div class="panel panel-default" style="margin-right: auto;width: 83%;margin-left: auto;">
+    <!-- <div class="panel-heading  text-bold bg-purple-dark">Add Registration Screen</div> -->
+    <div class="panel-body" style="margin-bottom: 1px;">
+      <form #f="ngForm">
+        <div>
+
+          <div class="row">
+            <label class="col-sm-2 control-label custom" style="margin-top: 16px;margin-left: auto;">News Title*</label>
+            <div class="col-sm-5">
+              <div class="panel-body mh0">
+                <input class="form-control" name="Category" id="Category" type="text" required placeholder="Title"
+                  [(ngModel)]="latestnews.title" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-sm-2 control-label custom"
+              style="margin-top: 16px;margin-left: auto;">News*</label>
+            <div class="col-sm-5">
+              <div class="panel-body mh0">
+
+                <textarea class="form-control" rows="4" name="shortDescription" id="shortDescription" required
+                  [(ngModel)]="latestnews.description"></textarea>
+              </div>
+            </div>
+
+            <div class="col-sm-2" style="margin-top: 78px;">
+              <div class="text-left">
+                <button class="btn btn-primary  s-n-btn" type="submit" data-style="expand-right"
+                  data-spinner-color="#000000" (click)="SaveNews()" [disabled]="!f.valid">Save
+                </button>
+                <button class="btn btn-danger pull-right s-n-btn" type="reset">Cancel</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- </fieldset> -->
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="newsGrid">
+  <div class="panel panel-default" *ngIf="loading == false">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-3"><b style="font-size: 16px;">Latest News list</b></div>
+        <div class="col-md-9">
+          <form (keyup)="getnewstitle($event)" class="text-center"
+            style="width: 400px;margin-right:30px;margin-left: auto; ;">
+            <div class="row">
+              <div class="col-md-4">
+                <label style="font-size: 16px;">Search News Title</label>
+              </div>
+              <div class="col-md-5"><input class="form-control searchinput text-center" type="text" name="siteVal"
+                  id="siteVal" [(ngModel)]="siteVal" width="180%" #siteName><p *ngIf="Nodatafound" style="text-align:center;font-size: 14px;color: red;margin-bottom: -8px;">No
+                    Results Found</p></div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive b0">
+        <table class="table table-striped" [mfData]="contacts" #mf="mfDataTable" [mfRowsOnPage]="5">
+          <thead>
+            <tr>
+
+              <th class="thsearch text-center">
+                <div style="color: #454545;">News Title</div>
+              </th>
+              <th class="thsearch text-center">
+                <div style="color: #454545;">News</div>
+               
+              </th>
+              <th class="thsearch text-center">
+                <div style="color: #454545;">Created Date</div>
+               
+              </th>
+              <th class="thsearch text-center">
+                <div style="color: #454545;">Edit</div>
+              </th>
+             
+              <th class="thsearch text-center">
+                <div style="color: #454545;">Delete</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class=" text-center" *ngFor="let item of mf.data ; let i = index ">
+              <td><input class="form-control" name="Category" id="Category" type="text" value="{{item.title}}" readonly style="border: hidden;"/>
+              <td><textarea class="form-control" rows="3" name="shortDescription" id="shortDescription" readonly>{{item.description}}</textarea></td>
+              <td>{{item.createdAt|date}}</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-primary" type="button" (click)="editNews(item._id)"><em
+                    class="fa fa-pencil"></em></button>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-danger" type="button" (click)="NewsDelete(item._id,i )"><em
+                    class="fa fa-trash-o"></em></button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="newsUpdate">
+  <div class="panel panel-default" style="margin-right: auto;width: 83%;margin-left: auto;">
+    <!-- <div class="panel-heading  text-bold bg-purple-dark">Add Registration Screen</div> -->
+    <div class="panel-body" style="margin-bottom: 1px;">
+      <form #f="ngForm">
+        <div>
+
+          <div class="row">
+            <label class="col-sm-2 control-label custom" style="margin-top: 16px;margin-left: auto;">News Title*</label>
+            <div class="col-sm-5">
+              <div class="panel-body mh0">
+                <input class="form-control" name="Category" id="Category" type="text" required placeholder="Title"
+                  [(ngModel)]="News.title" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-sm-2 control-label custom"
+              style="margin-top: 16px;margin-left: auto;">News*</label>
+            <div class="col-sm-5">
+              <div class="panel-body mh0">
+
+                <textarea class="form-control" rows="4" name="shortDescription" id="shortDescription" required
+                  [(ngModel)]="News.description"></textarea>
+              </div>
+            </div>
+
+            <div class="col-sm-2" style="margin-top: 78px;">
+              <div class="text-left">
+                <button class="btn btn-primary  s-n-btn" type="submit" data-style="expand-right"
+                  data-spinner-color="#000000" (click)="updateNews(News._id)" [disabled]="!f.valid">Update
+                </button>
+                <button type="button" class="btn btn-danger pull-right s-n-btn"
+                (click)="cancel()">Cancel</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- </fieldset> -->
+      </form>
+    </div>
+  </div>
+</div>

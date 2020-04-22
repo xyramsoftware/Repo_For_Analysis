@@ -1,0 +1,180 @@
+<div class="content-heading"> Feedback Report
+    <!-- <small>
+      Setting</small> -->
+  </div>
+  <!-- <div class="waiting-loader">
+    <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+  </div> -->
+  <div class="row">
+    <div class="col-sm-6">
+      <!-- START panel-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+       <p style="font-weight: 700;font-size: 19px;"> Feedback Count </p></div>
+        <div class="panel-body">
+          <form role="form" >
+            <div class="row">
+              <div class="col-md-2">
+                <label> Header Color*</label>
+              </div>
+              <div class="col-md-2">
+                <input class="form-control coustom-text" type="color" name="favcolor" value="#ffffff" id="favcolor" [(ngModel)]="headersettings.headercolor" placeholder="Enter Tax"
+                  />
+              </div>
+
+              <div class="col-md-2">
+                  <input class="form-control coustom-text" type="text" name="favcolor" id="favcolor" [(ngModel)]="headersettings.headercolor" placeholder="Enter code"
+                    />
+                </div>
+               
+               <div class="col-md-1"></div>
+
+               
+            </div>
+            <div class="row">
+
+                <div class="col-md-2">
+                    <label style="margin-top: 20px;"> Icon*</label>
+                  </div>
+
+                <div class="panel-body mh0 col-md-2">
+                    <div class=" fileUpload btn btn-primary choose-btn" >
+                      <span> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload Image</span>
+          
+                             <input type="file" name="upload" class="upload"  accept="image/*" 
+                             (change)="fileChange($event)"   (change)="readUrl($event)"  >
+                             
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                      <img class="media-object img-thumbnail thumb96" name="image" Required [src]="url" alt="Image"/>
+                    </div>
+                  <div ></div>
+                  <div  class="col-md-2" style="margin-top: 20px;"  *ngIf="displayupdatebutton">
+                      <button class="btn btn-primary  s-n-btn ladda-button" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"
+                        (click)="setheadcolor()">Save
+                      </button>
+                      </div> 
+  
+                      <div    style="margin-top: 20px;"  *ngIf="!displayupdatebutton">
+                          <button class="btn btn-success  s-n-btn ladda-button"  [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"
+                            (click)="setheadcolorUpdate1()">Update
+                          </button>
+                          </div>
+     
+            </div>
+            <div class="row" >
+              <div class="col-md-2"></div>
+                <p style="color: red;" *ngIf="showErrorMessageOnDashboardImage">Please upload DashBoard Image</p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- END panel-->
+    </div>
+ 
+    <div class="col-sm-6">
+      <!-- START panel-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <p style="font-weight: 700;font-size: 19px;"> Feedback Event count </p></div>
+         
+            <div class="panel-body">
+                <form role="form" >
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label> Header Color*</label>
+                    </div>
+                    <div class="col-md-2">
+                      <input class="form-control coustom-text" type="color" name="favcolor" value="#ffffff" id="favcolor" [(ngModel)]="Appsettings.headercolor" placeholder="Enter Tax"
+                        />
+                    </div>
+      
+                    <div class="col-md-2">
+                        <input class="form-control coustom-text" type="text" name="favcolor" id="favcolor" [(ngModel)]="Appsettings.headercolor" placeholder="Enter code"
+                          />
+                      </div>
+                     
+                     <div class="col-md-1"></div>
+      
+                     
+                  </div>
+                  <div class="row">
+      
+                      <div class="col-md-2">
+                          <label style="margin-top: 20px;"> Icon*</label>
+                        </div>
+      
+                      <div class="panel-body mh0 col-md-2">
+                          <div class=" fileUpload btn btn-primary choose-btn" >
+                            <span> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload Image</span>
+                
+                                   <input type="file" name="upload" class="upload"  accept="image/*" 
+                                   (change)="fileChange1($event)"   (change)="readUrl1($event)"  >
+                                   
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                            <img class="media-object img-thumbnail thumb96" name="image" Required [src]="url1" alt="Image"/>
+                          </div>
+                        <div ></div>
+                        <div  class="col-md-2" style="margin-top: 20px;"  *ngIf="displayupdatebutton1">
+                            <button class="btn btn-primary  s-n-btn ladda-button" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"
+                              (click)="setheadcolor1()">Save
+                            </button>
+                            </div> 
+        
+                            <div    style="margin-top: 20px;"  *ngIf="!displayupdatebutton1">
+                                <button class="btn btn-success  s-n-btn ladda-button"  [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"
+                                  (click)="setheadcolorUpdate12()">Update
+                                </button>
+                                </div>
+           
+                  </div>
+                  <div class="row" >
+                    <div class="col-md-2"></div>
+                      <p style="color: red;" *ngIf="showErrorMessageOnDashboardImage1">Please upload App Image</p>
+                  </div>
+                </form>
+              </div>
+      </div>
+      <!-- END panel-->
+    </div>
+  </div>
+  
+  <!--contact setting -->
+  <!-- <div class="row ">
+    <div class="col-sm-6">
+      START panel
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>Contact</strong> Settings</div>
+        <div class="panel-body">
+          <form role="form" (ngSubmit)="onSubmitContactSetting(g)" #g="ngForm">
+            <div class="row">
+              <div class="col-md-3">
+                <label> Email*</label>
+              </div>
+              <div class="col-md-9">
+                <input class="form-control coustom-text" type="text" name="email" id="email" [(ngModel)]="contactsettings.email" placeholder="Enter Email"
+                  required="true" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label> Number*</label>
+              </div>
+              <div class="col-md-9">
+                <input class="form-control coustom-text" type="text" name="number" id="number" [(ngModel)]="contactsettings.phoneNo" placeholder="Enter Number"
+                  required="true" />
+              </div>
+            </div>
+            <button class="btn btn-sm btn-success coustom-btn-save" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"
+              [disabled]="!g.valid">Save
+            </button>
+          </form>
+        </div>
+      </div>
+      END panel
+    </div>
+  </div> -->

@@ -1,0 +1,48 @@
+page-wishlist {
+    .heading {
+        font-size: 15px;
+        font-weight: 700;
+        color: $grey;
+      }
+      .carts {
+        position: absolute;
+        top: 5px !important;
+        right: 27px !important;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+    }
+    .cardclass{
+        background: white;
+        margin-top: 19px;
+        border-radius: 7%;
+      }
+      .eventlistclass{
+        padding: 20px;
+      }
+
+      .wishlistclass{
+        background: url("../assets/img/carousel_2.jpg") no-repeat center;
+        background-size: cover;
+          color: $white;
+          .layer {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        }
+        .eventheading{
+            font-size: 15px;
+            font-weight: 800;
+            
+          }
+
+          .cardclass {
+            background-color: #ffff;
+            margin-top: 19px;
+            border-radius: 7%;
+        }
+}

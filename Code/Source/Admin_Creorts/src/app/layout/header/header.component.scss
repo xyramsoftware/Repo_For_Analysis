@@ -1,0 +1,49 @@
+.titlelable
+{
+	margin-top : 0px !important;
+}
+.titlesmall
+{
+	margin-top : 5px !important;
+}
+a.navbar-brand
+{
+    color: #fafafa !important;
+}
+.lableh3
+{
+	margin-top: 5px;
+}
+
+.unread-class{
+	background: #ececec;
+}
+.msg-count{
+	position: relative;
+	.fa{font-size: 18px;}
+	span{
+	    	position: absolute;
+		    top: 1px;
+		    left: 7px;
+		    font-size: 10px;
+		    font-weight: 600;
+		    color: #fff;
+		}
+}
+
+
+.topnavbar .nav-wrapper {
+   // background-color: #05668c;
+   // background-image: linear-gradient(to right, #05668c 0%, #05668c 100%);
+	background-repeat: repeat-x;
+}
+
+
+@media only screen and (min-width: 300px){
+
+.topnavbar .navbar-header {
+   // background-color: #05668c;
+    //background-image: linear-gradient(to right, #05668c 0%, #05668c 100%);
+	background-repeat: repeat-x;
+}
+}

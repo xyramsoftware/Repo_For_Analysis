@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="center">
+
+        <div class="row justify-content-md-center">
+            <div class="loader" *ngIf="loading"></div>
+            <div class="col col-lg-4">
+
+                <form [formGroup]="referFriend">
+                    <!-- <div class="reg-inner"> -->
+                    <div class="row">
+                        <div class="col">
+                        </div>
+                    </div><br />
+                    <div class="creorts-black">
+                        <h6 style="color: white;text-align: center;">REFER A FRIEND</h6>
+                    <input type="text" formControlName="name" class="form-control mb-4" placeholder="Name"
+                    onKeyPress="if(this.value.length==50) return false;" required>
+                <div class="error"
+                    *ngIf="referFriend.controls['name'].errors?.required && referFriend.controls['name'].touched">
+                    *Name is required</div>
+                    <input type="number" class="form-control mb-4" ng-pattern="/^[0-9]{1,5}$/"  formControlName="phone"
+							placeholder="Enter a 10-digit Mobile Number*"
+							onKeyPress="if(this.value.length==10) return false ;" (keypress)="numberOnly($event)" required >
+						<div class="error"
+							*ngIf="referFriend.controls['phone'].errors?.required && referFriend.controls['phone'].touched">
+							*Mobile is required</div>
+						<div class="error"
+							*ngIf="referFriend.controls['phone'].errors?.validmobile && referFriend.controls['phone'].touched">
+							This Phone number already exists, Please try with different number
+						</div>
+						<div class="error"
+							*ngIf="referFriend.controls['phone'].errors?.pattern && referFriend.controls['phone'].touched">
+							This phone number should be 10 digits
+						</div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col col-lg-12" style="margin-top: -25px;">
+                            <button class="btn btn-info btn-block my-4" [disabled]="!referFriend.valid" name="register"
+                                type="submit" (click)="send()">REFER</button>
+                        </div>
+                    </div>
+
+                    <!-- </div> -->
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+
+            <div class="col-lg-6">
+
+                <div class="borde">
+                    <table>
+                        <tr><th colspan="3">Referred Friend's Details</th></tr>
+                        <tr>
+                           <th colspan="2" class="cell-breakWord">Name</th>
+                           <th colspan="1">Mobile</th>
+                        </tr>
+                        <tr *ngFor="let list of friendDetails"><td colspan="2" class="cell-breakWord">{{list.name}}</td><td>{{list.phone}}</td></tr>  
+                    </table>             
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" id="hideIE" viewBox="0 0 1440 320">
+                    <path fill="#F1B517" fill-opacity="1"
+                        d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+                    </path>
+                </svg>
+            </div>
+
+        </div>
+
+    </div>
+</div>

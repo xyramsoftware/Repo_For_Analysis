@@ -1,0 +1,124 @@
+<div class="content-heading"> Add Expense
+  <small>
+    <a [routerLink]=" ['/home'] ">Home</a> ->
+    <a [routerLink]="['/coupons/all']"> Expense Management </a>-> Add Expense
+  </small>
+</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <!-- START panel-->
+    <!-- <div class="waiting-loader" *ngIf="loading == true">
+      <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+    </div> -->
+    <div class="panel panel-default">
+      <div class="panel-heading" style=" background-color: #564aa3;color: aliceblue;">
+        New Expense</div>
+      <div class="panel-body">
+        <form (ngSubmit)="onSubExpense(f)" #f="ngForm">
+          <fieldset>
+            <label class="col-sm-2 control-label custom">Expense Item*</label>
+            <div class="col-sm-4">
+
+              <input class="form-control" type="text" name="expenseitem" id="expenseitem"
+                [(ngModel)]="expense.ExpenseItem" required />
+            </div>
+
+
+            <!-- <label  class="col-sm-2 control-label custom">Coupon Title*</label>
+          <div class="col-sm-4">
+          <input class="form-control" type="text" placeholder="Enter Coupon Title" name="coupanName" id="coupanName" [(ngModel)]="coupon.name"
+            required="true" />
+           </div> -->
+
+            <label class="col-sm-2 control-label custom">Date*</label>
+            <div class="col-sm-4">
+              <input class="form-control " type="date" name="date " id="date" [(ngModel)]="expense.Date" required />
+            </div>
+
+            <label class="col-sm-2 control-label custom" style="margin-top: 20px;">Invoice No*</label>
+            <div class="col-sm-4" style="margin-top: 20px;">
+
+              <input class="form-control" type="text"  name="invoiceno" id="invoiceno" [(ngModel)]="expense.InvoiceNo"
+                required />
+            </div>
+
+            <label class="col-sm-2 control-label custom" style="margin-top: 20px;">Expense Recorded By*</label>
+            <div class="col-sm-4" style="margin-top: 20px;">
+
+              <input class="form-control" type="text" name="recorderby" id="recorderby" [(ngModel)]="expense.RecorderBy"
+                required />
+            </div>
+
+            <label class="col-sm-2 control-label custom" style="margin-top: 20px;">Amount*</label>
+            <div class="col-sm-4" style="margin-top: 20px;">
+              <input class="form-control" type="number" name="amount" id="amount" (keypress)="numberOnly($event)" [(ngModel)]="expense.Amount"
+                required="true" />
+            </div>
+
+
+           
+              <div class="col-sm-2" style="margin-top: 20px;">
+                <div class=" fileUpload btn btn-primary choose-btn">
+                  <span> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload </span>
+                  <input type="file" class="upload" required ng2FileSelect [uploader]="uploader" accept="image/*"
+                    (change)="readUrl($event)" (change)="fileChange($event)">
+                </div>
+                 <p style="color: lightslategrey;">(jpg , jpeg , png )</p>
+                <!-- <p class="info">*Upload image of 400 x 200 px </p> -->
+
+              </div>
+              <div class="col-sm-2" style="margin-top: 20px;" *ngIf="url" >
+               <img  class="media-object img-thumbnail thumb96" [src]="url" alt="Image" (click)="show()"/>
+               <!-- <a href="{{url}}" (click)="download()">View File</a> -->
+              </div>
+              <!-- <div class="col-md-4" style="margin-top: 20px;" *ngIf="!filename==img">
+                <a (click)="download()">View File</a>
+               </div> -->
+              
+              <!--COL-->
+          
+
+          </fieldset>
+          <div class="form-group">
+            <div class="col-sm-10 pull-right">
+
+
+              <div class="col-sm-5">
+                <button class="btn btn-primary coustom-save-btn" type="submit
+                      " [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"
+                  [disabled]="!f.valid">Save
+                </button>
+              </div>
+
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-danger pull-right s-n-btn" style="margin-right:-85px;"
+                  (click)="cancel()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- END panel-->
+  </div>
+</div>
+
+
+
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+      </div>
+      <div class="modal-body">
+        <img [src]="url" id="imagepreview" style="width: 425px; height: 425px;" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click) = "hide()">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  

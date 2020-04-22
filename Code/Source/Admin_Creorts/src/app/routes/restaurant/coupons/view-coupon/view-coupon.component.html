@@ -1,0 +1,47 @@
+<div class="content-heading">View Users
+    <small>
+        <a [routerLink]=" ['/home'] ">Home</a> ->
+        <a [routerLink]="['/coupons/all']"> Manage Coupons </a>-> View Coupon
+    </small>
+</div>
+<div class="col-masonry">
+    <div class="panel b m0">
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <h4 class="media-heading">Name</h4>
+                        </div>
+                        <div class="col-lg-6">
+                            <p>{{couponDetails.name}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+
+                        <div class="col-lg-5">
+                            <h4 class="media-heading">Code</h4>
+                        </div>
+                        <div class="col-lg-6">
+                            <p>{{couponDetails.code}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <h4 class="media-heading">Offer %</h4>
+                        </div>
+                        <div class="col-lg-6">
+                            <p>{{couponDetails.offerPercentage}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

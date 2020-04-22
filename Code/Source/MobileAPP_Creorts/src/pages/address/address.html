@@ -1,0 +1,97 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title></ion-title> -->
+
+    <img class="logo" style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">
+    <ion-title>Creorts Sportival</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="address" padding>
+
+  <p  style="text-align: center;font-size: 20px;font-weight: 700;color:#ffff;">Team
+            Member Details</p>
+  <!-- <p style="text-align: center;font-size: 20px;color: #fff;">{{eventdata.eventdata.title}}</p> -->
+  <p style="text-align: center;font-size: 20px;color: #fff;">Team Name: {{eventdata.eventdata.teamdetails.TeamName}}</p>
+  <p style="text-align: center;font-size: 20px;color: #fff;">Team Captain: {{eventdata.eventdata.teamdetails.TeamCaptain}}</p>
+  <ion-card *ngFor="let category of teamdata">
+    <ion-list>
+      <ion-item>
+        <img src="{{category.thumb}}">
+        <ion-grid text-wrap class="gridclass">
+          <ion-row>
+            <ion-col col-4 class="align">
+              Name
+            </ion-col>
+            <ion-col col-2>
+              :
+            </ion-col>
+            <ion-col col-6>
+              {{category.Name}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid text-wrap class="gridclass">
+          <ion-row>
+            <ion-col col-4 class="align">
+              Phone
+            </ion-col>
+            <ion-col col-2>
+              :
+            </ion-col>
+            <ion-col col-6>
+              {{category.Mobile}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid text-wrap class="gridclass">
+          <ion-row>
+            <ion-col col-4 class="align">
+              Position
+            </ion-col>
+            <ion-col col-2>
+              :
+            </ion-col>
+            <ion-col col-6>
+              {{category.Position}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid text-wrap class="gridclass">
+          <ion-row>
+            <ion-col col-4 class="align">
+              DOB
+            </ion-col>
+            <ion-col col-2>
+              :
+            </ion-col>
+            <ion-col col-6>
+              {{category.DOB |date:'mediumDate'}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+        <ion-grid text-wrap class="gridclass">
+          <ion-row>
+            <ion-col col-4 class="align">
+              ID
+            </ion-col>
+            <ion-col col-2>
+              :
+            </ion-col>
+            <ion-col col-6>
+              {{category.TeamMemberId}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+
+
+</ion-content>

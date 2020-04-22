@@ -1,0 +1,147 @@
+.custom
+{
+	padding-top: 22px;
+}
+.panel{
+	box-shadow: none;
+	margin-bottom:auto;
+}
+.added-block{
+	padding:5px 0px;
+}
+.img-thumbnail {
+    border:0 !important;
+    padding:0;
+    border-radius:0;
+    }
+/* custon file upload */
+input[type="file"] {
+    display: block;
+    color: transparent;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+	}
+	.choose-btn{
+		padding:5px 15px;
+	}
+	.s-n-btn{
+	  margin-right: 1.3em;
+	}
+//     @media (min-width: 768px)
+//     {
+//     .col-sm-10 {
+//         width: 33.333333%;
+//     }
+// }
+
+.bg-purple-dark {
+    background-color: #07c
+    ;
+    color: #fff !important;
+}
+
+.allitems{
+    border-width: 1px;
+    border-style: groove;
+    margin-left: 15px;
+    height: 120px;
+    width: 203px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.selectcomp{
+
+    border-width:1px;  
+    border-bottom-style:groove;
+    width: 113%;
+    margin-left: -7px;
+}
+
+.selectcomp:hover{
+    background: #0077cc;
+    color: aliceblue;
+    cursor: pointer;
+}
+.rightarrow{
+    color: #0077cc;
+    font-size: 40px;
+    cursor: pointer;
+    margin-left: 17px;
+    margin-right: auto;
+}
+.testavilable{
+    color: red;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+
+.leftarrow{
+    color: #0077cc;
+    font-size: 40px;
+    cursor: pointer;
+    margin-left: 17px;
+    margin-right: auto; 
+}
+
+.centered {
+    position: absolute;
+    left: 50%;
+    color: green;
+    margin-left: 41%;
+    margin-top: -12px;
+    transform: translate(-50%, -50%);
+}
+
+.UlCatogory{
+    border-width: 1px;
+    border-style: ridge;
+    height: 64px;
+    overflow-y: auto;
+    width: 491px;
+    margin-left: 20px;
+    margin-top: -13px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 20px;
+  }
+
+
+  .list-area[_ngcontent-c8] {
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    margin: 0px;
+    box-shadow: 0px 1px 5px #959595;
+
+    .dropdown-list[_ngcontent-c8] ul[_ngcontent-c8] {
+        padding: 0px;
+        list-style: none;
+        overflow: auto;
+        margin: 0px;
+        height: 150px;
+    }
+    .hideoption { 
+        display:none; 
+        visibility:hidden; 
+        height:0; font-size:0; 
+      }
+
+}
+  

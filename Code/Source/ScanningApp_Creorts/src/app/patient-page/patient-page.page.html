@@ -1,0 +1,94 @@
+<ion-header >
+  <!-- <ion-toolbar class="new-background-color">
+    <ion-title class="title">{{data.Firstname}}
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="presentPopover($event)">
+                <ion-icon name="more"></ion-icon>
+              </button>
+          </ion-buttons>
+    </ion-title>
+  </ion-toolbar> -->
+
+  <ion-toolbar class="new-background-color">
+      <ion-buttons slot="secondary">
+        <ion-button (click)="profilepage()">
+          <ion-icon slot="icon-only" style="color: #fff;" name="contact"></ion-icon>
+        </ion-button>
+        <!-- <ion-button>
+          <ion-icon slot="icon-only" name="search"></ion-icon>
+        </ion-button> -->
+      </ion-buttons>
+      <ion-title class="title">{{PersonDetails.Firstname}}</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button  style="color: #fff;"  (click)="presentPopover($event)">
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    
+ 
+</ion-header>
+
+<!-- <ion-header>
+    <ion-navbar>
+        <ion-title> {{data.Firstname}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only color="royal"  class="header-btn-cart">
+                <ion-icon name="cart"></ion-icon>
+                <ion-badge class="carts" item-right color="danger">1</ion-badge>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header> -->
+
+<ion-content class="contentclass">
+    
+   <!-- <p class="patientitle">Patient List</p> -->
+
+    <ion-searchbar style="margin-top: 14px;margin-bottom: 11px;" (ionInput)="getItems($event)" ></ion-searchbar>
+    <ion-item  *ngIf="!NodataFound">
+        <ion-grid>
+          <ion-row>
+            <!-- <ion-col col-1 class="col1">
+              Id
+            </ion-col> -->
+            <ion-col col-4 class="col1">
+             First Name
+            </ion-col>
+            <ion-col col-4 class="col1">
+               Last Name
+              </ion-col>
+            <ion-col col-4 class="col1">
+              Final Status
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-list  >
+          <ion-item tappable *ngFor="let patient of patientlist; let Pindex  = index"  >
+            <ion-grid>
+              <ion-row (click)="selectedPatient(patient);">
+                <!-- <ion-col col-1 >
+                  <div class="itemclass col" id="qetitle">{{Pindex + 1}}</div>
+                </ion-col> -->
+                <ion-col col-4>
+                  <div  class="itemclass col" id="qetitle">
+                    {{patient.Firstname}}
+                  </div>
+                </ion-col>
+                <ion-col col-4>
+                    <div class="itemclass col" id="qetitle">{{patient.Lastname}}</div>
+                  </ion-col>
+                <ion-col col-4>
+                  <div class="itemclass col" id="qetitle">{{patient.Finalstatus}}</div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+
+        <p style="text-align: -webkit-center;color: red;font-size: 25px; margin-top: 44px;" *ngIf="NodataFound"> No Results Found</p>
+
+</ion-content>

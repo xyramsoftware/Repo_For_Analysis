@@ -1,0 +1,179 @@
+<ion-header hideBackButton="true">
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+    <img class="logo" style="height: 38px;margin-top: 6px;padding: -25px;" src="assets/img/logo4.png">
+    <ion-title>Creorts Sportival</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding class="login">
+  <div class="layer1">
+    <!-- <ion-item style="margin-top: 16px;width: 124px;">  -->
+    <p class="mainheading"  >Registration</p>
+    <!-- </ion-item> -->
+    <div>
+      <ion-list style="margin: 69px 17px 22px;">
+        <div >
+          <form [formGroup]="Self" style="margin-top: -46px;">
+
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+
+                  <ion-input type="text" placeholder="Name*" maxlength="50" formControlName="name"></ion-input>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+
+
+            <!-- <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-select  placeholder="Country*" formControlName="country" style="font-size: 100%;font-weight: 500;"  interface="popover">
+                    
+                  <ion-option *ngFor="let code of countries; let i = index"  style="color: black;" [value]=code.dial_code>{{code.dial_code}}-{{code.name}}</ion-option>
+                  
+                </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row> -->
+
+
+            <ion-row class="paddingrow">
+              <!-- <ion-col col-4>
+                <ion-item>
+                  <ion-select  placeholder="Code*" formControlName="Country" style="font-size: 100%;font-weight: 500;"  interface="popover">
+                    <ion-option value='code'>Code</ion-option>
+                  <ion-option *ngFor="let code of countries; let i = index"  style="color: black;" [value]=code.dial_code>{{code.name}}</ion-option>
+                  
+                </ion-select>
+                </ion-item>
+              </ion-col> -->
+
+              
+
+              <ion-col col-12>
+                <ion-item>
+                  <ion-input type="tel" minlength="10" maxlength="10" (input)="NumberValidation($event.target.value)"
+                    placeholder="Phone Number*" formControlName="phone"></ion-input>
+                </ion-item>
+               
+              </ion-col>
+              <p style="color:#ffff;font-size: 13px;margin: auto;text-align: center;" *ngIf="nubervalidatin">Enter a 10-digit Phone Number </p>
+            </ion-row>
+            <p *ngIf="showPhoneErrorMessage" style="color:#ffff;font-size: 13px;margin: auto;text-align: center;"> This Mobile
+              Number already exists,try with different Number.</p>
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-input type="email" placeholder="Email" (input)="EmailValidator($event.target.value)"
+                    formControlName="email"></ion-input>
+                </ion-item>
+              </ion-col>
+              <p style="color:#ffff;font-size: 13px;margin: auto;text-align: center;" *ngIf="EmailErrorMessage">Please
+                enter valid email </p>
+            </ion-row>
+
+
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-select style="font-size: 100%;font-weight: 500;min-width: 100%;" placeholder="Gender*" interface="popover"
+                    formControlName="gender" >
+                    <ion-option style="color: black;" value="Male">Male</ion-option>
+                    <ion-option value="Female">Female</ion-option>
+                    <ion-option value="Others">Others</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-datetime display-format="DD/MM/YYYY" [max]=date placeholder="DOB*" formControlName=DOB
+                    picker-format="YYYY-MM-DD"></ion-datetime>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-input type="text" placeholder="Place*" maxlength="50" formControlName="place"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-select style="font-size: 100%;font-weight: 500;min-width: 100%;" placeholder="Occupation*" interface="popover"
+                    formControlName="occupation" (ionChange)="selectOccupation($event)">
+
+                    <ion-option style="color: black;" value="Student">Student</ion-option>
+                    <ion-option value="Engineer">Engineer</ion-option>
+                    <ion-option value="Doctor">Doctor</ion-option>
+                    <ion-option value="Athlete">Athlete</ion-option>
+                    <ion-option value="Government Servent">Government Servant</ion-option>
+                    <ion-option value="Business">Business</ion-option>
+                    <ion-option value="Others">Others</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow" *ngIf="dislayschool">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-input type="text" placeholder="School/Collage Name"  formControlName="schoolName"></ion-input>
+                </ion-item>
+                <p style="color:#ffff;font-size: 13px;margin: auto;text-align: center;" *ngIf="entersschoolName">please fill School/Collage Name</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow" *ngIf="!dislayschool">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-input type="text" placeholder="Organisation" maxlength="50" formControlName="organisation"></ion-input>
+                </ion-item>
+                
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+
+                <button color="primary" class="login-btn" ion-button style="border: 2px solid #F1B517;"
+                  [disabled]="!Self.valid" (click)="NextButton()">Next</button>
+
+              </ion-col>
+            </ion-row>
+          </form>
+        </div>
+      </ion-list>
+
+      <ion-row>
+        <p class="validtionMessage" *ngIf="displyErrorMessage">please fill all the required fields</p>
+       
+        <p class="validtionMessage" *ngIf="displayeventerroermessage">please select events you are intrested in </p>
+      </ion-row>
+
+     
+
+    </div>
+
+  </div>
+</ion-content>

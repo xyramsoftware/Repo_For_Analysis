@@ -1,0 +1,114 @@
+<div class="content-heading">Users Detail
+  <div class="pull-right">
+    <label class="file-upload">
+      <!-- <a [routerLink]="'/users/addUser'">
+        <button class="btn btn-warning"><em class="fa fa-plus"></em>&nbsp;&nbsp; Add New User</button>
+      </a> -->
+    </label>
+  </div>
+  <!-- <small> -> Manage Users</small> -->
+</div>
+<div class="waiting-loader" *ngIf="loading == true">
+  <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+</div>
+<!-- Zero Configuration-->
+<div class="panel panel-default" *ngIf="loading == false">
+  
+  <div class="panel-heading">
+    <div class="row"><div class="col-md-3">All Users list</div>
+    <div class="col-md-9"><form (keyup)="getusename($event)" class="text-center" style="width: 400px;margin-right:30px;margin-left: auto; ;">
+      <div class="row">
+        <div class="col-md-3">
+          <label>Search</label>
+        </div>
+        <div class="col-md-6"><input class="form-control searchinput text-center" type="text" name="siteVal" id="siteVal" [(ngModel)]="siteVal"
+          width="200%" placeholder="RegId/Name/MobileNo" #siteName>
+          <p *ngIf="Nodatafound" style="text-align:center;font-size: 14px;color: red;margin-bottom: -8px;">No
+            Results Found</p></div>
+      </div>
+     
+    </form>
+  </div>
+  </div> 
+
+    
+  </div>
+
+  <div class="panel-body">
+
+    <div class="table-responsive b0">
+      <table class="table table-striped" [mfData]="users" #mf="mfDataTable" [mfRowsOnPage]="10">
+        <thead>
+          <tr>
+            <th class="thsearch text-center" >
+              <div style="color: #454545;">User Id</div>
+            </th>
+            <th class="thsearch text-center">
+              <div style="color: #454545;">Register Id</div>
+            </th>
+            <th class="thsearch text-center">
+
+              <div style="color: #454545;">Name</div>
+            </th>
+            <th class="thsearch text-center">
+              <!-- <mfDefaultSorter by="FirstName"> UserId</mfDefaultSorter> -->
+              <div style="color: #454545;"> Mobile </div>
+              <!-- <div style="color: #454545;"> Name </div> -->
+            </th>
+            <th class="thsearch text-center ">
+              <!-- <mfDefaultSorter by="email">Email</mfDefaultSorter> -->
+              <div style="color: #454545;"> Gender </div>
+              <!-- <div style="color: #454545;"> Email </div> -->
+            </th>
+            <!-- <th class="thsearch text-center thnosearch">
+            <mfDefaultSorter by="phone">Mobile Number</mfDefaultSorter>
+            <div style="color: #454545;"> Mobile Number </div>
+          </th> -->
+            <th class="thsearch text-center">
+              <div style="color: #454545;">Registered Date</div>
+            </th>
+            <th class="thsearch  text-center">
+              <!-- <mfDefaultSorter>View</mfDefaultSorter> -->
+              <div style="color: #454545;"> View </div>
+            </th>
+            <!-- <th class="thnosearch  text-center">
+            <mfDefaultSorter>Delete</mfDefaultSorter>
+          </th> -->
+            <!-- <th class="thnosearch  text-center">
+            
+            <div style="color: #454545;"> Status </div>
+          </th> -->
+            <!-- <th class="thnoitem"></th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of mf.data ; let i = index ">
+            <td class="text-center">{{item.UserID}}</td>
+            <td class="text-center">{{item.RegisterId}}</td>
+            <td class=" text-center">{{item.name}}
+            <td class=" text-center">{{item.phone}}
+            <td class=" text-center">{{item.gender}}</td>
+            <td class=" text-center">{{item.createdAt| date: 'mediumDate'}}</td>
+            <!-- <td class=" text-center" >{{item.Mobile}}</td> -->
+            <td class=" text-center">
+              <button class="btn btn-sm btn-default" type="button" (click)="usersShow(item._id)"><em
+                  class="fa fa-search"></em></button>
+            </td>
+            <!-- <td class=" text-center">
+            
+              <span class="label label-warning" *ngIf="item.status==false" (click)="deactiveuser(item)">Deactive</span>
+              <span class="label label-success" *ngIf="item.status==true" (click)="activeuser(item)">Active</span>
+          </td> -->
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="10">
+              <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

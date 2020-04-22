@@ -1,0 +1,255 @@
+<div class="content-heading ">
+    {{headerTitle}}
+    <small><a [routerLink]=" ['/home'] ">Home</a> ->
+        <a [routerLink]="['/users/manageUsers']">Users </a>->
+        <a [routerLink]="['/users/viewUser/',UserId]">View User </a>->
+        {{headerTitle}}
+    </small>
+</div>
+<div class="container-lg" *ngIf="divteam">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <div class="panel b">
+
+
+
+                <div class="col col-md-12">
+                    <div class="row">
+                        <div class="col-md-12" style="background-color: black;">
+                            <table align="center">
+                                <tr style="font-weight: bolder;font-size:20px; color:#f59a1f">
+                                    <td>Team Name</td>
+                                    <td>:</td>
+                                    <td>{{teamURL.teamdetails.TeamName}}</td>
+                                </tr>
+                                <tr style="font-weight: bolder;font-size:20px;color:#f59a1f">
+                                    <td>Team Captain</td>
+                                    <td>:</td>
+                                    <td>{{teamURL.teamdetails.TeamCaptain}}</td>
+                                </tr>
+                            </table>
+                            <!-- <h4 style="text-align: center;color:#f59a1f"><strong>Team Name: </strong>{{teamURL.teamdetails.TeamName}}
+                           </h4>
+
+                            <h4 style="text-align: center;color:#f59a1f"><strong>Captain:
+                                </strong>{{teamURL.teamdetails.TeamCaptain}}</h4> -->
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3" *ngFor="let player of team">
+
+                            <div class="profile-card" style="border: 1.5px solid #e99f5d; word-break:break-all">
+
+
+                                <div class="text-center">
+                                    <img src="{{player.URL}}" class="card-img" width="100%">
+                                </div>
+                                <table align="center">
+                                    <tr style="font-weight: bolder;font-size:15px;color:#0c0b0b">
+                                        <td>ID</td>
+                                        <td>:</td>&nbsp;
+                                        <td>{{player.TeamMemberId}}</td>
+                                    </tr>
+                                    <tr style="font-weight: bolder;font-size:15px;color:#0c0b0b">
+                                        <td >Name</td>
+                                        <td>:</td>&nbsp;
+                                        <td style="word-break: break-all;">{{player.Name}}</td>
+                                    </tr>
+                                    <tr style="font-weight: bolder;font-size:15px;color:#0c0b0b">
+                                        <td>DOB</td>
+                                        <td>:</td>&nbsp;
+                                        <td>{{player.DOB|date}}</td>
+                                    </tr>
+                                    <tr style="font-weight: bolder;font-size:15px;color:#0c0b0b">
+                                        <td>Mobile</td>
+                                        <td>:</td>&nbsp;
+                                        <td>{{player.Mobile}}</td>
+                                    </tr>
+                                    <tr style="font-weight: bolder;font-size:15px;color:#0c0b0b">
+                                        <td>Position</td>
+                                        <td>:</td>&nbsp;
+                                        <td style="word-break: break-all;">{{player.Position}}</td>
+                                    </tr>
+                                </table>
+
+
+
+                            </div>
+                            <br />
+
+                        </div>
+                       
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="divaccompany">
+    <div class="row">
+        <div class="col-md-1"></div>
+           <div class="col-md-10">
+                <div class="col col-md-10">
+
+                    <div class="profile-card" style="border: 1.5px solid #e99f5d;background: #d4db7082;">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-1" style="font-weight: bolder;font-size:15px;color:#290c0c ;">
+                                <br />
+                                <div class="profile-card" style="border: transparent;color: black;margin-left: 20px;">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                           <strong>RegisterId</strong> 
+                                        </div>
+                                        <div class="col-sm-2">
+                                           <strong>:</strong> 
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                           <strong>{{accompany.RegisterId}}</strong> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Name</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <strong>:</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                           <strong>{{accompany.name}}</strong> 
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                           <strong>Mobile</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                           <strong> : </strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                            <strong>{{accompany.phone}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Gender</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <strong>:</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                            <strong>{{accompany.gender}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="accompany.email">
+                                        <div class="col-sm-4">
+                                            <strong>Email</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <strong>:</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                            <strong>{{accompany.email}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>DOB</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                           <strong> :</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                           <strong> {{accompany.DOB | date}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <strong>Place</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                           <strong> :</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                           <strong> {{accompany.place}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                           <strong> Occupation</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                           <strong> :</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                            <strong>{{accompany.occupation}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="accompany.organisation">
+                                        <div class="col-sm-4">
+                                            <strong>Organisation</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                           <strong> :</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                           <strong> {{accompany.organisation}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="accompany.schoolName">
+                                        <div class="col-sm-4">
+                                           <strong> School/College</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <strong>:</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                           <strong> {{accompany.schoolName}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                           <strong> Relationship</strong>
+                                        </div>
+                                        <div class="col-sm-2">
+                                           <strong> :</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="word-break: break-all;">
+                                            <strong>{{accompany.relationship}}</strong>
+                                        </div>
+                                    </div>
+                                  </div>
+
+
+                            </div>
+                            <div class="col-md-4">
+                                <div>
+                                    <img src="{{accompany.URL}}" class="card-img" width="120%" frameborder="0"
+                                        style="border:0;" allowfullscreen="" alt="accompany-qr-code">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            
+
+
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

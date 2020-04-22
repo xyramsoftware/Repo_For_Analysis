@@ -1,0 +1,222 @@
+<div class="content-heading">Events
+  <div class="pull-right">
+    <label class="file-upload">
+      <a [routerLink]="'/Events/addindividualEvents'">
+        <button class="btn btn-warning"><em class="fa fa-plus"></em>&nbsp;&nbsp; Add New Events</button>
+      </a>
+    </label>
+  </div>
+  <br/><br/>
+  <!-- <small><a [routerLink]=" ['/home'] ">Home</a> -> Events</small> -->
+</div>
+
+<div class="panel panel-default" style="margin-right: auto;width: 83%;margin-left: auto;">
+  <!-- <div class="panel-heading  text-bold bg-purple-dark">Add Registration Screen</div> -->
+  <div class="panel-body" style="margin-bottom: -33px;">
+      <form  #f="ngForm">
+        <fieldset>
+          <div  >
+          <div  class="row" >
+          <label class="col-sm-2 control-label custom"  style="margin-top: 16px;margin-left: auto;">Event Date*</label>
+          <div class="col-sm-3"> 
+              <div class="panel-body mh0">
+                <input class="form-control" name="eventDate"   id="eventdate" type="date" required placeholder="EventDate" [(ngModel)]="event.EventDate"
+                />
+              </div>
+          </div>
+
+          
+
+          <div class="col-sm-2" style="margin-top: 16px;"  >
+            <div class="text-left">
+              <button class="btn btn-primary  s-n-btn" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"  (click)="SaveEvntDate()" 
+                >Save
+              </button>
+            </div>
+            </div>
+
+            
+
+           
+
+           
+          </div >
+          <div class="row" style="margin-left: 20px;" >
+             <div >
+            <button style="margin-right: 19px;margin-bottom: 8px;width: 150px;background-color: #151875a8;color: white;" *ngFor="let date of eventdates" class="btn">{{date.EventDate | date:'mediumDate'}}<i style="margin-left: 20px;" (click)="deletedate(date)" class="fa fa-close"></i></button>
+          </div>
+          </div>
+          
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+
+</div>
+
+<div class="panel panel-default" style="margin-right: auto;width: 83%;margin-left: auto;">
+  <!-- <div class="panel-heading  text-bold bg-purple-dark">Add Registration Screen</div> -->
+  <div class="panel-body" style="margin-bottom: -33px;">
+      <form  #f="ngForm">
+        <fieldset>
+          <div  >
+          <div  class="row" >
+          <label class="col-sm-2 control-label custom"  style="margin-top: 16px;margin-left: auto;">Category*</label>
+          <div class="col-sm-3"> 
+              <div class="panel-body mh0">
+                <input class="form-control" name="Category"   id="Category" type="text" required placeholder="Category" [(ngModel)]="Category.categoryName"
+                />
+              </div>
+          </div>
+
+          
+
+          <div class="col-sm-2" style="margin-top: 16px;"  >
+            <div class="text-left">
+              <button class="btn btn-primary  s-n-btn" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"  (click)="SaveCategory()" [disabled]="!f.valid"
+                >Save
+              </button>
+            </div>
+            </div>
+
+            
+
+           
+
+           
+          </div >
+          <div class="row" style="margin-left: 20px;" >
+             <div >
+            <button style="margin-right: 19px;margin-bottom: 8px;width: 150px;background-color: #151875a8;color: white;" *ngFor="let date of CategoryList" class="btn">{{date.categoryName }}<i style="margin-left: 20px;" (click)="deleteCatogory(date)" class="fa fa-close"></i></button>
+          </div>
+          </div>
+          
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+
+</div>
+<div class="waiting-loader" *ngIf="loading == true">
+    <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+</div>
+
+  <!-- order table -->
+
+  <div class="panel panel-default" *ngIf="loading == false">
+      <div class="panel-heading">Events Details</div>
+      <div class="table-responsive b0 ">
+        
+          <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10"  [mfActivePage]="3">
+              <thead>
+              <tr>
+                  <th class="" style="padding-bottom: 45px !important;">
+                      
+                         <div style="color: #454545;"> SL NO </div>
+                       </th>
+                  <!-- <th class="thsearch text-center" style="padding-bottom: 45px !important;">
+                      
+                         <div style="color: #454545;"> Code </div>
+                       </th> -->
+                <th class="text-center">
+                  <mfDefaultSorter by="title">Name</mfDefaultSorter>
+                
+                  <form (keyup)="getCategory(siteName.value)" style="margin-left: auto;width: 196px;margin-right: auto;">
+                    <input class="form-control searchinput" type="text" name="siteVal"
+                           id="siteVal" [(ngModel)]="siteVal"
+                           placeholder="Search" #siteName>
+                  </form>
+                  <p  *ngIf="Nodatafound"style="text-align:center;font-size: 14px;color: red;margin-bottom: -8px;">No Results Found</p>
+                </th>
+
+                <th class="text-center" style="padding-bottom: 45px !important;">
+                  
+                  <div style="color: #454545;"> Event Date</div>
+                </th>
+
+                <th class="text-center" style="padding-bottom: 45px !important;">
+                  
+                     <div style="color: #454545;"> Start Time</div>
+                   </th>
+
+                   <th class="text-center" style="padding-bottom: 45px !important;">
+                  
+                    <div style="color: #454545;"> End Time</div>
+                  </th>
+         
+              
+                <!-- <th class="text-center" style="padding-bottom: 45px !important;">
+                  
+                     <div style="color: #454545;"> Cost </div>
+                   </th> -->
+                 
+                <!-- <th class="text-center" style="padding-bottom: 45px !important;">
+                  
+                     <div style="color: #454545;"> Type </div>
+                   </th> -->
+                <th class="text-center" style="padding-bottom: 45px !important;">
+               
+                  <div style="color: #454545;"> Edit </div>
+                </th>
+              
+                <th class="text-center" style="padding-bottom: 45px !important;">
+               
+                  <div style="color: #454545;"> Delete </div>
+                </th>
+                <!-- <th class=" ">
+                
+                  <div style="color: #454545;"> View </div>
+                </th> -->
+        
+                <!-- <th class="thnoitem"></th> -->
+              </tr>
+              </thead>
+              <tbody>
+              <tr class=" " *ngFor="let itemdata of mf.data ;let i = index ">
+                  <td class="text-center" >{{itemdata.SLNumber}}</td>
+                  <!-- <td class="text-center" >{{itemdata.code}}</td> -->
+                 
+                <td class="text-center" >{{itemdata.title}}</td>
+                <td class="text-center" >{{itemdata.EventDate  | date:'mediumDate'}}</td>
+                <td class="text-center" >{{itemdata.startTime}}</td>
+                <td class="text-center" >{{itemdata.endTime}}</td>
+                
+                
+                <!-- <td class="text-center">{{itemdata.price[0].price}}</td>
+                <td class="text-center">{{itemdata.selector}}</td> -->
+                <td class="text-center">
+                  <button class="btn btn-sm btn-primary" type="button" (click)="categoryEdit(itemdata._id)"><em
+                    class="fa fa-pencil"></em></button>
+                </td>
+                <td class="text-center">
+                  <button class="btn btn-sm btn-danger" type="button" (click)="EventDelete(itemdata._id,i )"><em
+                    class="fa fa-trash-o"></em></button>
+                </td>
+                <!-- <td>
+                  <button class="btn btn-sm btn-default" type="button" (click)="categoryShow(itemdata._id)"><em
+                    class="fa fa-search"></em></button>
+                </td> -->
+        
+              </tr>
+              </tbody>
+              
+              <tfoot>
+                  
+              <tr>
+                <td colspan="10" class="customPagination">
+                  <mfBootstrapPaginator  ></mfBootstrapPaginator>
+                </td>
+              </tr>
+              </tfoot>
+            </table>
+  
+          
+    
+      <div class="panel-footer">
+        <div class="row">
+    
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,57 @@
+<!--
+  Generated template for the Register5Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title></ion-title> -->
+    
+    <img class="logo"  style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">  
+    <ion-title>Creorts Sportival</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="login">
+
+  <div  class="layer1">
+
+    <p style="text-align: center;color: #fff;font-size: 20px;margin-top: 31px;margin-bottom: 20px;"> Cultural Events</p>
+    <ion-row>
+      <ion-col col-12  >
+          <ion-list >
+                  <ion-item *ngFor="let event of displayeventlist"  style="margin-bottom: 15px;height: 45px;background: black;color: #F1B517;border: 2px solid #F1B517;">
+                    <ion-label text-wrap >{{event.title}}</ion-label>
+                    <ion-checkbox slot="end"   [checked]=event.checked   (click)="checkboxOptions(event)"  ></ion-checkbox>
+                  </ion-item>
+                </ion-list>                 
+  </ion-col>
+    </ion-row>
+
+
+    
+
+  <ion-row class="paddingrow"   >
+    <ion-col col-12>
+           
+        <button style="margin-bottom: 21px;border: 2px solid #F1B517;color: #F1B517;" color="primary" class="login-btn" ion-button  (click)="register()" >register </button>
+      
+    </ion-col>
+</ion-row>
+
+
+    
+    
+ 
+
+
+
+  </div>
+
+
+</ion-content>

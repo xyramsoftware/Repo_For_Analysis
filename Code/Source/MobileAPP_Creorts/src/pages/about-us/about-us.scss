@@ -1,0 +1,60 @@
+page-about-us {
+
+  .toolbar-title-md {
+    margin-top: -43px;
+    padding: 0px 73px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffff;
+}
+
+.gridclass{
+  margin-top: -2px;
+  border-bottom: 1px solid #c8c7cc;
+  font-size: 14px;
+  color: black;
+  text-transform: capitalize;
+}
+  p{
+color:#6d6d6d;
+}
+   ion-slides {
+    height: 250px;
+    margin-top: -13px;
+   
+}
+.wrapper{margin-top: -14px;}
+  .slider-img {
+        height: 220px;
+        width: 100%;
+        position: relative;
+        z-index: -111;
+      }
+   .card-title {
+      position: absolute;
+    top: 77%;
+    font-size: 2.2rem;
+    width: 100%;
+    font-weight: bold;
+    color: #6d6d6d;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 8px;
+    }
+     .heading{
+      color:#6d6d6d;
+      padding: 0 10px;
+     }
+     .details{
+      color:#6d6d6d;
+      padding: 0 10px;
+      text-align: justify;
+      line-height: 1.45;
+     }
+   .card-content {
+    border-bottom: 1px solid;
+    border-color: rgba(0,0,0,0.1);
+    color: #6d6d6d;
+    font-size: 1.6rem;
+}
+
+}

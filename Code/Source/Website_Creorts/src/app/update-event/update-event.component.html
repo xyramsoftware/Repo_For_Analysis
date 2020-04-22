@@ -1,0 +1,125 @@
+<div class="container">
+
+    <div class="center">
+
+        <div class="row justify-content-md-center">
+            <div class="loader" *ngIf="loading"></div>
+        </div>
+
+        <form [formGroup]="repteam">
+            <div *ngIf="eventCount > 0 && !paymentPage">
+
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-5">
+                        <div class="creorts-black">
+
+                            <div *ngFor="let categoryList of categoryMasterList">
+                                <div
+                                    *ngIf="(categoryList?.eventType === 'Individual Event') && (categoryList.categoryName === 'Sports')">
+                                    <div *ngIf="categoryList.count > 0">
+
+                                        <h6>{{categoryList.categoryName}} {{categoryList.eventType}}</h6>
+
+                                        <div *ngFor="let event of categoryList?.events">
+                                            <div *ngIf="!event.isSelected">
+                                                <mdb-checkbox
+                                                    (change)="openDialog($event, event, categoryList.eventType)"
+                                                    [default]="true" [value]="true" [checked]="event.checked">
+                                                    {{event.title}}</mdb-checkbox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div *ngFor="let categoryList of categoryMasterList">
+                                <div
+                                    *ngIf="(categoryList?.eventType === 'Team Event') && (categoryList.categoryName === 'Sports')">
+                                    <div *ngIf="categoryList.count > 0">
+
+                                        <h6>{{categoryList.categoryName}} {{categoryList.eventType}}</h6>
+
+                                        <div *ngFor="let event of categoryList?.events">
+                                            <div *ngIf="!event.isSelected">
+                                                <mdb-checkbox
+                                                    (click)="openDialog($event, event, categoryList.eventType)"
+                                                    [default]="true" [value]="true" [checked]="event.checked"
+                                                    (change)="event.checked=!event.checked" [checked]="event.checked">
+                                                    {{event.title}}</mdb-checkbox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div *ngFor="let categoryList of categoryMasterList">
+                                <div
+                                    *ngIf="(categoryList?.eventType === 'Individual Event') && (categoryList.categoryName === 'Cultural')">
+                                    <div *ngIf="categoryList.count > 0">
+
+                                        <h6>{{categoryList.categoryName}} {{categoryList.eventType}}</h6>
+
+                                        <div *ngFor="let event of categoryList?.events">
+                                            <div *ngIf="!event.isSelected">
+                                                <mdb-checkbox
+                                                    (change)="openDialog($event, event, categoryList.eventType)"
+                                                    [default]="true" [value]="true" [checked]="event.checked">
+                                                    {{event.title}}</mdb-checkbox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <div>
+                                <div *ngIf="userdetails.representingTeam">
+                                    <input type="text" class="form-control mb-4" formControlName="representingTeam"
+                                        placeholder="Representing Team" readonly style="margin-top: 37px;width: 384px;">
+                                </div>
+                                <div *ngIf="!userdetails.representingTeam">
+                                    <input type="text" class="form-control" formControlName="representingTeam"
+                                        placeholder="Representing Team"
+                                        onKeyPress="if(this.value.length==50) return false ;">
+                                    <div class="error" style="margin-top: -2px;"
+                                        *ngIf="repteam.controls['representingTeam'].errors?.required && repteam.controls['representingTeam'].touched">
+                                        *Representing Team is required
+                                    </div>
+                                    <div class="error" style="margin-top: -2px;" *ngIf="noEvent">
+                                        Please select atleast 1 event
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="paymentPage">
+                <div class="row">
+                    <div class="col col-md-5">
+                        <i class="fas fa-arrow-left fa-lg" title="Go back to Profile" (click)=hideThis()></i><br><br>
+                    </div>
+                </div>
+                <app-payment-gateway></app-payment-gateway>
+            </div>
+        </form>
+        <div *ngIf="eventCount == 0 && flag">
+            <div class="creorts-black">
+                <div class="row">
+                    <div class="col">
+                        <p style="color: #f1b517;">No Events Found!</p>
+                        <p style="color: #f1b517;">You have already Registered for all the Events.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center" *ngIf="eventCount > 0 && !paymentPage">
+            <div class="col col-lg-4">
+                <button class="btn btn-info btn-block my-4" name="register" type="submit" (click)=update()>Update
+                    Events</button>
+            </div>
+        </div>
+    </div>
+</div>

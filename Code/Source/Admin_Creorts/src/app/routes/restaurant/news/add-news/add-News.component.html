@@ -1,0 +1,60 @@
+<div class="content-heading ">
+  Add New Carousels
+  <!-- <small><a [routerLink]=" ['/home'] ">Home</a> ->
+    <a [routerLink]="['/news/manageNews']"> Manage News </a>->
+    Add News
+  </small> -->
+</div>
+<div class="container-md">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-9">
+      <div class="panel b">
+        <div class="panel-heading  text-bold bg-purple-dark">Add carousels</div>
+        <div class="panel-body">
+          <form (ngSubmit)="onSubmitNews(f)" #f="ngForm">
+
+            <!-- <div class="form-group">
+              <label>Title*</label>
+              <input class="form-control" type="text" name="title" id="title" required [(ngModel)]="carousels.title" />
+            </div>
+            <div class="form-group">
+              <label>Description*</label>
+              <textarea class="form-control" rows="4" name="shortDescription" id="shortDescription" required
+                [(ngModel)]="carousels.shortDescription"></textarea>
+            </div> -->
+            <div class="form-group">
+              <label>Image Order*</label>
+              <input class="form-control" type="number" min="1" max="100" name="order" id="order" required
+                [(ngModel)]="carousels.ImageOrder" />
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4">
+                <div class=" fileUpload btn btn-primary choose-btn">
+                  <span> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload *</span>
+                  <input type="file" class="upload" required ng2FileSelect [uploader]="uploader" accept="image/*"
+                    (change)="readUrl($event)" (change)="fileChange($event)">
+                </div>
+                <!-- <p class="info">*Upload image of 400 x 200 px </p> -->
+
+              </div>
+              <div class="col-md-6">
+                <img class="media-object img-thumbnail thumb96" [src]="url" alt="Image" />
+              </div>
+              <!--COL-->
+            </div>
+            <button type="button" class="btn btn-danger pull-right s-n-btn" (click)="cancel()">Cancel</button>
+            <button class="btn btn-primary pull-right s-n-btn" type="submit" [ladda]="isLoading"
+              data-style="expand-right" data-spinner-color="#000000" [disabled]="!f.valid ">Save
+            </button>
+            <p>
+              <small class="text-muted">* Required Fields</small>
+            </p>
+            <!-- <p  *ngIf="isFileSelected" style="color: red;font-size: 18px; " >Image size exceeded, Please upload Image size less than {{ImageSize}}</p> -->
+            <p *ngIf="imageuplaoderroer" style="font-size: 18px;color: red;margin-left: 0px;">Please Select Image</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

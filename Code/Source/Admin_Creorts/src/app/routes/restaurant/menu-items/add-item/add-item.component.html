@@ -1,0 +1,96 @@
+<div class="content-heading"> Add Registration Screen
+  <small>
+    <a [routerLink]=" ['/home'] ">Home</a> ->
+    <a [routerLink]="['/Category/manageCategory']"> Registration Screens </a>-> Add Registration Screen
+  </small>
+</div>
+<div class="container-md">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="panel b">
+        <div class="panel-heading  text-bold bg-purple-dark">Add Registration Screen</div>
+        <div class="panel-body">
+
+
+
+          <form  #f="ngForm">
+            <fieldset>
+
+            
+              <div class="row">
+              <label class="col-sm-3 control-label custom" for="title">No.of Registration Screens*</label>
+              <!-- <div class="col-sm-4">
+                <div class="panel">
+                  <div class="panel-body mh0">
+                    <input class="form-control" name="ScreenNumber" (change)="onChange($event)"  (keypress)="onKeyPressNumber($event)" id="ScreenNumber" type="number" required placeholder="Registration Screens Number" [(ngModel)]="category.Number" min="1"
+                    />
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="col-md-1 added-block">
+                <button class="btn btn-sm btn-info" type="button" (click)="removeChoice()">
+                  <em class="fa fa-minus"></em>
+                </button>
+              </div>
+              <div class="col-md-1 added-block">
+               <p style="margin-left: 10px;font-size: 20px;font-weight: 600;"> {{NoofScreens}} </p>
+              </div>
+              <div class="col-md-1 added-block">
+                <button class="btn btn-sm btn-info" type="button" (click)="addNewChoice()">
+                  <em class="fa fa-plus"></em>
+                </button>
+              </div>
+
+              
+
+
+              </div>
+              
+              <div  *ngFor="let screen of ScreenArray;let i = index">
+              <div class="row" >
+              <label class="col-sm-2 control-label custom" for="title">Screen Title*</label>
+              <div class="col-sm-3">
+                <div class="panel">
+                  <div class="panel-body mh0">
+                    <input class="form-control" name="ScreenName-{{i}}"  (keypress)="onKeyPress($event)" id="ScreenName" type="text" required placeholder="Screen Title" [(ngModel)]="screen.screenTitle"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <label class="col-sm-2 control-label custom" for="title">Screen Number*</label>
+              <div class="col-sm-3">
+                <div class="panel">
+                  <div class="panel-body mh0">
+                    <input class="form-control" name="ScreenNumber-{{i}}"  (keypress)="onKeyPress($event)" id="ScreenName" type="number" required placeholder="Screen Number" [(ngModel)]="screen.screenNo"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-2" style="margin-top: 16px;" *ngIf="screen.saved">
+                <div class="text-right">
+                  <button class="btn btn-primary  s-n-btn" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"  (click)="Save(screen)"
+                    >Save
+                  </button>
+                </div>
+                </div>
+              </div>
+              
+              </div>
+
+            </fieldset>
+          
+          </form>
+
+         
+       
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

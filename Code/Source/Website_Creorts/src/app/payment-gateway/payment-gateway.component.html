@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <div class="payment">
+        <h6 class="text-center">Price details</h6>
+        <div class="border">
+          <div class="row" style="font-weight: 300;" *ngFor="let payment of Event?.paymentEvents">
+            <div class="col-sm-10">
+              {{payment.title}}
+            </div>
+            <div class="col-sm-2">
+              {{payment.price}}
+            </div>
+          </div>
+          <div class="row" style="font-weight: 500;">
+            <div class="col-sm-10">
+              Total amount to be paid
+            </div>
+            <div class="col-sm-2">
+              {{totlamount}}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <h6 class="text-center"> Payment options</h6>
+      <div class="payment">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <input name="payment" type="radio" class="with-gap" id="cod" (click)="codShow()">
+              <label for="cod"><strong> Cash on Delivery (COD)</strong></label>
+            </div> -->
+
+      <form [formGroup]="paymentForm">
+        <div class="form-group">
+          <div style="text-align: center;">
+            <label id="example-radio-group-label">
+              <h6 style="color: black;">Payment options</h6>
+            </label>
+          </div>
+
+          <mat-radio-group #rGroup aria-labelledby="example-radio-group-label" formControlName="paymentType"
+            class="example-radio-group">
+            <div class="payment">
+              <div class="row">
+                <div class="col-sm-8">
+                  <mat-radio-button class="example-radio-button" radioGroup="rGroup" value="paypal"
+                    (click)="paypalCheck()">
+                    Paypal
+                  </mat-radio-button>
+                </div>
+                <div class="col-sm-4">
+                  <img style="background-color: white;" src="assets/images/PayPal-PNG.png" width="100px">
+                </div>
+              </div>
+            </div>
+            <div class="payment">
+              <div class="row">
+                <div class="col-sm-8">
+                  <mat-radio-button class="example-radio-button" radioGroup="rGroup" value="stripe"
+                    (click)="stripeCheck()">
+                    Stripe
+                  </mat-radio-button>
+                </div>
+                <div class="col-sm-4">
+                  <img style="background-color: white;" src="assets/images/Stripe_logo.png" width="100px">
+                </div>
+              </div>
+            </div>
+            <div class="payment">
+              <mat-radio-button class="example-radio-button" radioGroup="rGroup" value="cod" (click)="codShow()">
+                COD
+              </mat-radio-button>
+            </div>
+          </mat-radio-group>
+
+          <div class="payment" *ngIf="stripe">
+            <div class="container">
+    
+              <!-- CREDIT CARD FORM STARTS HERE -->
+              <div class="panel panel-default credit-card-box">
+    
+                <div class="panel-body">
+                  <form role="form" id="payment-form">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <input type="tel" class="form-control" name="cardNumber" placeholder="Card Number"
+                              autocomplete="cc-number" required autofocus />
+                            <!-- <span class="input-group-addon"><i class="fa fa-credit-card fa-2x"></i></span> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-7 col-md-7">
+                        <div class="form-group">
+                          <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YYYY"
+                            autocomplete="cc-exp" required />
+                        </div>
+                      </div>
+                      <div class="col-xs-5 col-md-5 pull-right">
+                        <div class="form-group">
+                          <input type="tel" class="form-control" name="cardCVC" placeholder="Card Code" autocomplete="cc-csc"
+                            required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="name" placeholder="Card Holder's Name"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" style="display:none;">
+                      <div class="col-xs-12">
+                        <p class="payment-errors"></p>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- CREDIT CARD FORM ENDS HERE -->
+            </div>
+          </div>
+
+          <button *ngIf="!islogin()" type="button" [disabled]="!paymentForm.valid" class="btn btn-main btn-block my-4" ripple-radius
+            (click)="register()">Pay
+            Now</button>
+
+          <button *ngIf="islogin()" type="button" [disabled]="!paymentForm.valid" class="btn btn-main btn-block my-4" ripple-radius
+            (click)="update()">Pay
+            Now</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

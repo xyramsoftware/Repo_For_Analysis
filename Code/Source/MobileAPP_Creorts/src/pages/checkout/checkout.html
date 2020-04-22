@@ -1,0 +1,139 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title></ion-title> -->
+    
+    <img class="logo"  style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">  
+    <ion-title>Creorts Sportival</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+
+  <div class="layer1">
+  <!-- <ion-card>
+
+    <ion-grid text-wrap class="gridclass"  *ngFor="let events of  paymentevent" >
+          <ion-row>
+            <ion-col   col-3 class="align" style="text-align: left;">
+                {{events.title}}  
+            </ion-col>
+            <ion-col col-2>
+                      :
+               </ion-col>
+            <ion-col col-6 >
+                {{events.price}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+  </ion-card> -->
+
+  <ion-card>
+                    
+                 
+    <ion-card-header>
+          <p style="color: rgb(0, 5, 7); font-size:13px;    margin-left:135px"><strong>Price Details</strong></p>   
+          <!-- <strong>  Price Details</strong> -->
+    </ion-card-header>
+   
+    <ion-card-content>
+          <ion-item style="font-size: 15px; border-top-style: groove; border-width: 3px; border-style: groove;">     
+      <!-- Add card content here! -->
+
+         <ion-item style=" margin-top:-16px; font-size: 13px;"   *ngFor="let events of  paymentevent">
+
+          {{events.title}}  <div item-end>  <i class="fa fa-rupee"></i>     {{events.price}}</div>
+
+         </ion-item>
+         <!-- <ion-item style=" margin-top:-10px; font-size: 13px;" *ngIf="serviceCharge != null">
+          
+              Phlebotomy Charges  <div item-end>  <i class="fa fa-rupee"></i> {{serviceCharge}} </div>
+          
+        </ion-item> -->
+       
+        <ion-item style=" margin-top:-10px; font-size: 13px;" text-wrap >
+          
+              <strong>  Total Amount to be paid  </strong><div item-end style="color: rgb(236, 14, 14);font-weight: bold;">   <i class="fa fa-rupee" ></i> {{totlpayment}} </div>
+          
+        </ion-item>
+      </ion-item>
+    </ion-card-content>
+  
+  </ion-card>
+
+
+  <ion-list radio-group class="radio-list">
+  <p class="card-title">{{"Payment Options" | translate}}</p>
+     <ion-list radio-group >
+      <ion-row class="card-type">
+         <ion-col col-12 *ngFor=" let payment of paymentTypes">
+           <ion-item class="radio-item">
+               <ion-label>{{payment.type}}</ion-label>
+               <ion-radio item-left value="{{payment.value}}" checked={{payment.default}} 
+                     (ionSelect)="choosePaymentType(payment.type)"></ion-radio>
+
+                      <img *ngIf="payment.logo" src="{{payment.logo}}" item-right>
+           </ion-item>
+         </ion-col>
+      </ion-row>
+    </ion-list>
+    <h6 class="form-title"></h6>
+        <section class="payment" *ngIf="orderData.paymentOption =='Stripe'">
+        <form #f="ngForm">
+    <ion-list class="form-data">
+    <ion-item>
+      <ion-input type="number" name="cardNumber" id="cardNumber" placeholder="Card Number"
+          [(ngModel)]=cardInfo.cardNumber required></ion-input>
+          <ion-icon name="card" item-right></ion-icon>
+    </ion-item>
+
+   <ion-row class="form-half">
+    <ion-col col-2>
+    <ion-item >
+      <ion-input type="number" name="month" id="month" placeholder="MM"
+           [(ngModel)]=cardInfo.expiryMonth required></ion-input>
+    </ion-item>
+    </ion-col>
+    <ion-col col-4>
+    <ion-item>
+      <ion-input type="number" name="year" id="year" placeholder="YYYY"
+            [(ngModel)]=cardInfo.expiryYear required></ion-input>
+            <ion-icon name="calendar" item-right></ion-icon>
+    </ion-item>
+    </ion-col>
+    <ion-col col-6>
+    <ion-item class="right">
+      <ion-input type="number" name="cvv" id="cvv" placeholder="Card Code"
+            [(ngModel)]=cardInfo.cvc required></ion-input>
+             <ion-icon name="code" item-right></ion-icon>
+    </ion-item>
+    </ion-col>
+   </ion-row>
+    <ion-item>
+      <ion-input type="text" name="cardName" id="cardName" placeholder="Card Holder's Name" required></ion-input>
+          <ion-icon name="person" item-right></ion-icon>
+    </ion-item>
+</ion-list>
+</form>
+ </section>
+ <div class="btn-wrapper"  *ngIf="!updateevent">
+      <button ion-button full  type="button" style="border: 2px solid #F1B517;"
+         [disabled]="orderData.paymentOption =='Stripe' && (!cardInfo.cardNumber || !cardInfo.expiryMonth || !cardInfo.expiryYear || !cardInfo.cvc)" 
+          (click)="checkout()">
+            {{"Pay Now" | translate}}
+      </button>
+  </div>
+
+  <div class="btn-wrapper" *ngIf="updateevent" >
+    <button ion-button full  type="button"  style="border: 2px solid #F1B517;"
+       [disabled]="orderData.paymentOption =='Stripe' && (!cardInfo.cardNumber || !cardInfo.expiryMonth || !cardInfo.expiryYear || !cardInfo.cvc)" 
+        (click)="checkoutupdate()">
+        {{"Pay Now" | translate}}
+    </button>
+</div>
+</ion-list>
+</div>
+</ion-content>

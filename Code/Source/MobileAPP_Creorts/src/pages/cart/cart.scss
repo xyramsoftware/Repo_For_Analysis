@@ -1,0 +1,57 @@
+page-cart {
+
+
+
+  .toolbar-title-md {
+    margin-top: -43px;
+    padding: 0px 72px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffff;
+}
+
+
+  .imageclass{
+    margin-right: auto;
+    height: 210px;
+    margin-left: auto;
+    padding: 18px;
+    width: 321px;
+
+  }
+
+  .QRclass{
+    margin-right: auto;
+    margin-left: auto;
+    padding: 18px;
+   
+  }
+  .mainheading{
+    text-align: center;
+     font-size: 21px;
+     color: cadetblue;
+     font-weight: 500;
+  }
+  .gridclass{
+    margin-top: -2px;
+    border-bottom: 1px solid #c8c7cc;
+    font-size: 14px;
+    color: black;
+    text-transform: capitalize;
+  }
+  .gridclass1{
+    margin-top: -2px;
+    border-bottom: 1px solid #c8c7cc;
+    font-size: 14px;
+    color: black;
+  }
+  .eventclass{
+    background: url("../assets/img/ISC1.png") no-repeat center;
+    background-size: cover;
+      color: $white;
+    }
+
+    .align{
+      text-align: end;
+    }
+}

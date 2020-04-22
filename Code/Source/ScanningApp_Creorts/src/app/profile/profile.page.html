@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar class="new-background-color">
+        <ion-buttons slot="start" style="color: #fff">
+            <ion-back-button defaultHref="/patient-page"></ion-back-button>
+          </ion-buttons>
+      <ion-title style="color: #fff"> Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <!-- <p class="patientinfo"> Information</p> -->
+        <ion-card-content >
+            <ion-item>
+                <ion-icon name="person" style="color: #f15f6b;font-size: 19px;margin-top: -5px;"></ion-icon>&nbsp;&nbsp;
+                <p  class="patientdata"  > Doctor Name : </p>
+                 <ion-col col-8>
+                <p class="ptext">{{PersonDetails.Firstname}}&nbsp; {{PersonDetails.Lastname}}</p>
+                </ion-col>
+            </ion-item>
+        </ion-card-content>
+    
+        <ion-card-content >
+            <ion-item >
+                <ion-icon name="call" style="color: #f15f6b;font-size: 19px;margin-top: -5px;"></ion-icon>&nbsp;&nbsp;
+                <p  class="patientdata" >Mobile : </p>
+                 <ion-col col-8>
+                <p class="ptext"> {{PersonDetails.phone}} </p>
+                </ion-col>
+            </ion-item>
+        </ion-card-content>
+        <ion-card-content >
+            <ion-item >
+                <ion-icon class="checked" style="font-size: 19px;margin-top: -5px;color: #f15f6b;" name="mail"></ion-icon>&nbsp;&nbsp;
+                <p  class="patientdata" >Email : </p>
+                 <ion-col col-8>
+                <p class="ptext"> {{PersonDetails.email}}</p>
+                </ion-col>
+            </ion-item>
+        </ion-card-content>
+        
+    </ion-card>
+
+</ion-content>

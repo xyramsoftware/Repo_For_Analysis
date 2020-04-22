@@ -1,0 +1,226 @@
+<div class="content-heading">View Feedback
+  <small><a [routerLink]=" ['/home'] ">Home</a> ->
+    <a [routerLink]="['/order/allOrder']"> View Feedback </a>->
+    Feedback details
+  </small>
+</div>
+<div class="panel panel-default" style="width: 80%;margin-left: 68px;" *ngIf="overallFeedback">
+  <div class="panel-heading" style="background-color: black; color:#fab635">
+    <table align="center">
+      <thead>
+        <tr style="font-size: large;">
+
+          <th><i class="fa fa-user">&nbsp;{{userDetails.name}}</i> <i
+              class="fa fa-phone">&nbsp;{{userDetails.phone}}</i></th>
+        </tr>
+
+      </thead>
+    </table>
+  </div>
+  <div class="panel-body" style=" border: 1.5px solid #e99f5d;
+  background: #d4db7082;color: black;">
+      <fieldset>
+
+        <div style="padding: 20px;">
+
+          <div class="row">
+
+            <label style="padding: 20px 0px 0px 0px; font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">1. How do you
+              rate the organization of the Event?</label>
+
+            <div class="col-sm-6" style="padding: 10px 20px 8px;">
+              <!-- <input class="form-control"   [(ngModel)]="fieldname" type="test"
+                   /> -->
+              <label>{{feedbackDetails.rateOrganization}}</label>
+
+              <label></label>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-7 control-label custom"
+              for="title">2. How do you
+              rate the venue of the Event?</label>
+            <div class="col-sm-6" style="padding: 10px 20px 8px;">
+              <div class="">
+                <label>{{feedbackDetails.rateEvent}}</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">3. Comments on
+              what you liked most and Why?</label>
+            <div class="col-sm-8" style="padding: 10px 20px 8px;">
+              <div class="">
+                <!-- <label>{{feedbackDetails.objective}}</label> -->
+                <textarea class="form-control"   [(ngModel)]="feedbackDetails.positiveComments"
+                  type="test"  disabled="true" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">4. Comments on what you liked least, and suggestions for improvement </label>
+            <div class="col-sm-8" style="padding: 10px 20px 8px;">
+              <div class="">
+                <!-- <label>{{feedbackDetails.experience}}</label> -->
+                <textarea class="form-control"   [(ngModel)]="feedbackDetails.negativeComments"
+                  type="test"  disabled="true" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">5. Do you feel
+              that our objective of Bringing Life back to Life,by breaking out of the mechanical life has been triggered
+              by Sportival?</label>
+            <div class="col-sm-8" style="padding: 10px 20px 8px;">
+              <div class="">
+                <!-- <label>{{feedbackDetails.partofNextSportival}}</label> -->
+                <textarea class="form-control"  
+                  [(ngModel)]="feedbackDetails.objective" type="test"  disabled="true"
+                  rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">6.Is there
+              anything else you would like us to know about your experience?</label>
+            <div class="col-sm-8" style="padding: 10px 20px 8px;">
+              <div class="">
+                <!-- <label>{{feedbackDetails.positiveComments}}</label> -->
+                <textarea class="form-control"  
+                  [(ngModel)]="feedbackDetails.experience" type="test"  disabled="true"
+                  rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">7.Do you wish to be part of next sportival?</label>
+            <div class="col-sm-8" style="padding: 10px 20px 8px;">
+              <div class="">
+                <!-- <label>{{feedbackDetails.negativeComments}}</label> -->
+                <textarea class="form-control"  
+                  [(ngModel)]="feedbackDetails.partofNextSportival" type="test"  disabled="true"
+                  rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </fieldset>
+
+    
+  </div>
+
+</div>
+
+
+
+<div class="panel panel-default" style="width: 80%;margin-left: 68px;" *ngIf="eventFeedback">
+  <div class="panel-heading" style=" color:#fab635;background-color:black">
+    <table align="center">
+      <thead>
+        <tr>
+          <th style="font-size: large;">
+            <i class="fa fa-calendar" aria-hidden="true">&nbsp; {{feedbackEventDetails.EventName}}</i>
+          </th>
+        </tr>
+      </thead>
+    </table>
+    <table align="center">
+      <thead>
+        <tr style="font-size: medium;">
+
+          <th><i class="fa fa-user">&nbsp;{{EventuserDetails.name}}</i> <i
+              class="fa fa-phone">&nbsp;{{EventuserDetails.phone}}</i></th>
+        </tr>
+
+      </thead>
+    </table>
+  </div>
+  <div class="panel-body" style=" border: 1.5px solid #e99f5d;
+  background: #d4db7082;color: black;">
+
+
+ 
+      <fieldset>
+
+        <div style="padding: 20px;">
+
+          <div class="row">
+
+            <label style="padding: 20px 0px 0px 0px; font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">1. How do you
+              rate the organization of the Event?</label>
+
+            <div class="col-sm-6" style="padding: 10px 20px 8px;">
+              <!-- <input class="form-control"   [(ngModel)]="fieldname" type="test"
+                   /> -->
+              <label>{{feedbackEventDetails.rateOrganization}}</label>
+
+              <label></label>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-7 control-label custom"
+              for="title">2. How do you
+              rate the venue of the Event?</label>
+            <div class="col-sm-6" style="padding: 10px 20px 8px;">
+              <div class="">
+                <label>{{feedbackEventDetails.rateEvent}}</label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">3. Comments on
+              what you liked most and Why?</label>
+            <div class="col-sm-8" style="padding: 10px 20px 8px;">
+              <div class="">
+                <!-- <label>{{feedbackDetails.positiveComments}}</label> -->
+                <textarea class="form-control"  
+                  [(ngModel)]="feedbackEventDetails.positiveComments" type="test" 
+                  disabled="true" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label style="padding: 20px 0px 0px 0px;font-weight: 500;" class="col-sm-9 control-label custom"
+              for="title">4. Comments on what you liked least, and suggestions for improvement</label>
+            <div class="col-sm-8" style="padding: 10px 20px 8px;">
+              <div class="">
+                <!-- <label>{{feedbackDetails.negativeComments}}</label> -->
+                <textarea class="form-control"  
+                  [(ngModel)]="feedbackEventDetails.negativeComments" type="test" 
+                  disabled="true" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </fieldset>
+
+    
+  </div>
+
+</div>

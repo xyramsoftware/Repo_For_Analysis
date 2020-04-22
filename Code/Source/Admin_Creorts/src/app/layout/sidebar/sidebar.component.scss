@@ -1,0 +1,11 @@
+a{
+    color: #ff902b
+}
+
+.sidebar .nav > li.active > a > em, .sidebar .nav > li.open > a > em {
+    color: #fafafa;
+}
+.sidebar .nav > li.active {
+    border-left-color: #fafafa;
+    color:white;
+    }

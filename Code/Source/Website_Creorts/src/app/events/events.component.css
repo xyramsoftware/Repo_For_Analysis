@@ -1,0 +1,70 @@
+.btn {
+    border: none;
+    outline: none;
+    width: 146px;
+    background-color:#f1b517;
+    height: 146px;
+    padding: 10px 16px;
+    margin: 5px 8px;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.active, .btn:hover {
+  border: none;
+  outline: none;
+  width: 146px;
+  background-color:#cea234;
+  height: 146px;
+  padding: 10px 16px;
+  margin: 5px 8px;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+  .active h6, .btn:hover h6, h6{
+    color:#060709;
+  }
+
+.container {
+  padding-top: 3px;
+}
+
+.qr-image {
+  border: 5px outset #060709 ;
+}
+
+.event {
+  margin: 10px;
+}
+
+.event-inner {
+  padding: 10px 20px;
+  background-color: #f1b517;
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  height: 100%;
+}
+
+h4{
+  color:#060709;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  svg[xmlns$="/svg"] {
+    width: 100%; 
+  }
+}
+
+.ie11 svg[xmlns$="/svg"] {
+  width: 100%; 
+}
+
+.feedback{
+  text-align: center;
+	padding: 5px;
+	background-color: #060709;
+	border: 3px solid #f1b517;
+	color: #f1b517;
+	width: 200px;
+}

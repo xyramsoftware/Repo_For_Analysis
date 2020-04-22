@@ -1,0 +1,106 @@
+<div class="container">
+	<form [formGroup]=" AccompanyingPersonForm">
+
+		<div class="row justify-content-md-center">
+			<div class="col col-md-5">
+				<div class="creorts-black">
+                  <div class="loader" *ngIf="loading"></div>
+					<div class="text-center">
+						<h4 style=" color: white;">Accompany Registration</h4>
+					</div><br />
+
+
+					<input type="text" formControlName="name" class="form-control mb-4" placeholder="Name*" onKeyPress="if(this.value.length==50) return false;" required>
+					<div class="error"
+						*ngIf="AccompanyingPersonForm.controls['name'].errors?.required && AccompanyingPersonForm.controls['name'].touched">
+						*Name is required</div>
+
+						<select class="form-control mb-4" placeholder="Gender" formControlName="gender">
+							<option value="" disabled selected>Gender*</option>
+							<option>Male</option>
+							<option>Female</option>
+							<option>Others</option>
+						</select>
+						<div class="error"
+							*ngIf="AccompanyingPersonForm.controls['gender'].errors?.required && AccompanyingPersonForm.controls['gender'].touched">
+							*Gender is required</div>
+
+					<select class="form-control mb-4" placeholder="Relationship" formControlName="relationship"
+						id="relationship">
+						<option value="" disabled selected>Relationship*</option>
+						<option>Spouse</option>
+						<option>Father</option>
+						<option>Mother</option>
+						<option>Son</option>
+						<option>Daughter</option>
+						<option>Guardian</option>
+						<option>Dependent</option>
+					</select>
+					<div class="error"
+						*ngIf="AccompanyingPersonForm.controls['relationship'].errors?.required && AccompanyingPersonForm.controls['relationship'].touched">
+						*Relationship is required</div>
+
+					<input type="number" class="form-control mb-4" formControlName="phone" placeholder="Mobile*" required
+						onKeyPress="if(this.value.length==10) return false;" (keypress)="numberOnly($event)">
+					<div class="error"
+						*ngIf="AccompanyingPersonForm.controls['phone'].errors?.required && AccompanyingPersonForm.controls['phone'].touched">
+						*Mobile is required</div>
+					<div class="error"
+						*ngIf="AccompanyingPersonForm.controls['phone'].errors?.pattern && AccompanyingPersonForm.controls['phone'].touched">
+						*Mobile number shuold have 10 digits</div>
+
+					<input type="email" class="form-control mb-4" formControlName="email" placeholder="Email">
+					<div class="error"
+						*ngIf="AccompanyingPersonForm.controls['email'].errors?.pattern && AccompanyingPersonForm.controls['email'].touched">
+						*Not a valid email</div>
+
+						<div class="input-group">
+							<input class="form-control mb-4" placeholder="Date Of Birth*" formControlName="DOB" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'"  [max]="ageLimit">
+						</div>
+						<div class="error" style="margin-top: -25px"
+							*ngIf="AccompanyingPersonForm.controls['DOB'].errors?.required && AccompanyingPersonForm.controls['DOB'].touched">
+							*DOB is required</div>
+
+					<input type="text" class="form-control mb-4" formControlName="place" placeholder="Place*" onKeyPress="if(this.value.length==50) return false ;" required>
+					<div class="error"
+						*ngIf="AccompanyingPersonForm.controls['place'].errors?.required && AccompanyingPersonForm.controls['place'].touched">
+						*Place is required</div>
+
+					<select class="form-control mb-4" placeholder="Occupation" #o formControlName="occupation"
+						id="occupation">
+						<option value="" disabled selected>Occupation*</option>
+						<option>Student</option>
+						<option>Engineer</option>
+						<option>Doctor</option>
+						<option>Athlete</option>
+						<option>Government Servant</option>
+						<option>Business</option>
+						<option>Others</option>
+					</select>
+					<div class="error"
+						*ngIf="AccompanyingPersonForm.controls['occupation'].errors?.required && AccompanyingPersonForm.controls['occupation'].touched">
+						*Occupation is required
+					</div>
+					<div *ngIf="o.value!='Student'">
+						<input type="text" class="form-control mb-4" formControlName="organisation"
+							placeholder="Organisation" onKeyPress="if(this.value.length==50) return false ;">
+					</div>
+					<div *ngIf="o.value == 'Student'">
+						<input type="text" class="form-control mb-4" formControlName="schoolName"
+							placeholder="School / College*" onKeyPress="if(this.value.length==50) return false ;">
+						<div class="error"
+							*ngIf="AccompanyingPersonForm.controls['schoolName'].errors?.required && AccompanyingPersonForm.controls['schoolName'].touched">
+							*School / College is required</div>
+					</div>
+				</div>
+
+				<div class="row justify-content-md-center">
+					<div class="col col-md-5">
+						<button class="btn btn-block my-4"  name="register"
+							type="submit" (click)="onRegister()">REGISTER</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

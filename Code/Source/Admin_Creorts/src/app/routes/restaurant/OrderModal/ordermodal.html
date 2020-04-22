@@ -1,0 +1,38 @@
+
+
+
+
+<div class="modal-dialog" style="width: 100%;">
+    <div class="modal-header modal-header-primary">
+        <button type="button" style="margin-top: -26px;" class="close" (click)="closePartnerDetails()">&times;</button>
+      
+     
+    </div>
+    <div class="modal-body">
+        <div class="details-content">
+    
+            <img src="{{image}}" style="width: 100%;height: 468px;">
+                      </div>
+      
+        </div>
+    </div>
+ 
+        
+  <div class="modal-footer">
+    <div class=" rightAlign">
+            <button class="btn btn-primary btn-ip-theme  hvr-sweep-to-right"  (click)="DwonloadIMage()" > 
+                    
+                   <a  target="_blank"   href="{{url}}" download><i class="fa fa-download" aria-hidden="true" style="color: white;margin-left: -3px;margin-right: 6px;"></i>
+                 <span class="exportexle" style=" color: white;"> Download </span>
+                 </a>
+                 </button>
+        <button (click)="closePartnerDetails()" id="btnCloseDetails"  class="btn btn-primary btn-ip-theme  hvr-sweep-to-right">Close</button>
+      
+    </div>
+
+    
+
+    </div>
+
+
+   

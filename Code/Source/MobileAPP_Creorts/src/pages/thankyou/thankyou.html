@@ -1,0 +1,160 @@
+<ion-header  hideBackButton="true" 
+>
+
+        <ion-navbar>
+            
+            <img class="logo"  style="height: 30px;margin-top: 6px;padding: -25px;margin-left: 26px;height: 38px;" src="assets/img/logo4.png">
+            <ion-title>Creorts Sportival</ion-title>
+        </ion-navbar>
+      
+      </ion-header>
+      
+
+<ion-content class="page-content">
+    <div>
+    <ion-row *ngIf="type == 'volunteer'">
+            <ion-col col-12>
+                <p style="margin-bottom: 20px;text-align: center;font-size: 20px;margin-top: 105px;"> Volunteer registration was successful.</p> <br>
+              
+            </ion-col>
+    </ion-row>
+
+    <ion-row >
+        <ion-col col-12>
+            <p class="reg2" > Thank you for registering with us</p> <br>
+          
+        </ion-col>
+      </ion-row>
+    <!-- <ion-row >
+        <ion-col col-12>
+            <p class="reg2" >  Registration was successful.</p> <br>
+          
+        </ion-col>
+      </ion-row> -->
+      <ion-row *ngIf="type == 'puckupAndDrop'">
+        <ion-col col-12>
+            <p style="margin-bottom: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 21px;
+            color: green;"> puckupAndDrop Request was successful.</p> <br>
+          
+        </ion-col>
+     </ion-row>
+      <ion-row *ngIf="type == 'update'">
+        <ion-col col-12>
+            <p style="margin-bottom: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 21px;
+            color: green;"> Events are updated succesfully.</p> <br>
+          
+        </ion-col>
+     </ion-row>
+      <ion-row *ngIf="type == 'Accomodation'">
+        <ion-col col-12>
+            <p style="margin-bottom: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 21px;
+            color: green;"> Accomodation Request was successful.</p> <br>
+          
+        </ion-col>
+      </ion-row>
+       <ion-row *ngIf="type == 'accompany'">
+        <ion-col col-12>
+            <p style="margin-bottom: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 21px;
+            color: green;"> Accompany Person registration was successful.</p> <br>
+          
+        </ion-col>
+     </ion-row>
+    <!-- <ion-row>
+            <ion-col col-12>
+                <p>An Email with registration details  was sent to your registered email id. </p>
+            </ion-col>
+    </ion-row> -->
+    <!-- <ion-row>
+            <ion-col col-12>
+                <p>QR code image is mandatory for entrance. Please save it for future reference.</p>
+            </ion-col>
+    </ion-row> -->
+    </div>
+
+    <!-- <ion-card style="padding: 20px;margin-top: 64px;margin-bottom: 27px;" *ngIf="type == 'registration'">
+            <p  style="color: #2e5ec9b8;font-size: 17px;text-align: center;font-weight: 600;border-bottom: 1px solid #c8c7cc;">  {{'Thank you !' | translate}}</p>
+            <br>
+            <ion-row style="display: flex;" class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">Registration was successful.  Thank you for registering at 107th Indian Science Congress, 2020.</span></p></ion-col>
+            </ion-row>
+            <ion-row style="display: flex;"class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">An Email with registration details and QR code image was sent to your registered email id.</span></p></ion-col>
+            </ion-row>
+           
+            <ion-row style="display: flex;"class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">QR code image is mandatory for entrance. Please save it for future reference.</span></p></ion-col>
+            </ion-row>
+            
+            
+    </ion-card>
+
+    <ion-card style="padding: 20px;margin-top: 64px;margin-bottom: 27px;" *ngIf="type == 'puckupAndDrop'">
+            <p  style="color: #2e5ec9b8;font-size: 17px;text-align: center;font-weight: 600;border-bottom: 1px solid #c8c7cc;">  {{'Thank you !' | translate}}</p>
+            <br>
+            <ion-row style="display: flex;" class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">Local Pickup and Drop request was successful.  Thank you for raising a request at 107th Indian Science Congress, 2020.</span></p></ion-col>
+            </ion-row>
+            <ion-row style="display: flex;"class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">An email with request details was sent to your registered email id. </span></p></ion-col>
+            </ion-row>
+           
+            <ion-row style="display: flex;"class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">Please save the details for future reference.</span></p></ion-col>
+            </ion-row>
+            
+            
+    </ion-card>
+
+    <ion-card style="padding: 20px;margin-top: 64px;margin-bottom: 27px;" *ngIf="type == 'Accommodation'">
+            <p  style="color: #2e5ec9b8;font-size: 17px;text-align: center;font-weight: 600;border-bottom: 1px solid #c8c7cc;">  {{'Thank you !' | translate}}</p>
+            <br>
+            <ion-row style="display: flex;" class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">Accommodation request was successful.  Thank you for raising a request at 107th Indian Science Congress, 2020.</span></p></ion-col>
+            </ion-row>
+            <ion-row style="display: flex;"class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">An email with request details was sent to your registered email id. 
+                        </span></p></ion-col>
+            </ion-row>
+           
+            <ion-row style="display: flex;"class="rowclass">
+                    <ion-col col-1 style="font-size: 13px;margin-top: 4px;color: gray;"><ion-icon name="arrow-round-forward"></ion-icon> </ion-col> 
+                    <ion-col col-11 >  <p><span style="font-size: 15px;color: gray;">Please save the details for future reference.</span></p></ion-col>
+            </ion-row>
+            
+            
+    </ion-card> -->
+    <!-- <ion-row>
+        <ion-col col-12>
+            <div class="thanks">
+                <h2>{{'Thank you !' | translate}}</h2>
+                <p>
+                </p>
+            </div>
+        </ion-col>
+    </ion-row> -->
+    <button ion-button outline class="continue-btn" (click)="home()">Home</button>
+</ion-content>

@@ -1,0 +1,109 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon (click)="changeColor()" name="menu"></ion-icon>
+        </button>
+        <!-- <ion-title></ion-title> -->
+        <ion-title>Creorts Sportival</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="login">
+    <div class="layer" >
+        <div>
+            <img class="logo" src="assets/img/logo4.png">
+            <!--inputs-->
+            <!--email-->
+            
+            <form [formGroup]="user" (ngSubmit)="onLogin()">
+                <ion-row>
+                    <ion-col col-12>
+                        <ion-item>
+                            <ion-label>Phone:</ion-label>
+                            <ion-input type="tel" minlength="10" maxlength="10"
+                                (input)="NumberValidation($event.target.value)" formControlName="phone"></ion-input>
+                        </ion-item>
+                        <p style="color:#F1B517;font-size: 13px;margin: auto;text-align: center;"
+                            *ngIf="nubervalidatin">Enter a 10-digit Phone Number</p>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12>
+                        <button color="primary" style="border: 2px solid #F1B517;" class="login-btn" ion-button
+                            [disabled]="!user.valid">{{"Login" | translate}}</button>
+                    </ion-col>
+                </ion-row>
+            </form>
+
+
+            <ion-row *ngIf="Usernameerror">
+                <ion-col col-12>
+                    <p style="text-align: center;font-size: 16px;color: #F1B517;"> Please check UserName & Password</p>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="passworderror">
+                <ion-col col-12>
+                    <p style="text-align: center;font-size: 16px;color: #F1B517;"> Please check UserName & Password</p>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="loginerrermessage">
+                <ion-col col-12>
+                    <p style="text-align: center;font-size: 16px;color:#F1B517;">Not a Registered user, Please Register
+                        first</p>
+                </ion-col>
+            </ion-row>
+
+            <p style="text-align: center;font-size: 20px;color: #F1B517;margin-top: 2px;">OR</p>
+
+
+            <ion-row>
+                <ion-col col-12>
+                    <a (click)="Register()">
+                        <p text-center style="color: #F1B517;font-size: 24px;margin-top: -15px;">Register now</p>
+                    </a>
+                </ion-col>
+            </ion-row>
+        </div>
+
+
+        <!-- <ion-row>
+            <ion-col col-12 text-center>
+              <span >
+           <img class="social-icon" (click)="doFbLogin()" src="assets/img/fb.png">
+         </span>
+                <span    >
+           <img class="social-icon"  (click)="DogoogleLogin()" src="assets/img/g+.png">
+         </span>
+            </ion-col>
+        </ion-row>  -->
+    
+
+ <!-- <a style="color: yellow;
+         font-size: 21px;" href="{{FACEBOOK_AUTH_URL}}">FB login</a>
+         <a style="color: yellow;
+         font-size: 21px;" href="{{GOOGLE_AUTH_URL}}">google login</a> -->
+    
+                <!-- <span (click)="twitterLogin()">
+           <img class="social-icon" src="assets/img/twitter.png">
+         </span> -->
+    </div>
+
+
+   
+
+</ion-content>
+
+<!-- <ion-footer style="background: #F1B517;">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+        style="margin-top: -99px;border:none;margin-bottom: -2px;">
+        <path fill="#F1B517" fill-opacity="1"
+            d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+        </path>
+    </svg>
+
+</ion-footer> -->

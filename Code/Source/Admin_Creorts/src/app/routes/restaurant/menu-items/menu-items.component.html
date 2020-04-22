@@ -1,0 +1,118 @@
+<div class="content-heading">Registration Screen
+ 
+    <small> Registration Screen</small>
+  </div>
+
+  <div class="panel panel-default" style="margin-right: auto;width: 83%;margin-left: auto;">
+      <!-- <div class="panel-heading  text-bold bg-purple-dark">Add Registration Screen</div> -->
+      <div class="panel-body" style="margin-bottom: -33px;">
+          <form  #f="ngForm">
+            <fieldset>
+              <div  >
+              <div class="row" >
+              <label class="col-sm-2 control-label custom"  style="margin-top: 16px;margin-left: auto;">Screen Title*</label>
+              <div class="col-sm-3"> 
+                  <div class="panel-body mh0">
+                    <input class="form-control" name="Screenname"   id="Screenname" type="text" required placeholder="Screen Title" [(ngModel)]="screen.screenTitle"
+                    />
+                  </div>
+              </div>
+
+              <label class="col-sm-2 control-label custom"  style="margin-top: 19px;">Screen Order Number*</label>
+              <div class="col-sm-3">  
+                  <div class="panel-body mh0">
+                    <input class="form-control" name="Screennumber"   id="Screennumber" type="number" required (input)='onInputTime($event.target.value)' (ionChange)='onChangeTime($event.target.value)' placeholder="Screen Number" [(ngModel)]="screen.screenNo"
+                    />
+                  </div>
+                  <p style="color: red;" *ngIf="displaypriority">This Number is alrady taken Please choose another</p>
+              </div>
+
+              <div class="col-sm-2" style="margin-top: 16px;"  *ngIf="!dipslayupdate">
+                <div class="text-left">
+                  <button class="btn btn-primary  s-n-btn" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"  (click)="Savedata(screen)" [disabled]="!f.valid"
+                    >Save
+                  </button>
+                </div>
+                </div>
+
+                <div class="col-sm-2" style="margin-top: 16px;" *ngIf="dipslayupdate" >
+                <div class="text-left">
+                  <button class="btn btn-primary  s-n-btn" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"  (click)="Updatedata(screen)"
+                    >Update
+                  </button>
+                </div>
+                </div>
+              </div>
+              
+              </div>
+
+            </fieldset>
+          </form>
+        </div>
+
+  </div>
+
+  <div class="waiting-loader" *ngIf="loading == true">
+      <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+  </div>
+  <div class="panel panel-default" *ngIf="loading == false">
+    <div class="panel-heading" style="margin-bottom: -9px;">Registration Screen Details</div>
+    <div class="table-responsive b0">
+      <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="20">
+        <thead>
+        <tr>
+
+            <th class="text-left">
+                <div style="color: #454545;">Screen Order Number</div>
+              </th>
+          <th class=" text-left">
+            <div style="color: #454545;">Screen Title</div>
+            <p  *ngIf="Nodatafound"style="text-align:center;font-size: 14px;color: red;margin-bottom: -8px;">No Results Found</p>
+          </th>
+  
+          <th class="text-left">
+            
+               <div style="color: #454545;"> Created Date </div>
+             </th>
+          <th class=" text-left">
+            <div style="color: #454545;">Edit</div>
+          </th>
+  
+          <th class=" text-center">
+            <div style="color: #454545;">Delete</div>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let itemdata of mf.data ;let i = index ">
+            <td class="text-left">{{itemdata.screenNo}}</td>
+          <td class="text-left">{{itemdata.screenTitle}}</td>
+          <td class="text-left">{{itemdata.createdAt| date:'dd-MM-yyyy'}}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary"  type="button" (click)="ScreenEdit(itemdata)"><em
+              class="fa fa-pencil"></em></button>
+          </td>
+  
+          <td class="text-center">
+            <button class="btn btn-sm btn-danger"  type="button" (click)="ScreenItemDelete(itemdata._id,i)"><em
+              class="fa fa-trash-o"></em></button>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="10" class="customPagination">
+            <mfBootstrapPaginator ></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  
+    <div class="panel-footer">
+      <div class="row">
+  
+      </div>
+    </div>
+  </div>
+  

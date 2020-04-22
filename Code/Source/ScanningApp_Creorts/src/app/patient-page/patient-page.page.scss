@@ -1,0 +1,59 @@
+.new-background-color{
+    --background:#f15f6b;
+}
+
+.producttitle {
+    display: inline-flex;
+    img {
+   
+      width: 119px !important;
+      height: 49px !important;
+      margin-left: 21px;
+}
+}
+
+  .toolbar-background-md {
+    border-color: #fff;
+   // background: url()
+}
+
+.itemclass{
+  color: black;
+}
+
+.label {
+  display: inline !important;
+  padding: .2em .6em .3em !important;
+  font-size: 75% !important;
+  color: #fff !important;
+  border-radius: .25em !important;
+}
+.title{
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+
+.col{
+    font-size: 18px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.col1{
+    font-size: 15px;
+    text-align: center;
+    color: #4c8dff;
+    font-weight: 700;
+}
+.patientitle{
+  text-align: center;
+  font-size: 24px;
+  color: #4c8dff;
+  margin-top: 13px;
+  margin-bottom: -10px;
+  font-weight: 600;
+}
+// .contentclass{
+//    // --background:blue 
+// }

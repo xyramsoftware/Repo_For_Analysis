@@ -1,0 +1,171 @@
+<div class="content-heading">
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Home</p>
+            <!-- <p style="font-size:50%">WELCOME !</p> -->
+        </div>
+
+
+        <div class="col-sm-6" *ngIf="socialmediaDisplay">
+            <div class="text-right">
+                <a class="quick-btn" style="background-color:#3b5998;">
+                    <i class="fa fa-facebook"></i>
+
+                    <span class="label label-danger" style="font-size: 45%;">{{socialmedia[0].facebook}}</span>
+                </a>
+
+                <a class="quick-btn" style="background-color:#1da1f2">
+                    <i class="fa fa-twitter"></i><br />
+
+                    <span class="label label-success" style="font-size: 45%;">{{socialmedia[0].twitter}}</span>
+                </a>
+                <a class="quick-btn" style="background-color:#E1306C;">
+                    <i class="fa fa-instagram "></i><br />
+
+                    <span class="label label-warning" style="font-size: 45%;">{{socialmedia[0].instagram}}</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- START widgets box-->
+
+
+
+
+<!-- <div class="row"> -->
+
+
+
+<div class="main-section">
+    <div class="dashbord dashbord-green">
+        <div class="icon-section">
+            <i class="fa fa-bell" aria-hidden="true"></i><br>
+            <small>Users</small>
+            <p>{{userCount}}</p>
+        </div>
+        <!-- <div class="detail-section">
+                <a href="#">More Info </a>
+            </div> -->
+    </div>
+    <div class="dashbord">
+        <div class="icon-section">
+            <i class="fa fa-users" aria-hidden="true"></i><br>
+            <small>Team Members</small>
+            <p>{{teamData.datasets[0].data[0]}}</p>
+        </div>
+        <!-- <div class="detail-section">
+                <a href="#">More Info </a>
+            </div> -->
+    </div>
+    <div class="dashbord dashbord-orange">
+        <div class="icon-section">
+            <i class="fa fa-user" aria-hidden="true"></i><br>
+            <small>Accompany</small>
+            <p>{{accompanyCount}}</p>
+        </div>
+        <!-- <div class="detail-section">
+                <a href="#">More Info </a>
+            </div> -->
+    </div>
+
+    <div class="dashbord dashbord-blue">
+        <div class="icon-section">
+            <i class="fa fa-comments" aria-hidden="true"></i><br>
+            <small>Referred Friend's</small>
+            <p>{{referCount}}</p>
+        </div>
+        <!-- <div class="detail-section">
+                <a href="#">More Info </a>
+            </div> -->
+    </div>
+    <div class="dashbord dashbord-pink">
+        <div class="icon-section">
+            <i class="fa fa-comment-o" aria-hidden="true"></i><br>
+            <small>Feedback</small>
+            <p>{{feedbackCount}}</p>
+        </div>
+        <!-- <div class="detail-section">
+                <a href="#">More Info </a>
+            </div> -->
+    </div>
+    <!-- <div class="dashbord dashbord-skyblue">
+            <div class="icon-section">
+                <i class="fa fa-comments" aria-hidden="true"></i><br>
+                <small>Mentions</small>
+                <p>96</p>
+            </div>
+            <div class="detail-section">
+                <a href="#">More Info </a>
+            </div>
+        </div> -->
+</div>
+
+<!-- </div> -->
+<!-- END widgets box-->
+<!-- Chart JS start -->
+<br /><br />
+
+<div class="row ">
+    <!-- <div class="col-lg-8 graph-loader" *ngIf="doughnutData.datasets[0].data.length != 7 ">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <p>Loading</p>
+    </div> -->
+
+    <div class="col-md-5 " *ngIf="sportsData.datasets[0].data.length >= 1">
+        <h4 style="text-align: center;font-size: small;">Sports Individual Events Statistics</h4>
+        <div class="pieHeight">
+            <canvas baseChart [chartType]="'doughnut'" [options]="pieOptions" [colors]="pieColors"
+                [data]="sportsData.datasets" [datasets]="sportsData.datasets" [legend]="true"
+                [labels]="sportsData.labels" height="200"></canvas>
+        </div>
+    </div>
+    <div class="col-md-5" *ngIf="genderData.datasets[0].data.length >= 1">
+
+        <h4 style="text-align: center;font-size: small;">Gender Statistics</h4>
+        <div class="pieHeight">
+            <canvas baseChart [chartType]="'doughnut'" [options]="pieOptions" [datasets]="genderData.datasets"
+                [colors]="pieColors" [labels]="genderData.labels" [legend]="true" height="200"></canvas>
+        </div>
+    </div>
+
+</div><br /><br />
+<div class="row">
+
+
+    <div class="col-md-5" *ngIf="culturalData.datasets[0].data.length >= 1">
+        <h4 style="text-align: center;font-size: small;">Cultural Events Statistics</h4>
+        <div class="pieHeight">
+            <canvas baseChart [chartType]="'doughnut'" [options]="pieOptions" [colors]="pieColors"
+                [datasets]="culturalData.datasets" [legend]="true" [labels]="culturalData.labels" height="200"></canvas>
+        </div>
+    </div>
+
+
+    <div class="col-md-5" *ngIf="occupationData.datasets[0].data.length >= 1">
+        <h4 style="text-align: center;font-size: small;">Occupation Statistics</h4>
+        <div class="pieHeight">
+            <canvas baseChart [chartType]="'doughnut'" [options]="pieOptions" [datasets]="occupationData.datasets"
+                [colors]="pieColors" [legend]="true" [labels]="occupationData.labels" height="200"></canvas>
+        </div>
+    </div>
+</div><br /><br />
+<div class="row">
+
+    <div class="col-md-5" *ngIf="teamEventsData.datasets[0].data.length >= 1">
+        <h4 style="text-align: center;font-size: small;">Sports Team Events Statistics</h4>
+        <div class="pieHeight">
+            <canvas baseChart [chartType]="'doughnut'" [options]="pieOptions" [colors]="pieColors" id='teamevent'
+                [datasets]="teamEventsData.datasets" [legend]="true" [labels]="teamEventsData.labels"
+                height="200"></canvas>
+        </div>
+    </div>
+
+
+    <!--Pie Chart End-->
+
+
+
+
+</div>

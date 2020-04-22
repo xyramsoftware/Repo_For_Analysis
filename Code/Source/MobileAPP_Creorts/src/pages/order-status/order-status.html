@@ -1,0 +1,135 @@
+<ion-header>
+
+  <ion-navbar  hideBackButton>
+      <img class="logo"  style="height: 38px;margin-top: 6px;padding: -25px;"  src="assets/img/logo4.png">
+      <ion-title>Creorts Sportival</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="closeModal()">Close</button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="login">
+  <div class="layer1">
+
+      <div style="margin-top: 20px;">
+    <ion-row class="paddingrow">
+      <ion-col col-12>
+          <ion-item>
+            
+              <ion-input type="text"   [(ngModel)]="teamdetails.TeamName"   placeholder="Team Name*"  ></ion-input>
+          </ion-item>
+          
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="paddingrow">
+      <ion-col col-12>
+          <ion-item>
+            
+              <ion-input type="text"   [(ngModel)]="teamdetails.TeamCaptain"  placeholder="Team Captain*"  ></ion-input>
+          </ion-item>
+          
+      </ion-col>
+    </ion-row>
+
+  
+  
+    <p *ngIf="dispalyTeameMemberError" style="text-align: center;color: #fff;font-size: 20px;">Please add atleast one team memaber <Caption></Caption></p>
+
+    <p *ngIf="dispalyTeamerrorMessage" style="text-align: center;color: #fff;font-size: 20px;">Please add Team Name add Team Captain </p>
+
+    <p style="text-align: center;color: #fff;font-size: 16px;">Provide Minimum {{formdata.eventdata.teamSize}} Team Members Details</p>
+    
+   
+  <ion-card  *ngFor="let list of players; let i = index"  style="background: #F1B517;">
+   
+
+    <ion-row class="paddingrow">
+      <ion-col  style="margin-top: 4px;font-weight: 700;text-align: center;margin-right: 2%;margin-left: 2%;border: 2px solid black;font-size: 18px;" >
+        Team Member Count {{i+1}}
+      </ion-col>
+    </ion-row>
+      
+
+    <ion-row class="paddingrow">
+      <ion-col col-6>
+          <ion-item>
+            
+              <ion-input type="text" name="name-{{i}}" id="name" required    [(ngModel)]="list.name"   placeholder="Name*"  ></ion-input>
+          </ion-item>
+          
+      </ion-col>
+
+     
+
+      <ion-col col-6>
+        <ion-item>
+          <ion-datetime display-format="MM-DD-YYYY" required  name="DOB-{{i}}" id="DOB"    [(ngModel)]="list.DOB"  placeholder="DOB*"     picker-format="YYYY-MM-DD"></ion-datetime>
+        </ion-item>  
+    </ion-col>
+    </ion-row>
+
+  <ion-row class="paddingrow">
+    <ion-col col-6>
+        <ion-item>  
+            <ion-input type="tel"  name="Mobile-{{i}}" id="Mobile"  (input)="NumberValidation($event.target.value,list)" required  minlength="10" maxlength="10"    [(ngModel)]="list.Mobile"    placeholder="Mobile*"   ></ion-input>
+        </ion-item> 
+        <p style="color:black;font-size: 13px;margin: auto;text-align: center;" *ngIf="list.mobilevalidation">Enter a 10-digit Phone Number </p>
+    </ion-col>
+    
+    <ion-col col-6>
+      <ion-item>
+        
+          <ion-input type="text"   name="position-{{i}}" id="position"    required [(ngModel)]="list.position"    placeholder="Position*"  ></ion-input>
+      </ion-item>
+      
+  </ion-col>
+</ion-row>
+
+<ion-row>
+
+
+  
+</ion-row>
+
+
+
+  </ion-card>
+
+  <ion-row>
+  <ion-col col-6 style="text-align: right;">
+
+
+  
+    <button   style="background: #F1B517;font-size: 11px;color: black;font-weight: 700;width: 86%;" ion-button  (click)="addNew()" > Add Team Members</button>
+  
+  </ion-col>
+  <ion-col col-6 style="text-align: left;">
+    
+    <button  style="background: #F1B517;font-size: 11px;color: black;font-weight: 700;" ion-button  (click)="delete()" > Remove Team Members</button>
+    
+  </ion-col>
+ </ion-row>
+
+
+  <ion-row class="paddingrow"   >
+
+    <p  style="color: #fff;font-size: 13px;margin-left: auto;margin-right: auto;" *ngIf="displayteamsizeerroer" >Please add Minimum {{formdata.eventdata.teamSize}} - team size</p> 
+    <ion-col col-12>
+           
+        <button style="border: 2px solid #F1B517;margin-bottom: 100%;"  color="primary" class="login-btn" ion-button  (click)="SaveTeam()" >Ok</button>
+      
+    </ion-col>
+    
+</ion-row>
+
+
+  </div>
+
+</div>
+    
+
+</ion-content>

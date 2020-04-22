@@ -1,0 +1,45 @@
+.borde {
+    /* margin: 10px 10px; */
+    padding: 10px 30px;
+    background-color: #F1B517;
+    border: 0;
+
+    /* box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -o-box-shadow: 0 0 5px rgba(0,0,0,0.6); */
+}
+
+h6, p {
+    padding: 5px 5px;
+    color: #f1b517;
+}
+
+.title {
+    color: black;
+    /* padding: 10px 10px; */
+}
+
+h4 {
+    color: black;
+}
+
+.container {
+    /* width: 80%; */
+    padding-top: 3px;
+    margin-top: 70px;
+}
+
+.contact {
+    color: #003366;
+}
+
+.btn{
+    text-align: center;
+	padding: 5px;
+	background-color: #060709;
+	border: 3px solid #f1b517;
+	color: #f1b517;
+    width: 200px;
+    margin-left: 300px;
+}

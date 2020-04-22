@@ -1,0 +1,112 @@
+<div class="content-heading"> Gallery Details
+    <div class="pull-right">
+      <label class="file-upload">
+        <a [routerLink]="'/prescriptions/addPickup'">
+          <button class="btn btn-warning"><em class="fa fa-plus"></em>&nbsp;&nbsp; Add New Gallery</button>
+        </a>
+       
+      </label>
+    </div>
+    <!-- <small>Accompany Person Field Details</small> -->
+  </div>
+  <div class="waiting-loader" *ngIf="loading == true">
+      <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+  </div>
+
+  <div class="panel panel-default" *ngIf="loading == false">
+    <div class="panel-heading">Gallery Details</div>
+    <div class="table-responsive b0">
+      <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
+        <thead>
+        <tr>
+          <th class="thsearch text-center">
+            <div style="color: #454545;">Title</div>    
+          </th>
+          
+          <th class="thsearch text-center">
+              <div style="color: #454545;">Created Date</div>
+            </th>
+  
+            <!-- <th class="thsearch text-center">
+                
+                 <div style="color: #454545;"> Carousel Order</div>
+               </th> -->
+          <th class="thsearch text-center">
+            <div style="color: #454545;">Image</div>
+          </th>
+          
+          <!-- <th class="thsearch text-center">
+            <div style="color: #454545;">Edit</div>
+          </th> -->
+          <th class="thsearch text-center">
+            <div style="color: #454545;">Delete</div>
+          </th>
+  
+          <!-- <th class="thsearch text-center">
+             
+              <div style="color: #454545;"></div>
+            </th> -->      
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" *ngFor="let image of mf.data ;let i = index ">
+            <td  ><input type="text" class="form-control"value="{{image.title}}" readonly/></td>
+            <td>{{image.createdAt|date}}</td>
+            <!-- <td  style="color: red;" *ngIf="image.title == ''" >No Title for this image</td> -->
+          <!-- <td *ngIf="image.userEditing">  <input class="form-control"  type="text" required name="title" id="title" [(ngModel)]="image.title"/>
+           </td> -->
+          <!-- <td >{{image.description}}</td> -->
+          <!-- <td *ngIf="image.userEditing">  <input class="form-control"  type="text" required name="info" id="info" [(ngModel)]="image.info"/>
+          </td> -->
+          <!-- <td  style="color: red;" *ngIf="image.info == ''" >No Description for this image</td> -->
+           <!-- <td (click)="openDialog(image)" *ngIf="!image.userEditing">
+            {{image.CarouselID}} <i class="fa fa-pencil" aria-hidden="true" style="margin-left: 30px;color: red;"></i>
+           </td> -->
+           <!-- <td *ngIf="image.userEditing">
+              <input class="form-control"  type="number" min="1" max="100" required name="ordernumber" id="ordernumber" [(ngModel)]="image.CarouselID" />
+            </td> -->
+          <td> <img class="img-thumbnail img-width" src="{{image.URL}}" style="height: 38px;" alt="Image"/></td>
+           <!-- <td></td> -->
+          <!-- <td>
+            <button class="btn btn-sm btn-primary" type="button" (click)="ImageEdit(image._id,i)"><em
+              class="fa fa-pencil"></em></button>
+          </td> -->
+          <td>
+            <button class="btn btn-sm btn-danger" type="button" (click)="removegallery(image._id,i)"><em
+              class="fa fa-trash-o"></em></button>
+          </td>
+          <!-- <td>
+              <button class="btn btn-sm btn-primary" *ngIf="image.userEditing"  type="button" (click)="SaveRow(image,i)" style="margin-bottom: 6px;">Save</button>
+          </td> -->
+  
+        <!-- <td>
+            <button class="btn btn-success" (click)="moveDown(value, index);">Move Down</button>
+        </td> -->
+          <!-- <td>
+            <button class="btn btn-sm btn-default" type="button" (click)="newsShow(news._id)"><em
+              class="fa fa-search"></em></button>
+          </td> -->
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="10" class="customPagination">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]" ></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  
+    <div class="panel-footer">
+      <div class="row">
+  
+      </div>
+    </div>
+  </div>
+
+  
+
+
+
+ 

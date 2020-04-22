@@ -1,0 +1,283 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+      <ion-buttons slot="start" style="color: #fff">
+        <ion-icon  (click)="backbutton()" style="font-size: 30px;margin-left: 14px;" name="arrow-round-back"></ion-icon>
+        </ion-buttons>
+        <!-- <img class="logo"  src=" assets/img/logo4.png"> -->
+        <img class="logo"  style="margin-left: 21px;height: 38px;margin-top: 8px;padding: -25px;" src=" assets/img/logo4.png">
+    <ion-title style="margin-bottom: 11px;color: black;margin-left: 75px;margin-top: -32px;">Creorts Scanner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-header   style="background-color: #F1B517;" >
+    <ion-navbar >
+       
+        <ion-buttons slot="start" style="color: #fff">
+            <ion-back-button defaultHref="/patient-page"></ion-back-button>
+          </ion-buttons>
+        <img class="logo"  style="height: 38px;margin-top: 8px;padding: -25px;" src=" assets/img/logo4.png">
+        <ion-title style="margin-top: -32px;margin-left: 71px;margin-bottom: 18px;">Creorts Sportival</ion-title>
+    </ion-navbar>
+  </ion-header> -->
+
+<ion-content>
+
+    <div class="ion-padding">
+
+         <p style="text-align: center;font-size: 20px;margin-top: 3px;font-weight: 700;">{{event.title}}</p>
+   
+        <ion-button Expand  style="width: 100%;" (click)="startscanning()">  <ion-icon name="qr-scanner" style="margin-right: 7px;"></ion-icon> Scan</ion-button>
+      </div>
+
+
+      
+        <!-- <div style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%;background: black;">
+         <p style="text-align: center;font-size: 15px;color: #ffff;"> Creorts Registered User</p>
+        </div>
+     
+
+      
+        <div style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%;background: #ffff;">
+         <p style="text-align: center;font-size: 15px;color: red; "> This User was alredy CheckIn</p>
+        </div>
+      
+
+      
+        <div style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%;background: #fffd;">
+         <p style="text-align: center;font-size: 15px;color: red;"> This user not selected this event</p>
+        </div> -->
+     
+
+
+<div  *ngIf="displaydata">
+
+    <div  *ngIf="data.T == 'U'">
+        <ion-row>
+            <ion-grid text-wrap  class="gridclass"  >
+                <ion-row>
+                  <ion-col col-6 style="text-align: center;">
+                        Registration Id:
+                  </ion-col>
+                  <ion-col col-6 >
+                        {{data.RegisterId}}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-row>
+        <ion-grid text-wrap class="gridclass"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                    Name:
+              </ion-col>
+              <ion-col col-6 >
+                   {{data.name}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <!-- <p style="text-align: center;font-size: 20px;font-weight: 700;">Event List</p>
+
+          <ion-card>
+    
+                <ion-grid text-wrap class="gridclass" *ngFor="let events of  data.QREvents">
+                      <ion-row>
+                            <ion-col class="align" style="text-align: center;">
+                                  {{events}}
+    
+                            </ion-col>
+                      </ion-row>
+                </ion-grid>
+    
+    
+          </ion-card> -->
+
+
+          
+
+           <div  *ngIf="checkin"  style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px; background: black;">
+         <p style="text-align: center;font-size: 15px;color: #ffff;"> User-Creorts Registered User</p>
+        </div>
+
+          
+
+          <div  *ngIf="displaymessage" style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%;margin-top: 10px;background: #ffff;">
+            <p style="text-align: center;font-size: 15px;color: red; "> Already CheckedIn for the Event</p>
+           </div>
+
+          
+
+          <div  *ngIf="noeventselected"style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px;background: #fffd;">
+            <p style="text-align: center;font-size: 15px;color: red;"> This user not selected this event</p>
+           </div>
+
+           <div  *ngIf="Spectatorceckin" style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px; background: black;">
+            <p style="text-align: center;font-size: 15px;color: #ffff;"> Spectator -Creorts Registered User</p>
+           </div>
+
+           <div  *ngIf="Spectatordisplaymessage"style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px;background: #fffd;">
+            <p style="text-align: center;font-size: 15px;color: red;"> Spectator-Already CheckedIn for the Event</p>
+           </div>
+
+
+
+          <!-- <ion-grid text-wrap class="gridclass1"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                    Events:
+              </ion-col>
+              <ion-col col-6 *ngFor="let events of  data.QREvents" >
+                   {{events}}
+              </ion-col>
+            </ion-row>
+          </ion-grid> -->
+
+    </div>
+
+    <div  *ngIf="data.T == 'T'">
+
+      <div  *ngIf="ticketScan"  style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px; background: black;">
+        <p style="text-align: center;font-size: 15px;color: #ffff;"> Spectator-Creorts Registered User</p>
+       </div>
+       <div  *ngIf="ticketsdisplaymessage"style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px;background: #fffd;">
+        <p style="text-align: center;font-size: 15px;color: red;"> Spectator-Already CheckedIn for the Event</p>
+       </div>
+
+    </div>
+
+
+    <div  *ngIf="data.T == 'TR'">
+        <ion-row>
+            <ion-grid text-wrap  class="gridclass"  >
+                <ion-row>
+                  <ion-col col-6 style="text-align: center;">
+                     TeamMember Id:
+                  </ion-col>
+                  <ion-col col-6 >
+                        {{data.TeamMemberId}}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-row>
+        <ion-grid text-wrap class="gridclass"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                    Name:
+              </ion-col>
+              <ion-col col-6 >
+                   {{data.Name}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid text-wrap class="gridclass"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                Mobile:
+              </ion-col>
+              <ion-col col-6 >
+                   {{data.Mobile}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid text-wrap class="gridclass"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                Event:
+              </ion-col>
+              <ion-col col-6 >
+                   {{data.Event}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <div  *ngIf="Teamcheckin"  style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px; background: black;">
+            <p style="text-align: center;font-size: 15px;color: #ffff;"> Team Member-Creorts Registered User</p>
+           </div>
+
+           <div  *ngIf="TeamMemberEvent" style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%;margin-top: 10px;background: #ffff;">
+            <p style="text-align: center;font-size: 15px;color: red; "> Team Member- Not Related to this Event</p>
+           </div>
+
+           <div  *ngIf="Teamdisplaymessage" style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%;margin-top: 10px;background: #ffff;">
+            <p style="text-align: center;font-size: 15px;color: red; "> Team Member-Already CheckedIn for the Event</p>
+           </div>
+    </div>
+
+
+    <div  *ngIf="data.T == 'A'">
+        <ion-row>
+            <ion-grid text-wrap  class="gridclass"  >
+                <ion-row>
+                  <ion-col col-6 style="text-align: center;">
+                        Registration Id:
+                  </ion-col>
+                  <ion-col col-6 >
+                        {{data.RegisterId}}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-row>
+        <ion-grid text-wrap class="gridclass"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                    Name:
+              </ion-col>
+              <ion-col col-6 >
+                   {{data.name}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid text-wrap class="gridclass"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                    Mobile:
+              </ion-col>
+              <ion-col col-6 >
+                   {{data.Mobile}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+          <div  *ngIf="Acccheckin"  style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%; margin-top: 10px; background: black;">
+            <p style="text-align: center;font-size: 15px;color: #ffff;"> Accompany Person-Creorts Registered User </p>
+           </div>
+
+           <div  *ngIf="Accdisplaymessage" style="border: 2px solid #F1B517;margin-left: 5%;margin-right: 5%;margin-top: 10px;background: #ffff;">
+            <p style="text-align: center;font-size: 15px;color: red; "> Accompany Person-Already CheckedIn for the Event</p>
+           </div>
+
+         
+
+          <!-- <ion-grid text-wrap class="gridclass1"  >
+            <ion-row>
+              <ion-col col-6 style="text-align: center;">
+                    Events:
+              </ion-col>
+              <ion-col col-6 *ngFor="let events of  data.QREvents" >
+                   {{events}}
+              </ion-col>
+            </ion-row>
+          </ion-grid> -->
+
+    </div>
+
+
+   
+
+
+
+    <!-- {{data | JSON}} -->
+</div>
+    
+
+  
+
+</ion-content>
+
+
+<!-- <p>{{data.test}}</p>
+          <p>{{data.status}}</p>
+          <p>{{data.visitDate}}</p> -->

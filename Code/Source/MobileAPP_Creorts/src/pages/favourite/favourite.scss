@@ -1,0 +1,113 @@
+page-favourite {
+
+ 
+  .toolbar-title-md {
+    margin-top: -43px;
+    padding: 0px 72px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffff;
+}
+
+  .login-btn {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    height: 4.4rem;
+    background-color: $primary;
+  }
+
+  .login {
+    background: url("../assets/img/cover.jpg") no-repeat center;
+    background-size: cover;
+    color:black;
+    .layer1 {
+          background-color: rgba(0, 0, 0, 0.7);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+         // height: 100%;
+         
+      }
+    .logo {
+      width: 322px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 2em;
+      padding-bottom: 2em;
+    }
+  }
+
+  .mainheading{
+    text-align: center;
+    font-size: 21px;
+    color: #ffff;
+    font-weight: 500;
+    margin-bottom: 6px;
+    margin-top: 10px;
+    margin-left: 25%;
+  }
+  
+
+  .bg {
+    background-image: url(../assets/img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .list {
+    margin: 0;
+  }
+  h4 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: $white;
+  }
+
+  ion-label {
+    white-space: normal;
+    margin: 6px 8px 13px 0 !important;
+  }
+  .heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: $grey;
+  }
+  .item {
+    align-items: flex-start;
+  }
+  .item ion-thumbnail img {
+    height: 5em;
+    width: 5em;
+  }
+  .add-col{
+    padding-left: 0;
+  }
+  .add {
+    background-color: $primary;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  .delete {
+    border-radius: 0px;
+    box-shadow: none;
+    float: right;
+  }
+  .empty-cart {
+    font-size: 10.2em;
+    display: block;
+    margin: .2em auto 0;
+    color: $danger;
+  }
+  .continue-btn {
+    background-color: $primary !important;
+    color: #fff;
+    padding: 13.5px 30px;
+    box-shadow: none;
+    display: block;
+    margin: 2em auto 0;
+    border-radius: 0;
+  }
+}

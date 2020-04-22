@@ -1,0 +1,86 @@
+<div class="content-heading">CheckedIn Events
+  </div>
+
+<div class="container">
+    <div class="row">
+        <div class="active" *ngFor="let event of eventsList">
+            <a data-toggle="collapse"  aria-expanded="true" aria-controls="test-block">
+                <div class="col-sm-2">
+                    <div class="main-section" style="width: 100%;">
+                        <div class="dashbord" style="height:100px;width:100%;" [ngClass]="{'active':eachEvent==event.EventDate}" (click)="showEvent(event._id)">
+                            <div class="icon-section" >
+                                <i class="fa fa-calendar" aria-hidden="true"></i><br>
+
+
+
+
+
+                        
+                            <!-- <h6 class="m-b-20">Orders Received</h6> -->
+                            <p  style="border: none;font-weight: 500;"><b>{{event.EventDate| date}}</b></p>
+                         
+                         </div>   <!-- <p class="m-b-3">Total<span class="f-right">351</span></p> -->
+                </div>
+            </div>
+        </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let data of eachEvent">
+            <div class="main-section">
+                <div class="dashbord" style="background-color:#F39C12;">
+                    <div class="icon-section" style="background-color: #F39C12;">
+                        <i class="fa fa-users" aria-hidden="true" style="background-color: #F39C12;"></i><br>
+            <!-- <div class="card panel"> -->
+
+
+
+
+
+                <!-- <div class="card-block" style="word-break:break-all;color:black"> -->
+                    <!-- <h6 class="m-b-20">Orders Received</h6> -->
+                    <!-- <p class="m-b-3"><i class="fa fa-calendar"></i>&nbsp;{{data.EventDate|date}}<span class="f-right">Start Time:{{data.startTime}}</span></p>
+                    <p style="padding-bottom: 3px;"><span class="f-right">End Time:{{data.endTime}}</span></p> -->
+                    <small class="m-b-3" style="font-size: small;margin-left: -20px;"><i class="fa fa-calendar" style="font-size: 14px;border: none;background-color: #F39C12;"></i>&nbsp;{{data.EventDate|date}}</small>
+                    <p style="font-size:14px;">{{data.title}}</p>
+                    <hr />
+
+                    <table align="center">
+                        <tr align="left">
+                            <td>Users </td>&nbsp;
+                            <td>: </td>&nbsp;
+                            <td>{{data.userCount}}</td>
+                        </tr>
+                        <tr>
+                            <td>Team Members </td>&nbsp;
+                            <td>: </td>&nbsp;
+                            <td>{{data.teamMemberCount}}</td>
+                        </tr>
+                        <tr align="left">
+                            <td>Accompanies </td>&nbsp;
+                            <td>: </td>&nbsp;
+                            <td>{{data.accompanyCount}}</td>
+                        </tr>
+                        <tr align="left">
+                            <td>Tickets </td>&nbsp;
+                            <td>: </td>&nbsp;
+                            <td>{{data.ticketsCount}}</td>
+                        </tr>
+                        <!-- <tr>
+                            <td>Visitors</td>
+                            <td>:</td>
+                            <td>{{data.visitorsCount}}</td>
+                        </tr> -->
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- </div> -->

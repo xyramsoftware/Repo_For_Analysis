@@ -1,0 +1,63 @@
+<div class="content-heading"> Update Category
+  <small>
+    <a [routerLink]=" ['/home'] ">Home</a> ->
+    <a [routerLink]="['/Category/manageCategory']"> Category </a>-> Update Category
+  </small>
+</div>
+<!-- START panel-->
+<div class="container-md">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="panel b">
+        <div class="panel-heading  text-bold bg-purple-dark">Update Category</div>
+        <div class="panel-body">
+
+
+
+          <form (ngSubmit)="onSubCategory(f)" #f="ngForm">
+            <fieldset>
+
+
+
+
+             
+
+              <label class="col-sm-2 control-label custom" for="title">Category Code*</label>
+              <div class="col-sm-4">
+                <div class="panel">
+                  <div class="panel-body mh1">
+                    <input class="form-control" name="categorycode" id="categorycode" type="text" required placeholder="Category Code" disabled [(ngModel)]=menuItems.categoryCode
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <label class="col-sm-2 control-label custom" for="title">Category Title*</label>
+              <div class="col-sm-4">
+                <div class="panel">
+                  <div class="panel-body mh0">
+                    <input class="form-control" name="category" id="category" type="text" required placeholder="Category" [(ngModel)]=menuItems.title
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </fieldset>
+            <div class="text-right">
+              <button class="btn btn-danger  s-n-btn" (click)="cancel()">Cancel</button>
+              <button class="btn btn-primary  s-n-btn" type="submit" [ladda]="isLoading" data-style="expand-right" data-spinner-color="#000000"
+                [disabled]="!f.valid">Save
+              </button>
+            </div>
+          </form>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

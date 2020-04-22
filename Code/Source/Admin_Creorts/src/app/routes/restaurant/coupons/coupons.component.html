@@ -1,0 +1,128 @@
+<div class="content-heading"> Expense Management
+  <div class="pull-right">
+    <!-- <label class="file-upload"> -->
+    <a [routerLink]="'/coupons/addCoupons'">
+      <button class="btn btn-warning"><em class="fa fa-plus"></em>&nbsp;&nbsp; Add New Expense </button>
+    </a>
+
+    <a>
+      <button class="btn btn-warning" (click)="generateReport()">Export </button>
+    </a>
+    <!-- </label> -->
+  </div>
+  <!-- <small>Accommodation Person Field Details</small> -->
+</div>
+<div class="waiting-loader" *ngIf="loading == true">
+  <i class="fa fa-5x fa-spin fa-spinner" aria-hidden="true"></i>
+</div>
+
+
+<div class="panel panel-default" *ngIf="loading == false">
+  <div class="panel-heading"> Expense Details</div>
+  <div class="table-responsive b0">
+
+    <table class="table table-striped" [mfData]="items" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <thead>
+        <tr>
+
+
+
+          <th class=" text-center">
+            <strong>S.No</strong>
+          </th>
+          <th class="text-left">
+
+            <strong>Expense Item</strong>
+          </th>
+
+          <th class="text-left">
+
+            <strong>Date</strong>
+          </th>
+          <th class="text-left">
+            <strong>Invoice No</strong>
+          </th>
+          <th class="text-left">
+            <strong>Expense Recorded By</strong>
+          </th>
+          <th class="text-left">
+            <strong>Amount</strong>
+          </th>
+          <th class="text-left">
+            <strong>Image</strong>
+          </th>
+           <th class="text-left">
+
+            <strong>Created Date</strong>
+          </th>
+          <th class=" text-center">
+            <strong>Edit</strong>
+          </th>
+          <th class="  text-center">
+            <strong>Delete</strong>
+          </th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+
+
+        <tr *ngFor="let itemdata of mf.data ;let i = index ">
+          <td class="text-center"> {{i+1}} </td>
+
+          <td class="text-left"><input class="form-control" type="text" value="{{itemdata.ExpenseItem}}" style="border: none;" readonly /></td>
+          <!-- <td>{{itemdata.landmark}}</td> -->
+          <td class=" text-left">
+            {{itemdata.Date | date: 'mediumDate'}}
+          </td>
+          <td class="text-left">
+            {{itemdata.InvoiceNo}}
+          </td>
+          <td class="text-left">
+            {{itemdata.RecorderBy}}
+          </td>
+          <td class="text-left">
+            {{itemdata.Amount}}
+          </td>
+          <td class="text-left" >
+            <div *ngIf="itemdata.url!='NA'"><a href="{{itemdata.url}}"><img  class="img-thumbnail img-width" [src]="itemdata.url" style="height: 38px;"  alt="Image" (click)="show()" /></a></div>
+               <div *ngIf="itemdata.url=='NA'" >
+                 <p>No Image</p>
+               </div>
+           <!-- <a href="{{itemdata.url}}"><img class="img-thumbnail img-width" src="{{itemdata.url}}" style="height: 38px;" alt="asset/img/upload.png"/></a> -->
+          </td>
+          <td class=" text-left">
+            {{itemdata.createdAt | date}}
+          </td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary" type="button" (click)="expenseEdit(itemdata._id,i)"><em
+                class="fa fa-pencil"></em></button>
+          </td>
+
+          <td class="text-center">
+            <button class="btn btn-sm btn-danger" type="button" (click)="ExpenseDelete(itemdata._id,i)"><em
+                class="fa fa-trash-o"></em></button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        
+        <tr>
+          <td colspan="5" class="customPagination" >
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+          
+        <td colspan="6">
+          <p style="font-weight: bold;font-size: large;margin-left: -80px;">Total: ₹{{totalAmount}}</p>
+        </td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- <div class="panel-footer">
+    <div class="row">
+
+    </div>
+  </div>
+</div> -->

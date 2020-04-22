@@ -1,0 +1,97 @@
+.new-background-color{
+    --background:#F1B517;
+}
+
+.status-block {
+    p {
+      font-size: 1em;
+      white-space: normal;
+      overflow: visible;
+      margin: 8px 0 0 5px;
+      span {
+        float: right;
+        font-size: 10px;
+        margin-top: 7px;
+      }
+
+    }
+}
+.gridclass{
+  margin-top: -2px;
+  border-bottom: 1px solid #c8c7cc;
+  font-size: 14px;
+  color: black;
+  margin-left: -60px;
+  text-transform: capitalize;
+}
+
+.gridclass1{
+  margin-top: -2px;
+  border-bottom: 1px solid #c8c7cc;
+  font-size: 14px;
+  color: black;
+  margin-left: -60px;
+ 
+}
+
+
+.col{
+  text-align: center;
+  text-transform: capitalize;
+}
+.col1{
+  font-size: 15px;
+  text-align: center;
+  color: blue;
+  font-weight: 700;
+}
+.col3{
+  font-size: 18px;
+    text-transform: capitalize;
+    margin-top: 2px;
+    font-weight: 500;
+
+}
+
+// .select-address{
+//   .col{
+//     padding: 0 15px;
+//     border-bottom: 1px solid;
+//     border-color: rgba(0,0,0,0.1);
+//      .show-address{
+//          font-size: 1.5rem;
+//          margin: 10px 0;
+        
+//      }
+//   }          
+  
+// } 
+
+.show-data{
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+.patientdata{
+  // font-size: 100%;
+  // font-weight: 500;
+  // min-width: 100px;
+  // text-align: left;
+
+  font-size: 17px;
+  font-weight: 400;
+  text-align: left;
+}
+.patientinfo{
+  margin-top: 12px;
+    text-align: center;
+    font-size: 25px;
+    color: lightgrey;
+    font-weight: 600;
+    margin-bottom: -3px;
+   
+}
+.ptext{
+  font-size: 17px;
+  font-weight: 400;
+  text-align: left;
+}

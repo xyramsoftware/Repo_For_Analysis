@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-10 offset-lg-1">
+
+            <div class="row">
+                <div class="col">
+
+                    <button class="btn" *ngFor="let Category of eventdates; let index = index"
+                        [ngClass]="{'active': selectedItem == Category}" (click)="listClick($event, Category)">
+                        <div class="text-center">
+                            <h6>{{Category.EventDate |date: 'MMM'}}</h6>
+                            <h6>{{Category.EventDate |date:'dd'}}</h6>
+                            <h6>{{Category.EventDate |date:'yyyy'}}</h6>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-10">
+            <div *ngFor="let event of currentEvents">
+                <div class="event">
+                    <div class="event-inner">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> {{event.EventDate|date:'MMM'}}
+                                {{event.EventDate|date:'dd'}} ,{{event.EventDate|date:'yyyy'}}
+                            </div>
+                            <div class="col-sm-3">
+                                <p><strong>Start Time: </strong>{{event.startTime}}<br><strong>End Time:
+                                    </strong>{{event.endTime}}</p>
+                            </div>
+                            <div class="col-sm-1">
+                                <div *ngIf=!event?.icon>
+                                    <i class="far fa-heart"></i>
+                                </div>
+                                <div *ngIf=event?.icon>
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>{{event.title}}</h4>
+                        <p>{{event.description}}</p>
+						<!-- <button *ngIf=" isLogin() " (click)=giveFeedback(event._id,event.title) class="feedback">Feedback &nbsp;&nbsp;<i style="font-size:16px" class="fa">&#xf040;</i></button> -->
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hideIE" viewBox="0 0 1440 380">
+                        <path fill="#f1b517" fill-opacity="1"
+                            d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+                        </path>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.borde {
+    /* margin: 10px 10px; */
+    padding: 10px 30px;
+    background-color: #F1B517;
+    border: 0;
+
+    /* box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    -o-box-shadow: 0 0 5px rgba(0,0,0,0.6); */
+}
+
+h6, p {
+    padding: 5px 5px;
+    color: #f1b517;
+}
+
+.title {
+    background-color: black;
+    padding: 10px 10px;
+    margin: 6px 0px;
+}
+
+.content {
+    background-color: black;
+    border: transparent;
+    padding: 20px 30px;
+}
+
+textarea{
+    background-color: black;
+    border: transparent;
+    color: #f1b517;
+    text-decoration: none;
+}
+
+.container {
+    /* width: 80%; */
+    padding-top: 3px;
+    margin-top: 15px;
+}
+
+.contact {
+    color: #003366;
+}
+
+.cell-breakWord {
+    word-wrap: break-word;
+  }

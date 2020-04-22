@@ -1,0 +1,31 @@
+<div class="col col-md-12">
+    <div class="header">
+        <h4 style="text-align: center;color:#f1b517;">Team Details</h4>
+        <h6 class="cell-breakWord" style="text-align: center;">Team Name: {{team.TeamName}}</h6>
+        <h6 class="cell-breakWord" style="text-align: center;">Team Captain: {{team.TeamCaptain}}</h6></div>
+    <div class="row">
+        <div class="col-md-6" *ngFor="let player of team.teamMembers" style="padding: 10px 10px">
+            <div class="profile-card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="cell-breakWord">{{player.name}}</h5>
+                        <p><strong>Mobile No: </strong>{{player.Mobile}}</p>
+                        <p><strong>Position: </strong>{{player.position}}</p>
+                        <p><strong>DOB: </strong>{{player.DOB | date}}</p>
+                        <p><strong>Id: </strong>{{player.TeamMemberId}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="qr-image">
+                            <img src="{{player.url}}" width="100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" id="hideIE" viewBox="0 0 1440 320">
+                <path fill="#f1b517" fill-opacity="1"
+                    d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+                </path>
+            </svg><br>
+        </div>
+    </div>
+</div>

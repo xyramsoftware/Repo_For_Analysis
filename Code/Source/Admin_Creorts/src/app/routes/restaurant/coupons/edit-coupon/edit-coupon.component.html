@@ -1,0 +1,165 @@
+<div class="content-heading"> Update Expense
+</div>
+<!-- START panel-->
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="panel b">
+                <div class="panel-heading  text-bold bg-purple-dark">Update Expense</div>
+                <div class="panel-body">
+
+                    <form (ngSubmit)="ExpenseUpdate()" #f="ngForm">
+                        <fieldset>
+
+                            <label class=" col-sm-2 control-label custom " for="title ">Expensive Item*</label>
+                            <div class="col-sm-4">
+                                <input class="form-control " name="Expensiveitem " id="Expensiveitem " type="text"
+                                    required [(ngModel)]=expenseDetails.ExpenseItem />
+                            </div>
+
+                            <label class=" col-sm-2 control-label custom " for="title ">Date*</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" name="date " id="date " type="date" required
+                                    [ngModel]="expenseDetails.Date| date:'yyyy-MM-dd'"
+                                    (ngModelChange)="dateChanged($event)" />
+                            </div>
+
+                            <label class=" col-sm-2  control-label custom" style="margin-top: 20px;" for="title">Invoice
+                                No*</label>
+                            <div class="col-sm-4" style="margin-top: 20px;">
+                                <input class="form-control" name="InvoiceNo" id="InvoiceNo" type="text" required
+                                    [(ngModel)]=expenseDetails.InvoiceNo />
+                            </div>
+
+
+                            <label class=" col-sm-2 control-label custom " style="margin-top: 20px;"
+                                for="title ">Expense Recorded By*</label>
+                            <div class="col-sm-4" style="margin-top: 20px;">
+                                <input class="form-control " name="recorderby " id="recorderby " type="text" required
+                                    [(ngModel)]=expenseDetails.RecorderBy />
+                            </div>
+
+
+                            <label class=" col-sm-2 control-label custom " style="margin-top: 20px;"
+                                for="title ">Amount*</label>
+                            <div class="col-sm-4" style="margin-top: 20px;">
+                                <input class="form-control " name="Amount" id="Amount" (keypress)="numberOnly($event)" type="number" required
+                                    [(ngModel)]=expenseDetails.Amount />
+                            </div>
+
+
+                            <div class="col-sm-2" style="margin-top: 20px;">
+                                <div class=" fileUpload btn btn-primary choose-btn">
+                                  <span> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload </span>
+                                  <input type="file" class="upload" required ng2FileSelect [uploader]="uploader" accept="image/*"
+                                    (change)="readUrl($event)" (change)="fileChange($event)">
+                                </div>
+                                <p style="color: lightslategrey;">(jpg , jpeg , png )</p>
+                                <!-- <p class="info">*Upload image of 400 x 200 px </p> -->
+                
+                              </div>
+                              <div class="col-sm-2" style="margin-top: 20px;" *ngIf="url" >
+                                <img  class="media-object img-thumbnail thumb96" [src]="url" alt="No Image" (click)="show()"/>
+                                <!-- <a href="{{url}}" (click)="download()">View File</a> -->
+                               </div>
+                              <!-- <div class="col-md-4" style="margin-top: 20px;" *ngIf="!url">
+                                <p>No Image</p>
+                                <a href="{{url}}" alt="Image" >View File</a> -->
+                              <!-- </div> -->
+
+
+
+                            <!-- <label class=" col-sm-2 control-label custom " style="margin-top: 20px;" for="title ">Condition*</label>
+                            <div class="col-sm-4"  style="margin-top: 20px;">
+                            <input class="form-control " name="condition " id="condition " type="text" required placeholder="Condition" [(ngModel)]=expenseDetails.condition
+                            />
+                            </div>
+
+                            <label class="col-sm-2 control-label custom" style="margin-top: 20px;">Category*</label>
+                            <div class="col-sm-4" style="margin-top: 20px;">
+                  
+                                
+                                    <select name="resource" class="form-control" id="resource" name="resource" required  [(ngModel)]="CategoryType"  (change)="onChangeResource(CategoryType,$event)" value="3" >
+                                      <option [disabled]="true">Select</option>
+                                      <option value={{catagory.categoryCode}} *ngFor="let catagory of Categorydata" >{{catagory.title}} </option>
+                                      
+                                       <option  value="Cardiac Care" >Cardiac Care </option>
+                                        <option  value="Diagnostics Procedures" >Diagnostics Procedures</option>
+                                        <option  value="Laboratory">Laboratory</option>
+                                        <option  value="Radiology" >Radiology</option> 
+                                        <option  value="Healthcare Package" >Healthcare Package</option> 
+                                        <option  value="Rehabilitation Center" >Rehabilitation Center</option>    -->
+                            <!-- </select>
+                                  
+                                   <p *ngIf="loading == true" >Loading...</p>
+                              </div>
+                              <div class="col-sm-12"></div> -->
+
+
+                            <!-- <label class="col-sm-3 control-label custom" style="margin-top: 20px;">Tests/Packages </label>
+                            <div class="col-sm-8" style="margin-top: 20px;">
+                             <div class="col-sm-4 alltest"  style="margin-top: 20px;" >
+                                 <div  *ngFor="let choice of selectcomponentdata ">
+                                   <div class="selectcomp"  (click)="selectedcomponent(choice)">
+                                    {{choice.title}}
+                                    <div class="centered" *ngIf="choice.selectedcomp"><i class="fa fa-check"></i></div>
+                                    </div>
+                                </div>         
+                              </div>
+              
+                               <div class="col-sm-2" style="margin-top: 20px;" >
+                                <div class="rightarrow" (click)="clickmovecomponent()">
+                                    <i class="fa fa-chevron-circle-right"></i>
+              
+                                </div>
+                                <div class="leftarrow" (click)="clickremovecomponent()" >
+                                    <i class="fa fa-chevron-circle-left"></i>
+                                </div>
+                               </div>
+              
+                               <div class="col-sm-4 allselecttest" style="margin-top: 20px;" >
+                                  <div  *ngFor="let choice of comptoSelected" >
+                                      <div class="selectcomp" (click)="selectremovecomponent(choice)">
+                                       {{choice.title}}
+                                       <div class="centered" *ngIf="choice.removedcomp"><i class="fa fa-check"></i></div>
+                                       </div>
+                                   </div> 
+               
+                                </div>
+                            
+                            </div>  -->
+                        </fieldset>
+                        <div class="text-right ">
+
+                            <button class="btn btn-primary s-n-btn " style="margin-right: 31px;" type="submit "
+                                [ladda]="isLoading " data-style="expand-right
+                                            " data-spinner-color="#000000 " [disabled]="!f.valid ">Update
+                            </button>
+                            <button type="button" class="btn btn-danger s-n-btn " style="margin-right: 23px;"
+                                (click)="cancel() ">Cancel</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+            </div>
+            <div class="modal-body">
+              <img [src]="url" id="imagepreview" style="width: 425px; height: 425px;" >
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" (click) = "hide()">Close</button>
+            </div>
+          </div>
+        </div>
+        </div>

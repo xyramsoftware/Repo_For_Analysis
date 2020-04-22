@@ -1,0 +1,34 @@
+.borde {
+    /* margin: 10px 10px; */
+    padding: 10px 30px;
+    background-color: #F1B517;
+    border: 0;
+}
+
+h6, p {
+    padding: 5px 5px;
+    color: #f1b517;
+}
+
+.title {
+    color: black;
+    /* padding: 10px 10px; */
+}
+
+h4 {
+    color: black;
+}
+
+.contact {
+    color: #003366;
+}
+
+.btn{
+	background-color: #060709;
+	border: 4px double #f1b517;
+    color: #f1b517;
+}
+
+.wave {
+    margin: 8px;
+}

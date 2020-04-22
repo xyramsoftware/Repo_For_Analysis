@@ -1,0 +1,145 @@
+<div class="container" *ngIf="displahfeedback">
+	<form [formGroup]="feedbackform">
+		<div class="center">
+			<div class="row justify-content-md-center">
+				<div class="col col-md-8">
+					<div class="creorts-black">
+						<label id="q1">1. How do you rate the organization of the Event?</label>
+						<div class="row card-feedback">
+							<div class="form-check">
+								<div class="custom-control custom-radio custom-control-inline">
+									<mat-radio-group aria-label="1. How do you rate the organization of the Event?"
+										formControlName="rateOrganization">
+										<mat-radio-button value="Excellent">Excellent
+										</mat-radio-button>
+										<mat-radio-button value="Good">Good
+										</mat-radio-button>
+										<mat-radio-button value="Satisfactory">
+											Satisfactory</mat-radio-button>
+										<mat-radio-button value="Poor">Poor
+										</mat-radio-button>
+										<mat-radio-button value="Not Applicable">Not
+											Applicable</mat-radio-button>
+									</mat-radio-group>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="creorts-black">
+						<label id="q2">2. How do you rate the venue of the Event?</label>
+						<div class="row card-feedback">
+							<div class="form-check">
+								<div class="custom-control custom-radio custom-control-inline">
+									<mat-radio-group aria-label="2. How do you rate the venue of the Event?"
+										formControlName="rateEvent">
+										<mat-radio-button value="Excellent">Excellent
+										</mat-radio-button>
+										<mat-radio-button value="Good">Good
+										</mat-radio-button>
+										<mat-radio-button value="Satisfactory">Satisfactory
+										</mat-radio-button>
+										<mat-radio-button value="Poor">Poor
+										</mat-radio-button>
+										<mat-radio-button value="Not Applicable">Not
+											Applicable</mat-radio-button>
+									</mat-radio-group>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="comment">
+						<label for="comments">3. Comments on what you liked most and Why?</label>
+						<textarea class="form-control" id="comments" formControlName="positiveComments" rows="5"
+							style="background-color:#060709;color:#f1b517;"></textarea>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+						<path fill="#f1b517" fill-opacity="1"
+							d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+						</path>
+					</svg>
+					<div class="comment">
+						<label for="comments">4. Comments on what you liked least, and suggestions for
+							improvement</label>
+						<textarea class="form-control" id="comments" formControlName="negativeComments" rows="5"
+							style="background-color:#060709;color:#f1b517;"></textarea>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+						<path fill="#f1b517" fill-opacity="1"
+							d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+						</path>
+					</svg>
+					<div class="row justify-content-md-center">
+						<div class="col col-lg-4">
+							<button class="btn btn-block" name="submit" type="submit"
+								(click)="feedback()">SUBMIT</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div *ngIf="!displahfeedback">
+	<div class="container">
+		<div class="row">
+			<div class="col col-lg-10 offset-lg-1">
+				<div class="wave">
+					<div class="borde">
+						<div class="content">
+							<h4 class="text-center" style="color:white;margin-top: 45px;">Thank you for your valuable feedback</h4>
+						</div>  
+					</div>
+				</div>
+			</div>
+		</div>
+<form [formGroup]="feedbackform">
+	<div class="center">
+		<div class="row justify-content-md-center">
+			<div class="col col-md-8">
+				<div class="creorts-black">
+					<label id="q1">1. How do you rate the organization of the Event?</label>
+					<div class="row card-feedback">
+						<div class="form-check">
+							<div class="custom-control custom-radio custom-control-inline">
+								{{feedbackdata.rateOrganization}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="creorts-black">
+					<label id="q2">2. How do you rate the venue of the Event?</label>
+					<div class="row card-feedback">
+						<div class="form-check">
+							<div class="custom-control custom-radio custom-control-inline">
+								{{feedbackdata.rateEvent}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="comment">
+					<label for="comments">3. Comments on what you liked most and Why?</label>
+					<textarea class="form-control" id="comments" formControlName="positiveComments" rows="5"
+						style="background-color:#060709;color:#f1b517;" value="{{feedbackdata.positiveComments}}" readonly [(ngModel)]="feedbackdata.positiveComments">{{feedbackdata.positiveComments}}</textarea>
+				</div>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+					<path fill="#f1b517" fill-opacity="1"
+						d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+					</path>
+				</svg>
+				<div class="comment">
+					<label for="comments">4. Comments on what you liked least, and suggestions for
+						improvement</label>
+					<textarea class="form-control" id="comments" formControlName="negativeComments" rows="5"
+						style="background-color:#060709;color:#f1b517;" value="{{feedbackdata.negativeComments}}" readonly [(ngModel)]="feedbackdata.negativeComments">{{feedbackdata.negativeComments}}</textarea>
+				</div>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+					<path fill="#f1b517" fill-opacity="1"
+						d="M0,224L60,197.3C120,171,240,117,360,112C480,107,600,149,720,186.7C840,224,960,256,1080,250.7C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+					</path>
+				</svg>
+			</div>
+		</div>
+	</div>
+</form>
+</div>

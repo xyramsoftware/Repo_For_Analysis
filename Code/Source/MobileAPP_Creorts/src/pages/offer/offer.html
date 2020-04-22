@@ -1,0 +1,219 @@
+<ion-header hideBackButton="true">
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+    <img class="logo" style="height: 38px;margin-top: 6px;padding: -25px;" src="assets/img/logo4.png">
+    <ion-title>Creorts Sportival</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="login">
+  <div class="layer1">
+   
+    <p class="mainheading"  > Accompanying Person Registration </p>
+    
+
+    <ion-row *ngIf="!isLogin()" >
+      <ion-col col-12>
+        <button color="primary" class="login-btn" ion-button (click)="loginpage()">{{"Login" | translate}}</button>
+      </ion-col>
+    </ion-row>
+
+
+    <div *ngIf="isLogin()"  style="margin: 33px 17px 22px;">
+      <div>
+        <div>
+          <form [formGroup]="AccompanyingPerson" (ngSubmit)="onRegister()">
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+
+                  <ion-input type="text" formControlName="name"  maxlength="50" placeholder="Name*"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <!-- <ion-label>Gender</ion-label> -->
+                  <ion-select  style="font-size: 100%;font-weight: 500; min-width: 100%;" formControlName="gender" interface="popover" placeholder="Gender*">
+                    <ion-option value="Male">Male</ion-option>
+                    <ion-option value="Female">Female</ion-option>
+                    <ion-option value="Others">Others</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <!-- <ion-label>Relation Type</ion-label> -->
+                  <ion-select style="font-size: 100%;font-weight: 500; min-width: 100%;" formControlName="relationship" interface="popover" placeholder="Relationship*">
+                    <ion-option value="Spouse">Spouse</ion-option>
+                    <ion-option value="Father">Father</ion-option>
+                    <ion-option value="Mother">Mother</ion-option>
+                    <ion-option value="Son">Son</ion-option>
+                    <ion-option value="Daughter">Daughter</ion-option>
+                    <ion-option value="Gauardian">Guardian</ion-option>
+                    <ion-option value="Dependent">Dependent</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <!-- <ion-label>{{"Mobile No:" | translate}}</ion-label> -->
+                  <ion-input type="tel" maxlength="10" placeholder="Phone Number*" (input)="NumberValidation($event.target.value)" formControlName="phone"></ion-input>
+                </ion-item>
+                <p style="color:#F1B517;font-size: 13px;margin: auto;text-align: center;" *ngIf="nubervalidatin">Enter a 10-digit Phone Number </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow">
+
+              <ion-col col-12>
+                <ion-item>
+                  <!-- <ion-label>{{"Email:" | translate}}</ion-label> -->
+                  <ion-input type="email" placeholder="Email" formControlName="email" (keyup)="EmailValidator($event)">
+                  </ion-input>
+                </ion-item>
+                <p style="color:#F1B517;font-size: 13px;margin: auto;text-align: center;" *ngIf="EmailErrorMessage">
+                  Please enter valid email </p>
+                <p style="color:#F1B517;font-size: 13px;margin: auto;text-align: center;" *ngIf="errermessage">This
+                  email already exists,try with different email. </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <!-- <ion-label>Date Of Birth</ion-label> -->
+                  <ion-datetime displayFormat="DD/MM/YYYY"  [max]=date  picker-format="YYYY-MM-DD" placeholder="Date Of Birth*" formControlName="DOB">
+                  </ion-datetime>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <!-- <ion-label>Address</ion-label> -->
+                  <ion-input type="text" placeholder="Place*" maxlength="50" formControlName="place"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row class="paddingrow">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-select style="font-size: 100%;font-weight: 500; min-width: 100%;" placeholder="Occupation*" interface="popover"
+                    formControlName="occupation" (ionChange)="selectOccupation($event)">
+
+                    <ion-option style="color: black;" value="Student">Student</ion-option>
+                    <ion-option value="Engineer">Engineer</ion-option>
+                    <ion-option value="Doctor">Doctor</ion-option>
+                    <ion-option value="Athlete">Athlete</ion-option>
+                    <ion-option value="Government Servent">Government Servant</ion-option>
+                    <ion-option value="Business">Business</ion-option>
+                    <ion-option value="Others">Others</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="dislayschool">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-input type="text" placeholder="School/Collage Name" maxlength="50" formControlName="schoolName"></ion-input>
+                </ion-item>
+                <p style="color:#ffff;font-size: 13px;margin: auto;text-align: center;" *ngIf="entersschoolName">please fill School/Collage Name</p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row class="paddingrow" *ngIf="!dislayschool">
+              <ion-col col-12>
+                <ion-item>
+                  <ion-input type="text" placeholder="Organisation" maxlength="50" formControlName="organisation"></ion-input>
+                </ion-item>
+                
+              </ion-col>
+            </ion-row>
+
+            <ion-row style="margin-bottom: 24px;">
+              <ion-col col-12>
+                <button class="login-btn" style="border: 2px solid #F1B517;background: black;" ion-button type="submit"
+                  [disabled]="!AccompanyingPerson.valid"> Submit</button>
+              </ion-col>
+            </ion-row>
+          </form>
+
+        </div>
+
+
+      </div>
+
+
+      <p *ngIf="accompanyingpersonData.length !=0" style="text-align: center;font-size: 20px;color: #fff;"> Accompanying
+        Person Details</p>
+      <ion-item *ngIf="accompanyingpersonData.length !=0" color="primary">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3>
+              Name
+            </ion-col>
+            <ion-col col-3>
+              Gender
+            </ion-col>
+            <ion-col col-4>
+              Relation
+            </ion-col>
+            <ion-col col-2>
+              View
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-list *ngIf="displayaccompanydata">
+        <ion-item *ngFor="let list of accompanyingpersonData">
+          <ion-grid>
+            <ion-row (click)="listdisplay(list)">
+              <ion-col col-3>
+                <div class="itemclass" text-wrap  style="color: #F1B517;" id="qetitle">{{list.name}}</div>
+              </ion-col>
+              <ion-col col-3>
+
+                <div class="itemclass" style="color: #F1B517;" id="qetitle">{{list.gender}}</div>
+
+
+              </ion-col>
+              <ion-col col-4>
+                <div class="itemclass"  style="color: #F1B517;"id="qetitle">{{list.relationship}}
+
+                </div>
+              </ion-col>
+              <ion-col col-2>
+                <ion-icon style="color: #F1B517;" name="eye"></ion-icon>
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+</ion-content>

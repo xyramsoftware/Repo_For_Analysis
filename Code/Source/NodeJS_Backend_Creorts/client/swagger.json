@@ -1,0 +1,1662 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Creorts Doucument.",
+    "version": "1.0.0",
+    "title": "Creorts API"
+  },
+   "host": "https://creorts.com:444",
+  "basePath": "/",
+  "tags": [{
+    "name": "pet",
+    "description": "Everything about your Pets",
+    "externalDocs": {
+      "description": "Find out more",
+      "url": "http://swagger.io"
+    }
+  }, {
+    "name": "store",
+    "description": "Access to Petstore orders"
+  }, {
+    "name": "user",
+    "description": "Operations about user",
+    "externalDocs": {
+      "description": "Find out more about our store",
+      "url": "http://swagger.io"
+    }
+  }],
+  "schemes": ["http"],
+  "paths": {
+    "/api/clients": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-1 || Registration",
+        "description": "Registration",
+        "operationId": "createClient",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create Client object",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+   
+    "/auth/local/clients/login": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-2 || Log in",
+        "description": "Logs Client into the application",
+        "operationId": "loginClient",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "The email and password for login",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "The password for login in clear text",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+
+
+    "/api/clients/byadmin/": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-2 ||Create Client by admin only",
+        "description": "Create Client by admin only",
+        "operationId": "loginClient",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create Client object",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/api/clients/password/forget": {
+      "put": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-3 ||Forgot Password",
+        "description": "Get Forgot Password",
+        "operationId": "forgotPassword",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "description": "email of user.",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/ForgotPassword"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid email supplied"
+          }
+        }
+      }
+    },
+    "/api/clients/:id/password": {
+      "put": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-3 || Change Password",
+        "description": "Update an existing Client account password.",
+        "operationId": "updateClientPassword",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/password"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Client.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "200": {
+            "description": "Password updated"
+          },
+          "403": {
+            "description": "Client not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/api/clients/{id}": {
+      "put": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-4 || edit  profile(put flag value 1 while updating image else flag value must be 0.)",
+        "description": "Update an existing Client",
+        "operationId": "updateClient",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Client to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Client object with those key-value pairs which has to updates.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "user not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-5 || Client info",
+        "description": "A single entity would be returned.",
+        "operationId": "findASingleClient",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of Client to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Client"
+              }
+            }
+          },
+          "400": {
+            "description": "No authorization token was found."
+          }
+        }
+      }
+    },
+    "/api/clients/by/Username": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Search Client by Username.",
+        "description": "Search menu item by Username.",
+        "operationId": "SearchByUserName",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter key to search",
+            "required": false,
+            "type": "String"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          
+          "404": {
+            "description": "This Username already exists,try with different Username"
+          }
+        }
+      }
+    },
+    "/auth/local/clients/me": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-6 || get Client info ",
+        "description": "Get Client info by themselves",
+        "operationId": "getClientInfo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad request."
+          },
+          "404": {
+            "description": "Client not found."
+          }
+        }
+      }
+    },
+    "/api/clients/store/info": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "INDEX-6 || get store info ",
+        "description": "Get Client info by themselves",
+        "operationId": "getStoreInfo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad request."
+          },
+          "404": {
+            "description": "Store not found."
+          }
+        }
+      }
+    },
+
+
+    "/api/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-1 || Registration",
+        "description": "Registration",
+        "operationId": "createUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create user object",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/local": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-2 || Log in",
+        "description": "Logs user into the application",
+        "operationId": "loginUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "The user name and password for login",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "The password for login in clear text",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/api/user/byadmin/": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-2 ||Create user by admin only",
+        "description": "Create user by admin only",
+        "operationId": "loginUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create user object",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/api/users/password/forget": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-3 ||Forgot Password",
+        "description": "Get Forgot Password",
+        "operationId": "forgotPassword",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "description": "email of user.",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/ForgotPassword"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid email supplied"
+          }
+        }
+      }
+    },
+    "/api/users/:id/password": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-3 || Change Password",
+        "description": "Update an existing user account password.",
+        "operationId": "updateUserPassword",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/password"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "200": {
+            "description": "Password updated"
+          },
+          "403": {
+            "description": "User not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-4 || edit  profile(put flag value 1 while updating image else flag value must be 0.)",
+        "description": "Update an existing user",
+        "operationId": "updateUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "user object with those key-value pairs which has to updates.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "user not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-5 || User info",
+        "description": "A single entity would be returned.",
+        "operationId": "findASingleUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of user to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "400": {
+            "description": "No authorization token was found."
+          }
+        }
+      }
+    },
+    "/api/users/by/Username": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Search User by Username.",
+        "description": "Search menu item by Username.",
+        "operationId": "SearchByUserName",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Enter key to search",
+            "required": false,
+            "type": "String"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          
+          "404": {
+            "description": "This Username already exists,try with different Username"
+          }
+        }
+      }
+    },
+    "/api/users/me": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-6 || get user info ",
+        "description": "Get user info by themselves",
+        "operationId": "getUserInfo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad request."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
+    "/api/users/store/info": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "INDEX-6 || get store info ",
+        "description": "Get user info by themselves",
+        "operationId": "getStoreInfo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad request."
+          },
+          "404": {
+            "description": "Store not found."
+          }
+        }
+      }
+    },
+
+   
+    "/api/screens": {
+      "get": {
+        "tags": [
+          "Screen"
+        ],
+        "summary": "INDEX-17 ||Get all screens.",
+        "description": "Get all screens.",
+        "operationId": "getAllscreens",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+         
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "No card found"
+          }
+        }
+      },
+
+      "post": {
+        "tags": [
+          "Screen"
+        ],
+        "summary": "INDEX-18 ||  Client Can only Create screen object.",
+        "description": "add Screen.",
+        "operationId": "AddScreen",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Client Can only Create Screen object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Screen"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/screens/{id}": {
+      "get": {
+        "tags": [
+          "Screen"
+        ],
+        "summary": "INDEX-18 ||A single Screen.",
+        "description": "Get a single Screen.",
+        "operationId": "getASingleScreen",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Screen id.",
+            "required": true
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "No Screen found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Screen"
+        ],
+        "summary": "INDEX-19 || edit Screen",
+        "description": "Client Can only  Update an existing Screen",
+        "operationId": "updateScreen",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Update Screen object",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Screen"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Screen id.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Screen"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Screen updated."
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Screen not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Screen"
+        ],
+        "summary": "INDEX-20 ||  delete Screen",
+        "description": " Client Can only  Delete an existing Screen",
+        "operationId": "deleteScreen",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Screen id.",
+            "required": true
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "No content found"
+          },
+          "404": {
+            "description": "Screen not found."
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/api/screens/recent/six": {
+      "get": {
+        "tags": [
+          "Screen"
+        ],
+        "summary": "Last six Screen.",
+        "description": "Last six Screen.",
+        "operationId": "LastSixScreen",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "No Screen found"
+          }
+        }
+      }
+    },
+    "/api/regforms": {
+      "get": {
+        "tags": [
+          "RegistrationForm"
+        ],
+        "summary": "INDEX-17 ||Get all RegistrationForms.",
+        "description": "Get all RegistrationForm.",
+        "operationId": "getAllRegistrationForm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "No card found"
+          }
+        }
+      },
+
+      "post": {
+        "tags": [
+          "RegistrationForm"
+        ],
+        "summary": "INDEX-18 ||  Client Can only Create RegistrationForm object.",
+        "description": "add RegistrationForm.",
+        "operationId": "AddRegistrationForm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Client Can only Create RegistrationForm object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegistrationForm"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/regforms/{id}": {
+      "get": {
+        "tags": [
+          "RegistrationForm"
+        ],
+        "summary": "INDEX-18 ||A single RegistrationForm.",
+        "description": "Get a single RegistrationForm.",
+        "operationId": "getASingleRegistrationForm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "RegistrationForm id.",
+            "required": true
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "No RegistrationForm found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "RegistrationForm"
+        ],
+        "summary": "INDEX-19 || edit RegistrationForm",
+        "description": "Client Can only  Update an existing RegistrationForm",
+        "operationId": "updateRegistrationForm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Update RegistrationForm object",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/RegistrationForm"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "RegistrationForm id.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegistrationForm"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "RegistrationForm updated."
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "RegistrationForm not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "RegistrationForm"
+        ],
+        "summary": "INDEX-20 ||  delete RegistrationForm",
+        "description": " Client Can only  Delete an existing RegistrationForm",
+        "operationId": "deleteRegistrationForm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "RegistrationForm id.",
+            "required": true
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "No content found"
+          },
+          "404": {
+            "description": "Screen not found."
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/api/regforms/recent/six": {
+      "get": {
+        "tags": [
+          "RegistrationForm"
+        ],
+        "summary": "Last six RegistrationForm.",
+        "description": "Last six RegistrationForm.",
+        "operationId": "LastSixRegistrationForm",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "No RegistrationForm found"
+          }
+        }
+      }
+    },
+  
+    "/api/notifications/unread/all": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Get all unread notifications.",
+        "description": "Get all unread notifications.",
+        "operationId": "getAllNotification",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Admin access",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "No Notification found"
+          }
+        }
+      }
+    },
+    "/api/notifications/all/read": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Update all unread notification to read.",
+        "description": "Update all unread notification to read.",
+        "operationId": "updateNotification",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "API key",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "xxxx"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+
+ 
+    "securityDefinitions": {
+      "petstore_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+        "flow": "implicit",
+        "scopes": {
+          "write:pets": "modify pets in your account",
+          "read:pets": "read your pets"
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  },
+  "definitions": {
+    "password": {
+      "type": "object",
+      "properties": {
+        "oldPassword":{
+          "type":"string"
+        },
+        "newPassword":{
+          "type":"string"
+        }
+      }
+    },
+    "ForgotPassword": {
+      "type": "object",
+      "properties": {
+        "email":{
+          "type":"string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "Username": {
+          "type":"string"
+        },
+        "Mobile":{
+          "type":"integer"
+        },
+        "email": {
+          "type": "string",
+          "required":true
+        },
+        "password": {
+          "type": "string",
+          "required":true
+        },
+        "DOB":{
+          "type":"string"
+        },
+        "gender":{
+          "type":"string"
+        },
+        "role": {
+          "type": "string",
+          "default": "user"
+        }
+         
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+
+    "Client": {
+      "type": "object",
+      "properties": {
+        "clientId":{
+          "type":"string"
+        },
+       
+        "clientFirstName": {
+          "type":"string"
+        },
+        "clientLastName": {
+          "type":"string"
+        },
+        "clientPhone":{
+          "type":"integer"
+        },
+        "email": {
+          "type": "string",
+          "required":true
+        },
+        "password": {
+          "type": "string",
+          "required":true
+        },
+        "companyName":{
+          "type":"string"
+        },
+        "companyAddress":{
+          "type":"string"
+        },
+        "companyPhone":{
+          "type":"integer"
+        },
+        "role": {
+          "type": "string",
+          "default": "client"
+        }
+         
+      },
+      "xml": {
+        "name": "Client"
+      }
+    },
+
+
+    "Screen": {
+      "type": "object",
+      "properties": {
+        "screenNo":{
+          "type":"integer"
+        }   ,
+        "screenName":{
+          "type":"String"
+        } ,
+        "clientID":{
+          "type": "integer",
+          "format": "int64"
+        }  
+      },
+      "xml": {
+        "name": "Screen"
+      }
+    },
+
+    "RegistrationForm": {
+      "type": "object",
+      "properties": {
+        "feildName":{
+          "type":"integer"
+        }   ,
+        "type":{
+          "type":"String"
+        } ,
+        "clientID":{
+          "type": "integer",
+          "format": "int64"
+        }  
+      },
+      "xml": {
+        "name": "RegistrationForm"
+      }
+    },
+
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

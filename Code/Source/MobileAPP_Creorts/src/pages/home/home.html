@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+
+        <img class="logo" style="height: 38px;margin-top: 8px;padding: -25px;" src="assets/img/logo4.png">
+        <ion-title>Creorts Sportival</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: #F1B517;">
+
+
+    <ion-grid class="grid">
+
+        <ion-row>
+            <ion-slides *ngIf="Images && Images.length" initialSlide="{{imagecount}}" speed="300" autoplay="5000"
+                loop="true" pager="true" dir="rtl">
+                <ion-slide *ngFor="let feature of Images">
+                    <div class="overlay">
+                        <img src={{feature.thumb}} class="slider-img">
+                    </div>
+                    <!-- <div *ngIf=feature.titlecheckbox class="card-title">{{feature.title}}</div> -->
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+        <ion-row>
+
+            <div class="wrapper">
+                <h4 class="heading">{{"About Us" | translate}} </h4>
+                <p class="details">
+                    CREORTS - The International Sports Festival of Kerala aims to build sports culture in the city of Kochi. Residents of Kochi can witness glory of sportsmanship and the fighting spirit among its citizens.
+                </p>
+                <p class="details">
+                    The main objective is to curb growing drug abuse in our youth. This is a campaign to build awareness among our youth against drug addiction. Our target is to use sports for effective drug abuse prevention. We want to encourage our youth by providing a platform to showcase their amazing talents in sports, entertainment and wellness. Our youth will be motivated by witnessing amazing talents among their peers to take up wellness and sports goals thereby pulling them out of drug addiction.
+                </p>
+                <p class="details">
+                    Experience wonderful talent and have loads of fun at Creorts.              
+                </p>
+            </div>
+        </ion-row>
+        <ion-row>
+            <img class="logo1" style="height: 250px;padding: 19px;width: 100%;" src="assets/img/map1.png">
+            <!-- <iframe  class="logo1" style="border:0;height: 222px;margin-bottom: 20px;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125745.78501634987!2d76.23825277912547!3d9.97086729948756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d08f976f3a9%3A0xe9cdb444f06ed454!2sErnakulam%2C%20Kerala!5e0!3m2!1sen!2sin!4v1581590203336!5m2!1sen!2sin"
+            width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="">
+        </iframe> -->
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-12 text-center>
+                <span (click)="doFbLogin('fb')">
+                    <img class="social-icon" src="assets/img/fb.png">
+                </span>
+                <span (click)="instaLogin('insta')">
+                    <img class="social-icon" src="assets/img/Instagram_icon.png">
+                </span>
+                <span (click)="twitterLogin('twitter')">
+                    <img class="social-icon" src="assets/img/twitter.png">
+                </span>
+            </ion-col>
+        </ion-row>
+
+        <ion-row
+            style="height: 160px;width: 362px;margin-left: auto;margin-right: auto;margin-bottom: 20px;margin-top: 12px;">
+            <ion-slides *ngIf="Images && Images.length" initialSlide="{{imagecount}}" speed="400" autoplay="3000"
+                loop="true" pager="true" dir="rtl">
+                <ion-slide *ngFor="let feature of Images">
+                    <div class="overlay">
+                        <img src={{feature.thumb}} class="slider-img">
+                    </div>
+                    <!-- <div *ngIf=feature.titlecheckbox class="card-title">{{feature.title}}</div> -->
+                </ion-slide>
+            </ion-slides>
+        </ion-row>
+    </ion-grid>
+</ion-content>
