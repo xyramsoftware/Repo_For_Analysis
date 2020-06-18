@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "server/index.js",
   "dependencies": {
-    "angular": "~1.6.0",
+    "angular": "~1.8.0",
     "async": "^2.6.0",
     "babel-runtime": "^6.26.0",
     "bcryptjs": "^2.4.3",
