@@ -74,7 +74,7 @@
     "ng2-validation": "4.2.0",
     "ngx-bootstrap": "1.8.1",
     "ngx-cookie": "^1.0.0",
-    "node-sass": "4.5.3",
+    "node-sass": "4.13.1",
     "rxjs": "5.4.2",
     "screenfull": "3.3.1",
     "simple-line-icons": "2.4.1",
