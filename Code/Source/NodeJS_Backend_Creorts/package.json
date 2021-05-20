@@ -30,7 +30,7 @@
     "filesize": "^6.0.1",
     "fs": "0.0.1-security",
     "gridfs-stream": "^1.1.1",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "ignore-case": "^0.1.0",
     "json2csv": "^5.0.0",
     "jsonwebtoken": "^7.0.0",
